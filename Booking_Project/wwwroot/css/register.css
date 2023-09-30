@@ -1,19 +1,5 @@
 ﻿@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 
-/** {*/
-    /*margin: 0;
-    padding: 0;*/
-/*    box-sizing: border-box;
-*/    /*font-family: 'Poppins',sans-serif;
-}*/
-
-/*body {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(135deg, #71b7e6, #9b59b6);
-}*/
 
 .container {
     max-width: 700px;
@@ -88,13 +74,14 @@ form .gender-details .gender-title {
 form .category {
     display: flex;
     width: 80%;
-    margin: 14px 0;
-    justify-content: space-between;
+    margin: 20px 0;
+    
+    justify-content: start;
 }
 
     form .category label {
         display: flex;
-        align-items: center;
+        align-items: start;
         cursor: pointer;
     }
 
@@ -109,9 +96,8 @@ form .category {
         }
 
 #dot-1:checked ~ .category label .one,
-#dot-2:checked ~ .category label .two,
-#dot-3:checked ~ .category label .three {
-    background: linear-gradient(315deg, #29539b 0%, #1e3b70 74%);
+#dot-2:checked ~ .category label .two {
+    background: #006ce3;
     border-color: #d9d9d9;
 }
 
@@ -121,12 +107,15 @@ form input[type="radio"] {
 
 form .button {
     height: 45px;
-    margin: 35px 0
+    display: flex;
+    justify-content: center;
+    margin:35px 0;
 }
 
     form .button input {
         height: 100%;
-        width: 100%;
+        width: 200px;
+        
         border-radius: 5px;
         border: none;
         color: #fff;
@@ -135,14 +124,13 @@ form .button {
         letter-spacing: 1px;
         cursor: pointer;
         transition: all 0.3s ease;
-        background: linear-gradient(315deg, #29539b 0%, #1e3b70 74%);
-        
+        background: #006ce3;
     }
 
-        /*form .button input:hover {*/
-            /* transform: scale(0.99); */
-            /*background: #000080;
-        }*/
+        form .button input:hover {
+            /*transform: scale(0.99);*/
+            background: #003b95;
+        }
 
 @media(max-width: 584px) {
     .container {
