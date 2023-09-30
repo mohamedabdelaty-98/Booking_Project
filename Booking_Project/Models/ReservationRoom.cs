@@ -16,5 +16,8 @@ namespace Booking_Project.Models
         [ForeignKey("room")]
         public int RoomId { get; set; }
         public Room room { get; set; }
+        [ForeignKey("hotel")]
+        public int HotelId { get; set; }
+        public Hotel hotel { get; set; }
     }
 }
