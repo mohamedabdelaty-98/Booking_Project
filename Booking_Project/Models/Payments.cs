@@ -5,9 +5,9 @@ namespace Booking_Project.Models
     public class Payments
     {
         public int Id { get; set; }
-        [Column (TypeName ="date")]
+        [Column(TypeName = "date")]
         public DateTime PaymentDate { get; set; }
-        [Column (TypeName ="Money")]
+        [Column(TypeName = "Money")]
         public decimal PaymentAmount { get; set; }
         // public string PaymentMethod { get; set; }
         [ForeignKey("user")]

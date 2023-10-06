@@ -5,7 +5,7 @@ namespace Booking_Project.Models
     public class AmenitiesRoom
     {
         public int Id { get; set; }
-        [Column(TypeName ="money")]
+        [Column(TypeName = "money")]
         public decimal Price { get; set; }
         [ForeignKey("room")]
         public int RoomId { get; set; }

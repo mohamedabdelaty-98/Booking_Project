@@ -6,7 +6,7 @@ namespace Booking_Project.Models
     {
         public int Id { get; set; }
         public int NumOfGuest { get; set; }
-        [Column(TypeName ="date")]
+        [Column(TypeName = "date")]
         public DateTime CheckinDate { get; set; }
         [Column(TypeName = "date")]
         public DateTime CheckOutDate { get; set; }

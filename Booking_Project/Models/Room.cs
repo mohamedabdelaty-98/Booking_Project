@@ -10,7 +10,7 @@ namespace Booking_Project.Models
 
     public enum RoomType
     {
-        Single,Double,Triple, suite
+        Single, Double, Triple, suite
     }
     public class Room
     {
@@ -21,10 +21,10 @@ namespace Booking_Project.Models
             reservationRooms = new List<ReservationRoom>();
         }
         public int Id { get; set; }
-       
-        [Column(TypeName ="varchar(10)")]
+
+        [Column(TypeName = "varchar(10)")]
         public RoomType RoomType { get; set; }
-        [Column(TypeName ="money")]
+        [Column(TypeName = "money")]
         public decimal Price { get; set; }
         public int NumOfBed { get; set; }
         public int MaxOccupancy { get; set; }
