@@ -1,0 +1,229 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+
+.containeer {
+    max-width: 700px;
+    width: 50%;
+    
+    /*background: linear-gradient(135deg, #71b7e6, #9b59b6);*/
+    /*background: linear-gradient(315deg, #182b3a 0%, #20a4f3 74%);*/
+    /*  background-image: linear-gradient( 109.6deg, rgba(156,252,248,1) 11.2%, rgba(110,123,251,1) 91.1% );*/
+    background-color: #fff;
+    padding: 25px 30px;
+    border-radius: 5px;
+    margin-top: 5%;
+    box-shadow: 0px 5px 10px rgba(0,0,0,0.15);
+    margin-bottom: 3%;
+    margin-left:30%;
+    display: flex;
+    justify-content: center;
+}
+
+    .container .title {
+        font-size: 25px;
+        font-weight: 500;
+        position: relative;
+    }
+
+        .container .title::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            height: 3px;
+            width: 30px;
+            border-radius: 5px;
+            background: linear-gradient(135deg, #71b7e6, #9b59b6);
+        }
+
+.content form .user-details {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 20px 0 12px 0;
+}
+
+form .user-details .input-box {
+    margin-bottom: 15px;
+    width: calc(100% / 2 + 125px);
+    /*margin-left:24%;*/
+}
+
+form .input-box span.details {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.user-details .input-box input {
+    height: 45px;
+    width: 100%;
+    outline: none;
+    font-size: 16px;
+    border-radius: 5px;
+    padding-left: 15px;
+    border: 1px solid #ccc;
+    border-bottom-width: 3px;
+    transition: all 0.3s ease;
+}
+
+    .user-details .input-box input:focus,
+    .user-details .input-box input:valid {
+        border-color: #29539b;
+    }
+
+form .gender-details .gender-title {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+form .category {
+    display: flex;
+    width: 80%;
+    margin: 20px 0;
+    justify-content: start;
+}
+
+    form .category label {
+        display: flex;
+        align-items: start;
+        cursor: pointer;
+    }
+
+        form .category label .dot {
+            height: 18px;
+            width: 18px;
+            border-radius: 50%;
+            margin-right: 10px;
+            background: #d9d9d9;
+            border: 5px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+#dot-1:checked ~ .category label .one,
+#dot-2:checked ~ .category label .two {
+    background: #006ce3;
+    border-color: #d9d9d9;
+}
+
+form input[type="radio"] {
+    display: none;
+}
+
+form .button {
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-down: 35px;
+    /*margin-left:36%;*/
+}
+
+    form .button input {
+        height: 100%;
+        width: 200px;
+        border-radius: 5px;
+        border: none;
+        color: #fff;
+        font-size: 18px;
+        font-weight: 500;
+        letter-spacing: 1px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        background: #006ce3;
+    }
+
+        form .button input:hover {
+            /*transform: scale(0.99);*/
+            background: #003b95;
+        }
+
+
+
+.login100-form-social {
+    /* Center the social login buttons horizontally and vertically */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+[ Social ]*/
+
+
+@media(max-width: 584px) {
+    .container
+
+{
+    max-width: 100%;
+}
+
+form .user-details .input-box {
+    margin-bottom: 15px;
+    width: 100%;
+}
+/*form .button {
+        width: 100%;
+    }*/
+form .category {
+    width: 100%;
+}
+
+.content form .user-details {
+    max-height: 300px;
+    overflow-y: scroll;
+}
+
+.user-details::-webkit-scrollbar {
+    width: 5px;
+}
+
+}
+
+@media(max-width: 459px) {
+    .container .content .category {
+        flex-direction: column;
+    }
+}
+
+
+
+/*/////////////////////////////////////////////////////////*/
+.login100-form-social-item {
+    width: 36px;
+    height: 36px;
+    font-size: 18px;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+br {
+    width: 100%;
+}
+
+.login100-form-social-item:hover {
+    background: #333333;
+    color: #fff;
+}
+
+table {
+    border-collapse: collapse;
+    width: 70%;
+    margin-left: 45%;
+    margin-right: 45%;
+}
+
+th, td {
+    border: 1px solid white;
+    padding: 8px;
+    text-align: left;
+}
+
+tr {
+}
+
+th {
+    background-color: #f2f2f2;
+}
