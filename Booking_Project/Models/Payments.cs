@@ -11,8 +11,8 @@ namespace Booking_Project.Models
         public decimal PaymentAmount { get; set; }
         // public string PaymentMethod { get; set; }
         [ForeignKey("user")]
-        public int UserId { get; set; }
-        public User user { get; set; }
+        public string UserId { get; set; }
+        public ApplicationIdentityUser user { get; set; }
 
         [ForeignKey("reservation")]
         public int ReservationId { get; set; }

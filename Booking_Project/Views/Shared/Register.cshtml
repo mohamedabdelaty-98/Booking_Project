@@ -1,0 +1,106 @@
+﻿@using Booking_Project.ViewModels;
+@model RegisterAccountVM;
+@{
+    ViewData["Title"] = "Register";
+}
+@*<link rel="stylesheet" href="~/css/register.css" asp-append-version="true" />*@
+@section Styles{
+<link rel="stylesheet" href="~/css/register.css" asp-append-version="true" />
+}
+<div class="container_reg col-7">
+    <div class="title">Registration</div>
+    <div class="content">
+        <form method="post" >
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <input type="hidden" name="ReturnUrl" value="@ViewBag.page" />
+            <div class="user-details">
+                <div class="input-box">
+                    <label class="details" asp-for="UserName"></label>
+                    <input asp-for="UserName" placeholder="Enter your user name" required>
+                    <span asp-validation-for="UserName" class="text-danger"></span>
+                </div>
+                <div class="input-box">
+                    <label class="details" asp-for="Email"></label>
+                    <input asp-for="Email" placeholder="Enter your Email" required>
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="input-box">
+                    <label class="details" asp-for="Fname">Fisrt Name</label>
+                    <input asp-for="Fname" placeholder="Enter your first name" required>
+                    <span asp-validation-for="Fname" class="text-danger"></span>
+                </div>
+                <div class="input-box">
+                    <label class="details" asp-for="Lname">Last Name</label>
+                    <input asp-for="Lname" placeholder="Enter your last name" required>
+                    <span asp-validation-for="Lname" class="text-danger"></span>
+                </div>
+
+                <div class="input-box">
+                    <label class="details" asp-for="PasswordHash">Password</label>
+                    <input asp-for="PasswordHash" placeholder="Enter your password" required>
+                    <span asp-validation-for="PasswordHash" class="text-danger"></span>
+                </div>
+                <div class="input-box">
+                    <label class="details" asp-for="ConfiremPassword">ConfirmPassword</label>
+                    <input asp-for="ConfiremPassword" placeholder="Confirm your password" required>
+                    <span asp-validation-for="ConfiremPassword" class="text-danger"></span>
+                </div>
+                <div class="input-box">
+                    <label class="details" asp-for="Address"></label>
+                    <input asp-for="Address" placeholder="Enter your Address" required>
+                    <span asp-validation-for="Address" class="text-danger"></span>
+                </div>
+                <div class="input-box">
+                    <label class="details" asp-for="City"></label>
+                    <input asp-for="City" placeholder="Enter your city" required>
+                    <span asp-validation-for="City" class="text-danger"></span>
+                </div>
+                <div class="input-box">
+                    <label class="details" asp-for="PhoneNumber"></label>
+                    <input asp-for="PhoneNumber" placeholder="Enter your phone number" required>
+                    <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                </div>
+                <div class="input-box">
+                    <label class="details" asp-for="DateOfBirth"></label>
+                    <input asp-for="DateOfBirth" placeholder="Enter your birthdate" required>
+                    <span asp-validation-for="DateOfBirth" class="text-danger"></span>
+                </div>
+
+            </div>
+            <div class="gender-details">
+                @* <input type="radio" name="gender" id="dot-1">
+                <input type="radio" name="gender" id="dot-2">
+                <span class="gender-title">Gender</span>
+                <div class="category">
+                    <label for="dot-1">
+                        <span class="dot one"></span>
+                        <span class="gender">Male</span>
+                    </label>
+                    <label for="dot-2">
+                        <span class="dot two"></span>
+                        <span class="gender">Female</span>
+                    </label>
+
+                </div> *@
+                <select class="options" name="gender">
+                    <option class="option" value="0">Male</option>
+                    <option class="option" value="1">Female</option>
+                </select>
+                
+            </div>
+
+            <div class="button">
+                <input type="submit" value="Register">
+                @* <input type="submit" value="Register" class="btn btn-primary" /> *@
+
+            </div>
+
+
+        </form>
+    </div>
+</div>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
