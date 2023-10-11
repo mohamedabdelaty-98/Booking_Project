@@ -1,0 +1,70 @@
+﻿@*@model Register*@
+@{
+    ViewData["Title"] = "Register";
+}
+@*<link rel="stylesheet" href="~/css/register.css" asp-append-version="true" />*@
+
+<div class="container">
+    <div class="title">Registration</div>
+    <div class="content">
+        <form method="post" asp-controller="Home" asp-action="Register">
+            <div class="user-details">
+                <div class="input-box">
+                    <label class="details">First Name</label>
+                    <input name="FName" value="@Model?.FName" id="FName" type="text" placeholder="Enter your name" required>
+                </div>
+                <div class="input-box">
+                    <label class="details">Last Name</label>
+                    <input name="LName" value="@Model?.LName" id="LName" type="text" placeholder="Enter your username" required>
+                </div>
+                <div class="input-box">
+                    <label class="details">Email</label>
+                    <input name="email" value="@Model?.email" id="email" type="email" placeholder="Enter your email" required>
+                </div>
+                <div class="input-box">
+                    <label class="details">Password</label>
+                    <input name="password" value="@Model?.password" id="password" type="password" placeholder="Enter your password" required>
+                </div>
+                <div class="input-box">
+                    <label class="details">Address </label>
+                    <input name="address" value="@Model?.address" id="address" type="text" placeholder="Enter your Address" required>
+                </div>
+                <div class="input-box">
+                    <label class="details">Country </label>
+                    <input name="Country" value="@Model?.country" id="Country" type="text" placeholder="Enter your country" required>
+                </div>
+                <div class="input-box">
+                    <label class="details">Phone Number</label>
+                    <input name="phone" value="@Model?.phone" id="phone" type="text" placeholder="Enter your phone number" required>
+                </div>
+                <div class="input-box">
+                    <label class="details">Birthdate</label>
+                    <input name="Birthdate" value="@Model?.dofbirth" id="Birthdate" type="date" placeholder="Enter your birthday" required>
+                </div>
+
+            </div>
+            <div class="gender-details">
+                <input type="radio" name="gender" id="dot-1">
+                <input type="radio" name="gender" id="dot-2">
+                <span class="gender-title">Gender</span>
+                <div class="category">
+                    <label for="dot-1">
+                        <span class="dot one"></span>
+                        <span class="gender">Male</span>
+                    </label>
+                    <label for="dot-2">
+                        <span class="dot two"></span>
+                        <span class="gender">Female</span>
+                    </label>
+
+                </div>
+            </div>
+            <div class="button">
+                <input type="submit" value="Register">
+            </div>
+   
+                    
+        </form>
+    </div>
+</div>
+
