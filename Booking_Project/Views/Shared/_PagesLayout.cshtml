@@ -1,0 +1,295 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>
+        RedPlanet &mdash; A Onepage Hotel HTML Bootstrap Website Template by
+        Colorlib
+    </title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link rel="stylesheet"
+          type="text/css"
+          href="//fonts.googleapis.com/css?family=|Roboto+Sans:400,700|Playfair+Display:400,700" />
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/font-awesome.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Fjalla+One&family=Rubik&display=swap"
+          rel="stylesheet" />
+
+    <!-- Theme Style -->
+    
+    <link rel="stylesheet" href="/css/index.css"/>
+    <link rel="stylesheet" href="~/css/LoginPartial.css" />
+    @RenderSection("Styles", false)
+</head>
+<body data-spy="scroll" data-target="#templateux-navbar" data-offset="200">
+    <!-- Nav Bar  -->
+  <partial name="_NavPartial"></partial>
+    <!-- div blue container -->
+    <section class="site-hero"
+             data-stellar-background-ratio="0.5"
+             id="section-home"
+             style="background-color: #003b95; height:200px !important; min-height:150px !important;">
+        <div class="container">
+            <div class="row site-hero-inner justify-content-center align-items-center">
+              @RenderSection("sitehero",false)
+            </div>
+        </div>
+    </section>
+    <!-- END section -->
+    @RenderSection("Body",false)
+
+    <!-- start main content -->
+        <main class="container d-flex justify-content-center mt-3 mb-3 ">
+            @RenderBody()
+        </main>
+
+    <!-- end main content -->
+
+
+    <!-- start footer -->
+    <!-- start footer -->
+    <div class="top-footer">
+        <div class="container">
+            <div class="row f-row">
+                <div class="col-sm-3">
+                    <button>List Your property</button>
+                </div>
+            </div>
+            @*<div class="br"></div>*@
+
+            <div class="row top-footer">
+                <ul>
+                    <li class="list-unstyled "><a href="#">Mobile version</a></li>
+                    <li class="list-unstyled"><a href="#">Your account</a></li>
+                    <li class="list-unstyled "><a href="#">Make changes online to your booking</a></li>
+                    <li class="list-unstyled "><a href="#">Customer Service Help</a></li>
+                    <li class="list-unstyled "><a href="#">Become an affiliate</a></li>
+                    <li class="list-unstyled "><a href="#">Booking.com for Business</a></li>
+
+
+                </ul>
+
+            </div>
+        </div>
+    </div>
+
+    <footer class="section footer-section">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-lg-2 mb-5 ">
+                    <ul class="list-unstyled link">
+                        <li><a href="#">Countries</a></li>
+                        <li><a href="#">Regions</a></li>
+                        <li><a href="#">Cities</a></li>
+                        <li><a href="#">Districts</a></li>
+                        <li><a href="#">Airports</a></li>
+                        <li><a href="#">Hotels</a></li>
+                        <li><a href="#">Places of interest</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 mb-5">
+                    <ul class="list-unstyled link">
+                        <li><a href="#">Homes</a></li>
+                        <li><a href="#">Apartments</a></li>
+                        <li><a href="#">Resorts</a></li>
+                        <li><a href="#">Villas</a></li>
+                        <li><a href="#">Hostels</a></li>
+                        <li><a href="#">B&Bs</a></li>
+                        <li><a href="#">Guest houses</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 mb-5 pr-md-5 contact-info">
+
+                    <ul class="list-unstyled link">
+
+                        <li><a href="#">Unique places to stay</a></li>
+                        <li><a href="#">All destinations</a></li>
+                        <li><a href="#">All flight destinatio</a></li>
+                        <li><a href="#">All car rental locati</a></li>
+                        <li><a href="#">Discover</a></li>
+                        <li><a href="#">Reviews</a></li>
+                        <li><a href="#">Discover monthly stay</a></li>
+                        <li><a href="#">Unpacked: Travel arti</a></li>
+                        <li><a href="#">Seasonal and holiday </a></li>
+                        <li><a href="#">Traveller Review Awar</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 mb-5">
+                    <ul class="list-unstyled link">
+                        <li><a href="#">Car rental</a></li>
+                        <li><a href="#">Flight finder</a></li>
+                        <li><a href="#">Restaurant reservations</a></li>
+                        <li><a href="#">Booking.com for Travel Agent</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-2 mb-5">
+                    <ul class="list-unstyled link">
+                        <li><a href="#">Coronavirus (COVID-19) FAQs</a></li>
+                        <li><a href="#">About Booking.com</a></li>
+                        <li><a href="#">Customer Service Help</a></li>
+                        <li><a href="#">Partner help</a></li>
+                        <li><a href="#">Carrers</a></li>
+                        <li><a href="#">Sustainability</a></li>
+                        <li><a href="#">Press Center</a></li>
+                        <li><a href="#">Safety Resource Center</a></li>
+                        <li><a href="#">Investor relations</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="#">Partner dispute</a></li>
+                        <li><a href="#">How We Work</a></li>
+                        <li><a href="#">Privacy & cookie statement</a></li>
+                        <li><a href="#">MSA statement</a></li>
+                        <li><a href="#">Corporate contact</a></li>
+                        <li><a href="#">Content guidelines</a></li>
+
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+        <div class="footercopyright ">
+            <div class="whitebar">
+                <div class="copyright_text">
+                    Copyright © 1996–2023
+                    Booking.com™. All rights reserved.
+                </div>
+            </div>
+        </div>
+
+        <div class="footer__priceline__list">
+            <ul class="logos">
+                <li class="logo">
+                    <img src="https://cf.bstatic.com/static/img/tfl/group_logos/logo_booking/27c8d1832de6a3123b6ee45b59ae2f81b0d9d0d0.png" title="Booking.com" alt="Booking.com" height="26" width="91">
+
+                </li>
+                <li class="logo">
+                    <img src="https://cf.bstatic.com/static/img/tfl/group_logos/logo_priceline/f80e129541f2a952d470df2447373390f3dd4e44.png" title="Priceline" alt="Priceline" height="26" width="91">
+                </li>
+                <li class="logo">
+                    <img src="https://cf.bstatic.com/static/img/tfl/group_logos/logo_kayak/83ef7122074473a6566094e957ff834badb58ce6.png" title="Kayak" alt="Kayak" height="26" width="79">
+                </li>
+                <li class="logo">
+                    <img src="https://cf.bstatic.com/static/img/tfl/group_logos/logo_agoda/1c9191b6a3651bf030e41e99a153b64f449845ed.png" title="Agoda" alt="Agoda" height="26" width="70">
+                </li>
+                <li class="logo">
+                    <img src="https://cf.bstatic.com/static/img/tfl/group_logos/logo_rentalcars/6bc5ec89d870111592a378bbe7a2086f0b01abc4.png" title="Rentalcars" alt="Rentalcars" height="26" width="109">
+                </li>
+                <li class="logo">
+                    <img src="https://cf.bstatic.com/static/img/tfl/group_logos/logo_opentable/a4b50503eda6c15773d6e61c238230eb42fb050d.png" title="OpenTable" alt="OpenTable" height="26" width="95">
+                </li>
+            </ul>
+        </div>
+
+
+
+    </footer>
+
+
+
+    <!-- Modal -->
+    @* <div class="modal fade " id="reservation-form" tabindex="-1" role="dialog" aria-labelledby="reservationFormTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12" data-aos="fade-up" data-aos-delay="100">
+
+                            <form action="index.html" method="post" class="bg-white p-4">
+                                <div class="row mb-4"><div class="col-12"><h2>Reservation</h2></div></div>
+                                <div class="row">
+                                    <div class="col-md-6 form-group">
+                                        <label class="text-black font-weight-bold" for="name">Name</label>
+                                        <input type="text" id="name" class="form-control ">
+                                    </div>
+                                    <div class="col-md-6 form-group">
+                                        <label class="text-black font-weight-bold" for="phone">Phone</label>
+                                        <input type="text" id="phone" class="form-control ">
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12 form-group">
+                                        <label class="text-black font-weight-bold" for="email">Email</label>
+                                        <input type="email" id="email" class="form-control ">
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6 form-group">
+                                        <label class="text-black font-weight-bold" for="checkin_date">Date Check In</label>
+                                        <input type="text" id="checkin_date" class="form-control">
+                                    </div>
+                                    <div class="col-md-6 form-group">
+                                        <label class="text-black font-weight-bold" for="checkout_date">Date Check Out</label>
+                                        <input type="text" id="checkout_date" class="form-control">
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6 form-group">
+                                        <label for="adults" class="font-weight-bold text-black">Adults</label>
+                                        <div class="field-icon-wrap">
+                                            <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+                                            <select name="" id="adults" class="form-control">
+                                                <option value="">1</option>
+                                                <option value="">2</option>
+                                                <option value="">3</option>
+                                                <option value="">4+</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 form-group">
+                                        <label for="children" class="font-weight-bold text-black">Children</label>
+                                        <div class="field-icon-wrap">
+                                            <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+                                            <select name="" id="children" class="form-control">
+                                                <option value="">1</option>
+                                                <option value="">2</option>
+                                                <option value="">3</option>
+                                                <option value="">4+</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mb-4">
+                                    <div class="col-md-12 form-group">
+                                        <label class="text-black font-weight-bold" for="message">Notes</label>
+                                        <textarea name="message" id="message" class="form-control " cols="30" rows="8"></textarea>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6 form-group">
+                                        <input type="submit" value="Reserve Now" class="btn btn-primary text-white py-3 px-5 font-weight-bold">
+                                    </div>
+                                </div>
+                            </form>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div> *@
+    <script src="/js/jquery-3.3.1.min.js"></script>
+    <script src="~/js/jquery-migrate-3.0.1.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="~/js/owl.carousel.min.js"></script>
+    <script src="~/js/jquery.stellar.min.js"></script>
+    <script src="~/js/aos.js"></script>
+    <script src="~/js/bootstrap-datepicker.js"></script>
+    <script src="/js/index.js"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+
+
+
+</body>
+</html>

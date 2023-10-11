@@ -1,0 +1,98 @@
+﻿@*@model Register
+*@@{
+    ViewData["Title"] = "Login";
+    }
+
+<link rel="stylesheet" href="~/css/Login1.css" asp-append-version="true" />
+@*<link rel="stylesheet" type="text/css" href="~/lib/bootstrap/dist/css/bootstrap.min.css">*@
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="~/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<style>
+    table {
+        border-collapse: collapse;
+        width: 70%;
+        margin-left: 45%;
+        margin-right: 45%;
+    }
+
+    th, td {
+        border: 1px solid white;
+        padding: 8px;
+        text-align: left;
+    }
+
+    tr {
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+
+    .login100-form-social-item:hover {
+        background: #333333;
+        color: #fff;
+    }
+    .login100-form-social-item {
+    width: 36px;
+    height: 36px;
+    font-size: 18px;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+</style>
+
+<div class="containeer">
+    <div class="title">Login</div>
+    <div class="content">
+        <form method="post" asp-controller="Home" asp-action="Register">
+            <div class="user-details">
+
+                <div class="input-box">
+                    <label class="details">Email</label>
+                    <input name="email" value="@Model?.email" id="email" type="email" placeholder="Enter your email" required>
+                </div>
+                <br />
+                <div class="input-box">
+                    <label class="details">Password</label>
+                    <input name="password" value="@Model?.password" id="password" type="password" placeholder="Enter your password" required>
+                </div>
+                <br />
+                <div class="button">
+                    <input type="submit" value="Login">
+                </div>
+                <br /><br />
+                <table>
+                    <tr>
+                        @*<td></td>
+                        <td></td>
+                        <td></td>*@
+                        <td>
+                            <div class="login100-form-social flex-c-m">
+                                <a href="#" class="login100-form-social-item flex-c-m bg1 m-r-5">
+                                    <i class="fa fa-facebook-f" aria-hidden="true"></i>
+                                </a>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="login100-form-social flex-c-m">
+
+                                <a href="mailto:youremail@gmail.com" class="login100-form-social-item flex-c-m bg2 m-r-5">
+                                    <i class="fa fa-google" aria-hidden="true"></i>
+                                </a>
+                            </div>
+
+
+                        </td>
+                        @* <td></td>
+                        <td></td>
+                        <td></td>*@
+                    </tr>
+                </table>
+        </form>
+    </div>
+</div>
+
