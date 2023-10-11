@@ -12,7 +12,7 @@ namespace Booking_Project.Models
         public string Description { get; set; }
         [ForeignKey("hotel")]
         public int HotelId { get; set; }
-        public Hotel hotel { get; set; }
+        public Hotel? hotel { get; set; }
 
 
     }

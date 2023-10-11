@@ -716,6 +716,10 @@ textarea.form-control {
         display: none !important;
     }
 
+    .logos{
+        display:none;
+    }
+
     .footer__priceline__list {
         display: none !important;
     }

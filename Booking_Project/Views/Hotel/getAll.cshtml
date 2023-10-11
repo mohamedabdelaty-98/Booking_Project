@@ -1,0 +1,49 @@
+﻿@model List<Hotel>
+
+@{
+    ViewData["Title"] = "All Hotels";
+}
+
+<h4 class="m-2">All Hotels</h4>
+<hr />
+<div>
+    <table class="table table-borderd table-hover m-2">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Description</th>
+            <th>StarRating</th>
+            <th>Contact Email</th>
+            <th>Contact Phone</th>
+            <th>Latitude</th>
+            <th>Longitude</th>
+        </tr>
+        @foreach(var hotel in Model)
+        {
+            <tr>
+                <td>@hotel.Id</td>
+                <td>@hotel.Name</td>
+                <td>@hotel.Address</td>
+                <td>@hotel.Description</td>
+                <td>@hotel.StarRateing</td>
+                <td>@hotel.ContactEmail</td>
+                <td>@hotel.ContactPhone</td>
+                <td>@hotel.Latitude</td>
+                <td>@hotel.Longitude</td>
+                <td>
+                    <a asp-action="getHotel" asp-route-id="@hotel.Id" class="btn">Edit</a>
+                </td>
+                <td>
+                    <a asp-action="delete" asp-route-id="@hotel.Id" class="btn">Delete</a>
+                </td>
+
+            </tr>
+            
+        }
+     
+    </table>
+</div>
+<div>
+    <a asp-action="insert">Back to List</a>
+</div>
