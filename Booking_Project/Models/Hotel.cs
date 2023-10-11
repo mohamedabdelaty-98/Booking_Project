@@ -6,11 +6,11 @@ namespace Booking_Project.Models
     {
         public Hotel()
         {
-            rooms=new List<Room>();
-            amenities_Hotels=new List<Amenities_Hotel>();
+            rooms = new List<Room>();
+            amenities_Hotels = new List<Amenities_Hotel>();
             image_Hotels = new List<Image_Hotel>();
             reviews = new List<Reviews>();
-            reservationRooms =new List<ReservationRoom>();
+            reservationRooms = new List<ReservationRoom>();
         }
         public int Id { get; set; }
         [MaxLength(50)]

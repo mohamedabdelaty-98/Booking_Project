@@ -4,7 +4,7 @@ namespace Booking_Project.Models
 {
     public enum Status
     {
-        pending,confirmed,cancelled
+        pending, confirmed, cancelled
     }
     public class Reservations
     {
@@ -13,15 +13,15 @@ namespace Booking_Project.Models
             reservationRooms = new List<ReservationRoom>();
         }
         public int Id { get; set; }
-       
+
         [Column(TypeName = "date")]
         public DateTime CheckInDate { get; set; }
         [Column(TypeName = "date")]
 
-        public DateTime CheckOutDate { get; set;}
-        [Column (TypeName ="Money")]
+        public DateTime CheckOutDate { get; set; }
+        [Column(TypeName = "Money")]
         public decimal TotalPrice { get; set; }
-        [Column(TypeName ="varchar(20)")]
+        [Column(TypeName = "varchar(20)")]
         public Status Status { get; set; }
         //  public string PaymentMethod { get; set; }   
         [ForeignKey("user")]
