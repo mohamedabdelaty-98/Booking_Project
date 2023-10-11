@@ -133,7 +133,9 @@ textarea.form-control {
     height: 100vh;
     min-height: 700px;
 }
-
+.margin_bottom{
+    margin-bottom:15rem !important;
+}
 .site-hero {
     background-size: cover;
     min-height: 300px;
