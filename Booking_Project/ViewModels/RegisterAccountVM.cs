@@ -16,6 +16,7 @@ namespace Booking_Project.ViewModels
         public string Lname { get; set; }
         [Required]
         [Compare("PasswordHash",ErrorMessage ="Password Not Matched")]
+        [DataType(DataType.Password)]
         public string ConfiremPassword { get; set; }
         [Required]
         public DateTime DateOfBirth { get; set; }

@@ -21,15 +21,24 @@
 
         <div class="collapse navbar-collapse" id="templateux-navbar-nav">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item cta-btn">
-                    <a class="nav-link"
-                       href="#"
-                       target="_blank"
-                       style="padding-left: 0 !important; padding-right: 0 !important"><span class="pb_rounded-4 rounded navlinks">Register</span></a>
-                </li>
-                <li class="nav-item cta-btn">
-                    <a class="nav-link" href="#" target="_blank"><span class="pb_rounded-4 rounded navlinks">Login</span></a>
-                </li>
+                @if (User.Identity.IsAuthenticated == false)
+                {
+                    <li class="nav-item cta-btn">
+                        <a class="nav-link"
+
+                        target="_self"
+                        asp-action="Register"
+                        asp-controller="Account"
+                        style="padding-left: 0 !important; padding-right: 0 !important"><span class="pb_rounded-4 rounded navlinks">Register</span></a>
+                    </li>
+                    <li class="nav-item cta-btn">
+                        <a class="nav-link"  target="_self" asp-action="Login" asp-controller="Account"><span class="pb_rounded-4 rounded navlinks">Login</span></a>
+                    </li>
+                }
+                else
+                {
+                    <partial name="_LoginPartial"></partial>
+                }
             </ul>
         </div>
     </div>
