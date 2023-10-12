@@ -16,9 +16,6 @@ namespace Booking_Project.Models
             reservations = new List<Reservations>();
             payments = new List<Payments>();
         }
-
-        [Column(TypeName = "varchar(5)")]
-        public Gender gender { get; set; }
         [MaxLength(10)]
         public string Fname { get; set; }
         [MaxLength(10)]
@@ -36,6 +33,10 @@ namespace Booking_Project.Models
         public List<Payments>? payments { get; set; }
         public List<Reviews>? reviews { get; set; }
         public List<Reservations>? reservations { get; set; }
+        [Required]
+        [Column(TypeName ="varchar(10)")]
+        public Gender gender { get; set; }
+       
         //public User? user { get; set; }
 
     }

@@ -1,0 +1,40 @@
+.userprofile {
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid orange;
+}
+.letter {
+    color: #2167d0;
+    font-weight: bold;
+    font-size: x-large;
+}
+.username {
+    color: white;
+    font-size: large;
+    font-weight: bold;
+}
+.custom-dropdown-toggle::after {
+    display: none;
+}
+.btn-outline-custom {
+    color: #fff; 
+    background-color: transparent; 
+    border-color: none; 
+}
+
+    .btn-outline-custom:hover {
+        color: #212529;
+        background-color: rgba(169, 169, 169, 0.1); 
+        border-color: rgba(169, 169, 169, 0.1); 
+    }
+
+    .btn-outline-custom:active {
+        color: #212529;
+        background-color: rgba(169, 169, 169, 0.1);
+        border-color: rgba(169, 169, 169, 0.1);
+    }
+
+

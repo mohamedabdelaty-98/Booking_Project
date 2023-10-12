@@ -32,9 +32,9 @@ namespace Booking_Project.Models
         public List<Payments>? payments { get; set; }
         public List<Reviews>? reviews { get; set; }
         public List<Reservations>? reservations { get; set; }
-        [ForeignKey("ApplicationIdentityUser")]
-        public string ApplicationIdentityUser_id { get; set; }
-        public ApplicationIdentityUser? ApplicationIdentityUser { get; set; }
+        //[ForeignKey("ApplicationIdentityUser")]
+        //public string ApplicationIdentityUser_id { get; set; }
+        //public ApplicationIdentityUser? ApplicationIdentityUser { get; set; }
 
 
     }

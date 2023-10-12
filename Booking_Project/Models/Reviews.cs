@@ -12,8 +12,8 @@ namespace Booking_Project.Models
         [Column(TypeName = "date")]
         public DateTime DatePosted { get; set; }
         [ForeignKey("user")]
-        public int UserId { get; set; }
-        public User user { get; set; }
+        public string UserId { get; set; }
+        public ApplicationIdentityUser user { get; set; }
         [ForeignKey("hotel")]
         public int HotelId { get; set; }
         public Hotel hotel { get; set; }
