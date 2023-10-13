@@ -24,8 +24,11 @@ namespace Booking_Project
             builder.Services.AddAutoMapper(typeof(AutomapperProfile));
             // configration of repocrudoperation you can custom 
             //builder.Services.AddScoped<ICrudOperation<>, CrudOperationRepo<>>();
+            builder.Services.AddScoped<ICrudOperation<Hotel>, CrudOperationRepo<Hotel>>();
+            builder.Services.AddScoped<ICrudOperation<Image_Hotel>, CrudOperationRepo<Image_Hotel>>();
 
-             //configration of identity
+
+            //configration of identity
             builder.Services.AddIdentity<ApplicationIdentityUser, IdentityRole>(option=>
             {
                 option.Password.RequireNonAlphanumeric = false;

@@ -718,11 +718,34 @@ textarea.form-control {
     .footer-section {
         display: none !important;
     }
+
     .logos{
         display:none;
     }
+
     .footer__priceline__list {
         display: none !important;
     }
 }
 /*****************endFooter*********************/
+
+.star-yellow {
+    color: yellow; 
+}
+
+/* Empty stars */
+.star-gray {
+    color: gray; 
+}
+
+/* Half-filled stars */
+.star-half {
+    color: yellow;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    width: 5rem !important; /* Adjust the width as needed */
+}
+
+
