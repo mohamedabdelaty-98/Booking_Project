@@ -713,7 +713,7 @@ textarea.form-control {
         padding-right: 15px;
     }
 
-@media (max-width :480px) {
+@media (max-width :900px) {
     .footer-section {
         display: none !important;
     }
@@ -721,5 +721,7 @@ textarea.form-control {
     .footer__priceline__list {
         display: none !important;
     }
+
 }
+
 /*****************endFooter*********************/
