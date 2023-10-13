@@ -32,7 +32,7 @@ namespace Booking_Project.Models
         public List<Image_Hotel>? image_Hotels { get; set; }
         public List<Amenities_Hotel>? amenities_Hotels { get; set; }
         public List<Reviews>? reviews { get; set; }
-        public List<ReservationRoom>? reservationRooms { get; set; }
+        public List<ReservationRoom> reservationRooms { get; set; }
 
     }
 }
