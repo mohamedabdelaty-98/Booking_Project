@@ -138,7 +138,7 @@ textarea.form-control {
 }
 .site-hero {
     background-size: cover;
-    min-height: 300px;
+    min-height: 185px;
     position: relative;
 }
 
@@ -666,6 +666,7 @@ textarea.form-control {
     justify-content: center;
     align-items: center;
     list-style: none;
+    
     /*padding-inline-start: 30px;*/
 }
 
@@ -717,7 +718,9 @@ textarea.form-control {
     .footer-section {
         display: none !important;
     }
-
+    .logos{
+        display:none;
+    }
     .footer__priceline__list {
         display: none !important;
     }

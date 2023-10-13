@@ -37,7 +37,13 @@
                 }
                 else
                 {
-                    <partial name="_LoginPartial"></partial>
+                    if(User.IsInRole("Admin"))
+                    {
+                     
+                    }
+                   
+                        <partial name="_LoginPartial"></partial>
+                    
                 }
             </ul>
         </div>
