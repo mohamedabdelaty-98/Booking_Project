@@ -4,6 +4,7 @@ using Booking_Project1.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
+using NuGet.Configuration;
 
 namespace Booking_Project
 {
@@ -24,8 +25,11 @@ namespace Booking_Project
             builder.Services.AddAutoMapper(typeof(AutomapperProfile));
             // configration of repocrudoperation you can custom 
             //builder.Services.AddScoped<ICrudOperation<>, CrudOperationRepo<>>();
+            builder.Services.AddScoped<ICrudOperation<Reservations>, CrudOperationRepo<Reservations>>();
+            builder.Services.AddScoped<ICrudOperation<Image_Hotel>, CrudOperationRepo<Image_Hotel>>();
 
-             //configration of identity
+
+            //configration of identity
             builder.Services.AddIdentity<ApplicationIdentityUser, IdentityRole>(option=>
             {
                 option.Password.RequireNonAlphanumeric = false;
