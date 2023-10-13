@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Booking_Project.Controllers
 {
-    [Authorize(Roles = "Admin")]
+    //[Authorize(Roles = "Admin")]
     public class AdminAccountController : Controller
     {
         private readonly IMapper mapper;

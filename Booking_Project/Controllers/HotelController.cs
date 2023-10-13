@@ -37,8 +37,8 @@ namespace Booking_Project.Controllers
        
         public IActionResult getAll()
         {
-
-             List<Hotel> hotels=Ihotel.GetAll();
+            
+             List<Hotel> hotels=Ihotel.GetAll(h=> h.image_Hotels);
             return View(hotels);
         }
 

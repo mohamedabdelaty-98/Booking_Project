@@ -1,5 +1,6 @@
 ﻿using Booking_Project.Models;
 using Booking_Project.Reposatory;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Booking_Project.Controllers
@@ -26,18 +27,82 @@ namespace Booking_Project.Controllers
 
         [HttpPost]
         [AutoValidateAntiforgeryToken]
-        public IActionResult insert(Image_Hotel img)
+        public async Task<IActionResult> insert(Image_Hotel img, IFormFile ImageURL)
         {
             if (ModelState.IsValid)
             {
+
+                if (ImageURL.Length > 0)
+                {
+                    using (var stream = new MemoryStream())
+                    {
+                        await ImageURL.CopyToAsync(stream);
+                        // You can save, process, or store the image data here
+                        img.ImageURL = stream.ToArray();
+
+                    }
+                }
+
                 images.insert(img);
                 images.save();
-                return RedirectToAction("getAll", "Hotel");
+
+
+                return RedirectToAction("insert");
 
             }
 
             return View("insert", img);
-           
+
         }
+
+
+        //public async Task<IActionResult> insert(Image_Hotel img, IFormFile ImageURL)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        if (ImageURL.Length > 0)
+        //        {
+        //            using (var reader = new StreamReader(ImageURL.OpenReadStream()))
+        //            {
+        //                img.ImageURL = await reader.ReadToEndAsync();
+        //            }
+
+        //            images.insert(img);
+        //            images.save();
+
+        //            return RedirectToAction("insert");
+        //        }
+        //    }
+
+        //    return View("insert", img);
+        //}
+
+
+        //public async Task<IActionResult> Insert(Image_Hotel img, IFormFile ImageURL)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        if (ImageURL.Length > 0)
+        //        {
+        //            using (var stream = new MemoryStream())
+        //            {
+        //                await ImageURL.CopyToAsync(stream);
+        //                byte[] imageBytes = stream.ToArray();
+        //                img.ImageURL = Convert.ToBase64String(imageBytes);
+        //            }
+
+        //            images.insert(img);
+        //            images.save();
+
+        //            return RedirectToAction("Insert");
+        //        }
+        //    }
+
+        //    return View("Insert", img);
+        //}
+
+
+
+
     }
 }

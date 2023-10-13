@@ -727,3 +727,24 @@ textarea.form-control {
     }
 }
 /*****************endFooter*********************/
+
+.star-yellow {
+    color: yellow; 
+}
+
+/* Empty stars */
+.star-gray {
+    color: gray; 
+}
+
+/* Half-filled stars */
+.star-half {
+    color: yellow;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    width: 5rem !important; /* Adjust the width as needed */
+}
+
+

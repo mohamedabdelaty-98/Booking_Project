@@ -7,12 +7,14 @@ namespace Booking_Project.Models
     {
         public int Id { get; set; }
         //[Column(TypeName = "byte")]
-        public string ImageURL { get; set; }
+
+        public byte[]? ImageURL { get; set; }
         [MaxLength(1000)]
-        public string Description { get; set; }
+        public string? Description { get; set; }
         [ForeignKey("hotel")]
         public int HotelId { get; set; }
         public Hotel? hotel { get; set; }
+
 
 
     }
