@@ -156,6 +156,9 @@ form .button {
         width: 5px;
     }
 }
+.mb-6 {
+    margin-bottom: 10rem !important;
+}
 
 @media(max-width: 459px) {
     .container_reg .content .category {

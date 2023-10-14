@@ -25,8 +25,9 @@ namespace Booking_Project
             builder.Services.AddAutoMapper(typeof(AutomapperProfile));
             // configration of repocrudoperation you can custom 
             //builder.Services.AddScoped<ICrudOperation<>, CrudOperationRepo<>>();
-            builder.Services.AddScoped<ICrudOperation<Reservations>, CrudOperationRepo<Reservations>>();
+            builder.Services.AddScoped<ICrudOperation<Hotel>, CrudOperationRepo<Hotel>>();
             builder.Services.AddScoped<ICrudOperation<Image_Hotel>, CrudOperationRepo<Image_Hotel>>();
+            builder.Services.AddScoped<ICrudOperation<Reservations>, CrudOperationRepo<Reservations>>();
 
 
             //configration of identity

@@ -138,7 +138,7 @@ textarea.form-control {
 }
 .site-hero {
     background-size: cover;
-    min-height: 300px;
+    min-height: 185px;
     position: relative;
 }
 
@@ -666,6 +666,7 @@ textarea.form-control {
     justify-content: center;
     align-items: center;
     list-style: none;
+    
     /*padding-inline-start: 30px;*/
 }
 
@@ -718,6 +719,10 @@ textarea.form-control {
         display: none !important;
     }
 
+    .logos{
+        display:none;
+    }
+
     .footer__priceline__list {
         display: none !important;
     }
@@ -725,3 +730,24 @@ textarea.form-control {
 }
 
 /*****************endFooter*********************/
+
+.star-yellow {
+    color: yellow; 
+}
+
+/* Empty stars */
+.star-gray {
+    color: gray; 
+}
+
+/* Half-filled stars */
+.star-half {
+    color: yellow;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    width: 5rem !important; /* Adjust the width as needed */
+}
+
+
