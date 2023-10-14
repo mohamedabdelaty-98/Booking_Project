@@ -4,6 +4,7 @@ using Booking_Project1.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
+using NuGet.Configuration;
 
 namespace Booking_Project
 {
@@ -26,6 +27,7 @@ namespace Booking_Project
             //builder.Services.AddScoped<ICrudOperation<>, CrudOperationRepo<>>();
             builder.Services.AddScoped<ICrudOperation<Hotel>, CrudOperationRepo<Hotel>>();
             builder.Services.AddScoped<ICrudOperation<Image_Hotel>, CrudOperationRepo<Image_Hotel>>();
+            builder.Services.AddScoped<ICrudOperation<Reservations>, CrudOperationRepo<Reservations>>();
 
 
             //configration of identity
