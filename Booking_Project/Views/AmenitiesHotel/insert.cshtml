@@ -1,0 +1,45 @@
+﻿@model Booking_Project.Models.Amenities_Hotel
+
+@{
+    ViewData["Title"] = "insert";
+    SelectList Hotels = new SelectList(ViewBag.Hotels, "Id", "Name");
+    SelectList Amenities = new SelectList(ViewBag.Amenities, "Id", "Name");
+}
+
+<h1>insert</h1>
+
+<h4>Amenities_Hotel</h4>
+<hr />
+<div class="row m-2" >
+    <div class="col-md-4">
+        <form asp-action="insert" asp-controller="AmenitiesHotel">
+            <div class="form-group">
+                <label asp-for="Price" class="control-label"></label>
+                <input asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div>
+                <label asp-for="HotelId"></label>
+                <select asp-items="Hotels" class="form-control" asp-for="HotelId">
+                    <option value="">--Select Hotel--</option>
+                </select>
+                <span asp-validation-for="HotelId" class="text-danger"></span>
+            </div>
+            <div>
+                <label asp-for="AmentiesId"></label>
+                <select asp-items="Amenities" class="form-control" asp-for="AmentiesId">
+                    <option value="">--Select Amenity--</option>
+                </select>
+                <span asp-validation-for="AmentiesId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

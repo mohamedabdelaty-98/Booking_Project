@@ -65,7 +65,5 @@ namespace Booking_Project.Controllers
             Ihotel.save();
             return RedirectToAction("getAll");
         }
-
-
     }
 }

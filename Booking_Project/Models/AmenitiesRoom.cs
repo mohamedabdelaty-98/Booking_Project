@@ -12,7 +12,7 @@ namespace Booking_Project.Models
         public Room room { get; set; }
         [ForeignKey("amenities")]
         public int AmentiesId { get; set; }
-        public Amenities amenities { get; set; }
+        public Amenities? amenities { get; set; }
 
     }
 }

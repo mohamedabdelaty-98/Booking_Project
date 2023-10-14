@@ -7,13 +7,12 @@ namespace Booking_Project.Models
         public int Id { get; set; }
         [Column(TypeName = "money")]
         public decimal Price { get; set; }
-
         [ForeignKey("hotel")]
         public int HotelId { get; set; }
-        public Hotel hotel { get; set; }
+        public Hotel? hotel { get; set; }
         [ForeignKey("amenities")]
         public int AmentiesId { get; set; }
-        public Amenities amenities { get; set; }
+        public Amenities? amenities { get; set; }
 
 
     }
