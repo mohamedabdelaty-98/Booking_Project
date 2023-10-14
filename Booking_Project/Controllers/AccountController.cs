@@ -22,6 +22,7 @@ namespace Booking_Project.Controllers
             this.mapper = mapper;
             this.userManager = userManager;
             this.signInManager = signInManager;
+           
         }
         public IActionResult Index()
         {
@@ -81,8 +82,9 @@ namespace Booking_Project.Controllers
                     if (result.Succeeded)
                     {
 
-                        
-                        if (User.IsInRole("Admin"))
+                        List<string> Adminmails =await GetAdminEmails();
+                        bool checkisadmin= Adminmails.Any(item=>item==applicationIdentity.Email);
+                        if (checkisadmin)
                         {
                             await signInManager.SignInAsync(applicationIdentity, accountVM.Remmberme);
                             ReturnUrl = "/admin/index";
@@ -104,12 +106,17 @@ namespace Booking_Project.Controllers
             }
             return View();
         }
-        //public async Task<bool> checkrole()
-        //{
-        //    if (User.IsInRole("Admin"))
-        //        return true;
-        //    return false;
-        //}
+        //check if login is admin
+        public async Task<List<string>> GetAdminEmails()
+        {
+            string adminRole = "Admin"; 
+
+            IList<ApplicationIdentityUser> adminUsers =await userManager.GetUsersInRoleAsync(adminRole);
+
+            List<string> adminEmails = adminUsers.Select(user => user.Email).ToList();
+
+            return adminEmails;
+        }
 
         public IActionResult SignOut() 
         {
