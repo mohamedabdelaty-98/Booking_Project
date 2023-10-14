@@ -5,49 +5,104 @@
 }
 @section Styles{
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    @* <link rel="stylesheet" type="text/css" href="~/fonts/font-awesome-4.7.0/css/font-awesome.min.css"> *@
     <link rel="stylesheet" href="~/css/register.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/Login1.css" asp-append-version="true" />
 }
-<div class="container_reg col-5 ">
+@* <div class="container_reg col-5 mt-4 mb-6">
     <div class="title">Login</div>
     <div class="content">
         <form method="post">
             <div asp-validation-summary="All" class="text-danger"></div>
             <input type="hidden" name="ReturnUrl" value="@ViewBag.page" />
-            <div class="form-group">
-                <label asp-for="Email" class="control-label"></label>
-                <input asp-for="Email" class="form-control" />
-                <span asp-validation-for="Email" class="text-danger"></span>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Remmberme" /> 
-                    @* @Html.DisplayNameFor(model => model.Remmberme)  *@Remmber me
-                </label>
-            </div>
-            <div class="form-group">
-                <label asp-for="PasswordHash" class="control-label">Password</label>
-                <input asp-for="PasswordHash" class="form-control" />
-                <span asp-validation-for="PasswordHash" class="text-danger"></span>
-            </div>
-            
-            <div class="button">
-                <input type="submit" value="Login">
-                @* <input type="submit" value="Register" class="btn btn-primary" /> *@
+            <div class="userlogin">
+                <div class="input-box">
+                    <label class="details" asp-for="Email"></label>
+                    <input asp-for="Email" placeholder="Enter your Email" required>
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
 
-            </div>
-            @* foricons *@
-            <div class="social-icons d-flex justify-content-center">
-                <a href="#" class="btn " style="color: #006ce3">
-                    <i class="fab fa-google" style="color: #006ce3"></i> Login with Google
-                </a>
-                <a href="#" class="btn " style="color: #006ce3">
-                    <i class="fab fa-facebook" style="color: #006ce3"></i> Login with Facebook
-                </a>
+                <div class="form-group form-check mt-2">
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="Remmberme" />
+                        Remmber me
+                    </label>
+                </div>
+                <div class="input-box">
+                    <label class="details" asp-for="PasswordHash">Password</label>
+                    <input asp-for="PasswordHash" placeholder="Enter your password" required>
+                    <span asp-validation-for="PasswordHash" class="text-danger"></span>
+                </div>
+                <div class="button">
+                    <input type="submit" value="Login">
+                </div>
+
+                <div class="social-icons text-center">
+                    <div class="row justify-content-center">
+                        <div class="col-12 col-md-6">
+                            <a href="#" class="btn" style="color: #006ce3">
+                                <i class="fab fa-google" style="color: #006ce3"></i> Login with Google
+                            </a>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <a href="#" class="btn" style="color: #006ce3">
+                                <i class="fab fa-facebook" style="color: #006ce3"></i> Login with Facebook
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </form>
     </div>
+</div>
+ *@
+<div class="d-flex justify-content-center ">
+<div class="container_reg col-5 mt-4 mb-6 ">
+    <div class="title">Login</div>
+    <div class="content">
+        <form method="post">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <input type="hidden" name="ReturnUrl" value="@ViewBag.page" />
+            <div class="userlogin">
+                <div class="input-box">
+                    <label class="details" asp-for="Email"></label>
+                    <input asp-for="Email" placeholder="Enter your Email" required class="form-control">
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+
+                <div class="form-group form-check mt-2">
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="Remmberme" />
+                        Remmber me
+                    </label>
+                </div>
+                <div class="input-box">
+                    <label class="details" asp-for="PasswordHash">Password</label>
+                    <input asp-for="PasswordHash" placeholder="Enter your password" required class="form-control">
+                    <span asp-validation-for="PasswordHash" class="text-danger"></span>
+                </div>
+                <div class="button">
+                    <input type="submit" value="Login" class="btn btn-primary">
+                </div>
+
+                <div class="social-icons text-center">
+                    <div class="row justify-content-center">
+                        <div class="col-12 col-md-10">
+                            <a href="#" class="btn" style="color: #006ce3">
+                                <i class="fab fa-google" style="color: #006ce3"></i> Login with Google
+                            </a>
+                        </div>
+                        <div class="col-12 col-md-10">
+                            <a href="#" class="btn" style="color: #006ce3">
+                                <i class="fab fa-facebook" style="color: #006ce3"></i> Login with Facebook
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
 </div>
 
 @section Scripts {

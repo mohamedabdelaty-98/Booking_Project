@@ -2,7 +2,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark pb_navbar pb_scrolled-light"
      id="templateux-navbar"
      style="background-color: #003b95">
-    <div class="container">
+    <div class="@(User.Identity.IsAuthenticated==false ? "container" : "container-fluid")">
         <a class="navbar-brand fw-bold" href="index.html" id="booking">
             Booking.com
         </a>
@@ -20,7 +20,7 @@
         <!-- END menu-toggle -->
 
         <div class="collapse navbar-collapse" id="templateux-navbar-nav">
-            <ul class="navbar-nav ml-auto">
+            <ul class="@(User.Identity.IsAuthenticated==false ?"navbar-nav ml-auto justify-content-between" : "navbar-nav w-100 justify-content-evenly")">
                 @if (User.Identity.IsAuthenticated == false)
                 {
                     <li class="nav-item cta-btn">
@@ -37,10 +37,17 @@
                 }
                 else
                 {
-                    <partial name="_LoginPartial"></partial>
+                    if (User.IsInRole("Admin"))
+                    {
+                        <partial name ="_itemNavAdminPartial"></partial>
+                        
+
+                    }
+                        <partial name="_LoginPartial"></partial>
                 }
             </ul>
         </div>
+
     </div>
 </nav>
 <!-- END nav -->

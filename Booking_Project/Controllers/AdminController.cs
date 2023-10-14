@@ -21,6 +21,7 @@ namespace Booking_Project.Controllers
         {
             return View();
         }
+
         public IActionResult Rooms()
         {
             List<Room> RoomModel = RoomRepo.GetAll(h=>h.hotel);
@@ -71,5 +72,6 @@ namespace Booking_Project.Controllers
 
             return View("new", room);
         }
+
     }
 }
