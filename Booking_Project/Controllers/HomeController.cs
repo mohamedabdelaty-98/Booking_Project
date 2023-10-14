@@ -18,7 +18,7 @@ namespace Booking_Project.Controllers
             return View();
         }
 
-r
+
         //public IActionResult Register()
         //{
         //    return View();
