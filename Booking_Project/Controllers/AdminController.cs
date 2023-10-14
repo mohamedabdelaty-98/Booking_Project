@@ -52,10 +52,10 @@ namespace Booking_Project.Controllers
         }
         public IActionResult NewRoom()
         {
-            List<Room> RoomModel = RoomRepo.GetAll(h => h.hotel);
+            //List<Room> RoomModel = RoomRepo.GetAll(h => h.hotel);
+            ViewData["depts"] = RoomRepo.GetAll().ToList();
 
-            
-            return View("new", RoomModel);
+            return View("new");
         }
         [HttpPost]
         [ValidateAntiForgeryToken]

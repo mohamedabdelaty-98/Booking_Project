@@ -2,13 +2,13 @@
 
 @{
     ViewData["Title"] = "New";
-      
+
 }
 
-<h1>New Room</h1>
+
 
 @section Styles{
-    <link rel="stylesheet" href="~/css/register.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/AddNew.css" asp-append-version="true" />
 }
 <div class="container_reg col-7">
     <div class="title">New Room</div>
@@ -53,6 +53,11 @@
                     <input asp-for="room_number"  required>
                     <span asp-validation-for="room_number" class="text-danger"></span>
                 </div>
+                <div class="input-box">
+                    <label class="details" asp-for="HotelId"></label>
+                    <input asp-for="HotelId" required>
+                    <span asp-validation-for="HotelId" class="text-danger"></span>
+                </div>
                 @*<div>
                    
                         <label asp-for="HotelId"></label>
@@ -60,7 +65,11 @@
                            < asp-items="@Model.hotel.Name"></select>
                 </div>*@
               
+                <div class="button">
+                    <input type="submit" value="Add">
+                    @* <input type="submit" value="Register" class="btn btn-primary" /> *@
 
+                </div>
           
         </form>
     </div>
