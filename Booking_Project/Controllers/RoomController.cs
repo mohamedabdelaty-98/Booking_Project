@@ -21,7 +21,7 @@ namespace Booking_Project.Controllers
         }
         public IActionResult New()
         {
-            //ViewData["Hotels"] = Hotels.GetAll();
+            //ViewData["Hotels"] = Hotel.GetAll();
             return View("new");
         }
         [HttpPost]
@@ -41,7 +41,7 @@ namespace Booking_Project.Controllers
         {
 
             Room rs = RoomRepo.GetById(id);
-            //ViewData["Hotels"] = HotelRepo.getAll();
+           // ViewData["Hotels"] = HotelRepo.getAll();
             return View("Edit", rs);
         }
         [HttpPost]
@@ -60,9 +60,9 @@ namespace Booking_Project.Controllers
         }
         public IActionResult Delete(int id)
         {
-
              RoomRepo.Delete(id);
             return View("Index");
         }
+
     }
 }
