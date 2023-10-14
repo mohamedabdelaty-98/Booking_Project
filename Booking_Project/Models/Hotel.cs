@@ -12,6 +12,7 @@ namespace Booking_Project.Models
             reviews = new List<Reviews>();
             reservationRooms = new List<ReservationRoom>();
         }
+        
         public int Id { get; set; }
         [MaxLength(50)]
         public string Name { get; set; }
