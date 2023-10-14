@@ -3,12 +3,12 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Booking_Project.Controllers
 {
-    [Authorize(Roles ="Admin")]
+   // [Authorize(Roles ="Admin")]
     public class AdminController : Controller
     {
-        public IActionResult Index()
+        public IActionResult Reservations()
         {
-            return View();
+            return View("AllReservations");
         }
 
     }
