@@ -49,7 +49,32 @@ namespace Booking_Project.Controllers
 
             return View();
         }
-        
+        //public IActionResult DisplayImages()
+        //{
+        //    return View();
+        //}
+        ////public IActionResult Images()
+        ////{
+        ////    // Construct the full path to the image based on the stored imagePath
+        ////    List<Image_Hotel> images = hotel_images.GetAll();
+
+        ////    foreach (var image in images)
+        ////    {
+        ////        var imagePathOnServer = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", image.ImageURL);
+        ////        // Check if the file exists
+        ////        if (System.IO.File.Exists(imagePathOnServer))
+        ////        {
+        ////            // Return the image with the appropriate MIME type
+        ////            return PhysicalFile(imagePathOnServer, "image/jpg"); // Change the MIME type as needed
+        ////        }
+        ////      //  return NotFound();
+
+        ////    }
+
+
+        ////    return RedirectToAction("Index");
+
+        ////}
 
     }
 }
