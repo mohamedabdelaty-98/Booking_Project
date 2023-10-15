@@ -21,9 +21,10 @@
                         <tr>
                             <th scope="col">ID</th>
                             <th scope="col">Name</th>
-                            <th scope="col">City</th>
+                            <th scope="col">Address</th>
+                            
                             <th scope="col">Check In Date</th>
-                            <th scope="col">Rating</th>
+                            <th scope="col">Rate</th>
 
 
                         </tr>
@@ -36,7 +37,7 @@
                             <td>@user.Fname @user.Lname</td>
                             <td>@user.Address</td>
                             @*<td><button asp-action="details" asp-controller="Admin">details</button></td>*@
-                            <td>@user.City</td>
+                            
                             <td>
                             @foreach (var use in user.reservations)
                             {
