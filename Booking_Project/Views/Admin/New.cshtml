@@ -1,6 +1,8 @@
 ﻿@model Room
 
 @{
+    SelectList deptOptios = new SelectList(ViewBag.depts, "Id", "Name");
+
     ViewData["Title"] = "New";
 
 }
@@ -54,16 +56,12 @@
                     <span asp-validation-for="room_number" class="text-danger"></span>
                 </div>
                 <div class="input-box">
-                    <label class="details" asp-for="HotelId"></label>
-                    <input asp-for="HotelId" required>
-                    <span asp-validation-for="HotelId" class="text-danger"></span>
+                    <label asp-for="HotelId">Hotel</label>
+                    <select asp-for="HotelId" class="form-control"
+                            asp-items="deptOptios"></select>
+
                 </div>
-                @*<div>
-                   
-                        <label asp-for="HotelId"></label>
-                        <select asp-for="HotelId" class="form-control" />
-                           < asp-items="@Model.hotel.Name"></select>
-                </div>*@
+
               
                 <div class="button">
                     <input type="submit" value="Add">

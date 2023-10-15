@@ -7,21 +7,22 @@ namespace Booking_Project.Controllers
     public class RoomController : Controller
     {
         private readonly ICrudOperation<Room> RoomRepo;
+        private readonly ICrudOperation<Hotel> hotelRepo;
 
-        public RoomController(ICrudOperation<Room> RoomRepo)
+        public RoomController(ICrudOperation<Room> RoomRepo, ICrudOperation<Hotel> hotelRepo)
         {
             this.RoomRepo = RoomRepo;
-            
+            this.hotelRepo = hotelRepo;
         }
         public IActionResult Index()
         {
-            List<Room> RoomModel = RoomRepo.GetAll();
+            List<Room> RoomModel = RoomRepo.GetAll(h=>h.hotel);
 
             return View("Index", RoomModel);
         }
         public IActionResult New()
         {
-            //ViewData["Hotels"] = Hotel.GetAll();
+            ViewData["depts"] = hotelRepo.GetAll().ToList();
             return View("new");
         }
         [HttpPost]
@@ -34,14 +35,14 @@ namespace Booking_Project.Controllers
                 RoomRepo.save();
                 return RedirectToAction("Index");
             }
-            //ViewData["Hotels"] = Hotels.GetAll();
+            ViewData["depts"] = hotelRepo.GetAll().ToList();
             return View("new", room);
         }
         public IActionResult Edit(int id)
         {
 
             Room rs = RoomRepo.GetById(id);
-           // ViewData["Hotels"] = HotelRepo.getAll();
+            ViewData["depts"] = hotelRepo.GetAll().ToList();
             return View("Edit", rs);
         }
         [HttpPost]
@@ -55,7 +56,7 @@ namespace Booking_Project.Controllers
                 return RedirectToAction("Index");
             }
 
-            //ViewData["Hotels"] = HotelRepo.getAll();
+            ViewData["depts"] = hotelRepo.GetAll().ToList();
             return View("Edit", rs);
         }
         public IActionResult Delete(int id)

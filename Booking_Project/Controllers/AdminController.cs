@@ -31,6 +31,8 @@ namespace Booking_Project.Controllers
         public IActionResult EditRoom(int id)
         {
             Room rs = RoomRepo.GetById(id);
+            ViewData["depts"] = hotelrepo.GetAll().ToList();
+
             return View("EditRoom", rs);
         }
         [HttpPost]
@@ -43,6 +45,8 @@ namespace Booking_Project.Controllers
                 RoomRepo.save();
                 return RedirectToAction("Rooms");
             }
+            ViewData["depts"] = hotelrepo.GetAll().ToList();
+
             return View("EditRoom", rs);
         }
         public IActionResult DeleteRoom(int id)
@@ -54,7 +58,7 @@ namespace Booking_Project.Controllers
         public IActionResult NewRoom()
         {
             //List<Room> RoomModel = RoomRepo.GetAll(h => h.hotel);
-            ViewData["depts"] = RoomRepo.GetAll().ToList();
+            ViewData["depts"] = hotelrepo.GetAll().ToList();
 
             return View("new");
         }
@@ -69,6 +73,7 @@ namespace Booking_Project.Controllers
                 return RedirectToAction("Rooms");
             }
             List<Room> RoomModel = RoomRepo.GetAll(h => h.hotel);
+            ViewData["depts"] = hotelrepo.GetAll().ToList();
 
             return View("new", room);
         }
