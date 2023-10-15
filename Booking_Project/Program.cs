@@ -23,7 +23,7 @@ namespace Booking_Project
             // configration for automapper
             builder.Services.AddAutoMapper(typeof(AutomapperProfile));
             // configration of repocrudoperation you can custom 
-            //builder.Services.AddScoped<ICrudOperation<>, CrudOperationRepo<>>();
+            builder.Services.AddScoped<ICrudOperation<ApplicationIdentityUser>, CrudOperationRepo<ApplicationIdentityUser>>();
 
              //configration of identity
             builder.Services.AddIdentity<ApplicationIdentityUser, IdentityRole>(option=>

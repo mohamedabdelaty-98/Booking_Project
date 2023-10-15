@@ -1,0 +1,69 @@
+﻿<!-- Customized Bootstrap Stylesheet -->
+
+<!-- Template Stylesheet -->
+@model List<ApplicationIdentityUser>
+    @{
+    ViewData["Title"] = "Show";
+    }
+
+
+    <link href="~/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- Table Start-->
+
+    <div class="col-12">
+        <div class="bg-light rounded h-100 p-4">
+            <h6 class="mb-4">Responsive Table</h6>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">City</th>
+                            <th scope="col">Check In Date</th>
+                            <th scope="col">Rating</th>
+
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var user in Model)
+                    {
+                        <tr>
+                            <td>@user.Id</td>
+                            <td>@user.Fname @user.Lname</td>
+                            <td>@user.Address</td>
+                            @*<td><button asp-action="details" asp-controller="Admin">details</button></td>*@
+                            <td>@user.City</td>
+                            <td>
+                            @foreach (var use in user.reservations)
+                            {
+                                    <ul>@use.CheckInDate</ul>
+                            }
+
+                            </td>
+                            <td>
+                                @foreach (var use in user.reviews)
+                                {
+                                    <ul>@use.Rating</ul>
+                                }
+
+                            </td>
+                           
+
+                        </tr>
+                    }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Table End -->
+    <!-- JavaScript Libraries -->
+    <script src="~/js/Ne.js"></script>
+
+
+
