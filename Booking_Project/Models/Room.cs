@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Booking_Project.Models
@@ -20,6 +22,7 @@ namespace Booking_Project.Models
             aminitesRooms = new List<AmenitiesRoom>();
             reservationRooms = new List<ReservationRoom>();
         }
+        
         public int Id { get; set; }
 
         [Column(TypeName = "varchar(10)")]
@@ -32,9 +35,10 @@ namespace Booking_Project.Models
         [Column(TypeName = "varchar(10)")]
         public AvailableStatus AvailableStatus { get; set; }
         public int room_number { get; set; }
-        [ForeignKey("hotel")]
+       [ DefaultValue(1)]     
+       [ForeignKey("hotel")]
         public int HotelId { get; set; }
-        public Hotel hotel { get; set; }
+        public Hotel? hotel { get; set; }
         public List<Image_Room> image_Rooms { get; set; }
         public List<AmenitiesRoom> aminitesRooms { get; set; }
         public List<ReservationRoom> reservationRooms { get; set; }
