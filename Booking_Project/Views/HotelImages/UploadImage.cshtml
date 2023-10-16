@@ -1,0 +1,19 @@
+﻿@using Booking_Project.Models
+@model Image_Hotel;
+@{
+    ViewData["Title"] = "UploadImage";
+}
+
+
+<form asp-action="UploadImage" method="post" enctype="multipart/form-data">
+   <h3>Upload Hotel Images</h3>
+        <label asp-for="Description"></label>
+        <input asp-for="Description" class="form-control" />
+
+    <div class="form-group">
+        <label for="ImageURL">Image</label>
+        <input type="file" asp-for="ImageURL" class="form-control-file" name="imageFile" />
+    </div>
+    <button type="submit" class="btn btn-outline-secondary">Upload</button>
+    
+</form>

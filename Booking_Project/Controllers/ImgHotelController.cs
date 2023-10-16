@@ -10,96 +10,46 @@ namespace Booking_Project.Controllers
         ICrudOperation<Image_Hotel> images;
         ICrudOperation<Hotel> hotels;
 
-        public ImgHotelController( ICrudOperation<Image_Hotel> images, ICrudOperation<Hotel> hotels)
+        public ImgHotelController(ICrudOperation<Image_Hotel> images, ICrudOperation<Hotel> hotels)
         {
             this.images = images;
             this.hotels = hotels;
-            
+
         }
 
-        
+
         public IActionResult insert()
         {
-            ViewData["hotels"]= hotels.GetAll();
+            ViewData["hotels"] = hotels.GetAll();
             return View();
         }
 
-
         [HttpPost]
-        [AutoValidateAntiforgeryToken]
-        public async Task<IActionResult> insert(Image_Hotel img, IFormFile ImageURL)
+        [ValidateAntiForgeryToken]
+        public ActionResult insert(Image_Hotel image, IFormFile imageFile)
         {
-            if (ModelState.IsValid)
+            if (imageFile != null && imageFile.Length > 0)
             {
+                // file name + new guid --> guarntee that if the user upload imagae with the same name and extension to be stored in wwwroot 
+                var fileName = Path.GetFileNameWithoutExtension(imageFile.FileName);
+                var extension = Path.GetExtension(imageFile.FileName);
+                var fullpath = fileName + Guid.NewGuid() + extension;
 
-                if (ImageURL.Length > 0)
+                var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\images", fullpath);
+
+                using (var stream = new FileStream(path, FileMode.Create))
                 {
-                    using (var stream = new MemoryStream())
-                    {
-                        await ImageURL.CopyToAsync(stream);
-                        // You can save, process, or store the image data here
-                        img.ImageURL = stream.ToArray();
-
-                    }
+                    imageFile.CopyTo(stream);
                 }
 
-                images.insert(img);
+                image.ImageURL = "/images/" + fullpath;
+                images.insert(image);
                 images.save();
-
-
                 return RedirectToAction("insert");
-
             }
 
-            return View("insert", img);
-
+            return View("insert",image);
         }
-
-
-        //public async Task<IActionResult> insert(Image_Hotel img, IFormFile ImageURL)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        if (ImageURL.Length > 0)
-        //        {
-        //            using (var reader = new StreamReader(ImageURL.OpenReadStream()))
-        //            {
-        //                img.ImageURL = await reader.ReadToEndAsync();
-        //            }
-
-        //            images.insert(img);
-        //            images.save();
-
-        //            return RedirectToAction("insert");
-        //        }
-        //    }
-
-        //    return View("insert", img);
-        //}
-
-
-        //public async Task<IActionResult> Insert(Image_Hotel img, IFormFile ImageURL)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        if (ImageURL.Length > 0)
-        //        {
-        //            using (var stream = new MemoryStream())
-        //            {
-        //                await ImageURL.CopyToAsync(stream);
-        //                byte[] imageBytes = stream.ToArray();
-        //                img.ImageURL = Convert.ToBase64String(imageBytes);
-        //            }
-
-        //            images.insert(img);
-        //            images.save();
-
-        //            return RedirectToAction("Insert");
-        //        }
-        //    }
-
-        //    return View("Insert", img);
-        //}
 
 
 

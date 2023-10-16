@@ -9,10 +9,10 @@ namespace Booking_Project.Models
         public decimal Price { get; set; }
         [ForeignKey("hotel")]
         public int HotelId { get; set; }
-        public Hotel? hotel { get; set; }
+        public virtual Hotel? hotel { get; set; }
         [ForeignKey("amenities")]
         public int AmentiesId { get; set; }
-        public Amenities? amenities { get; set; }
+        public virtual Amenities? amenities { get; set; }
 
 
     }

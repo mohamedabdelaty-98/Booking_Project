@@ -1,46 +1,38 @@
 {
   "version": "1.0",
   "defaultProvider": "cdnjs",
-  "libraries": [{
-  "provider": "cdnjs",
-  "library": "popper.js@2.11.8",
-  "destination": "wwwroot/lib/popper.js/"
-}
-,
-{
-  "provider": "cdnjs",
-  "library": "owl-carousel@1.3.3",
-  "destination": "wwwroot/lib/owl-carousel/"
-}
-,
-{
-  "provider": "cdnjs",
-  "library": "stellar.js@0.6.2",
-  "destination": "wwwroot/lib/stellar.js/"
-}
-,
-{
-  "provider": "cdnjs",
-  "library": "fancybox@3.5.7",
-  "destination": "wwwroot/lib/fancybox/"
-}
-,
-{
-  "provider": "cdnjs",
-  "library": "jquery-easing@1.4.1",
-  "destination": "wwwroot/lib/jquery-easing/"
-}
-,
-{
-  "provider": "cdnjs",
-  "library": "datepicker@1.0.10",
-  "destination": "wwwroot/datepicker/"
-}
-,
-{
-  "provider": "cdnjs",
-  "library": "timepicker@1.3.5",
-  "destination": "wwwroot/timepicker/"
-}
-]
+  "libraries": [
+    {
+      "library": "popper.js@2.11.8",
+      "destination": "wwwroot/lib/popper.js/"
+    },
+    {
+      "library": "owl-carousel@1.3.3",
+      "destination": "wwwroot/lib/owl-carousel/"
+    },
+    {
+      "library": "stellar.js@0.6.2",
+      "destination": "wwwroot/lib/stellar.js/"
+    },
+    {
+      "library": "fancybox@3.5.7",
+      "destination": "wwwroot/lib/fancybox/"
+    },
+    {
+      "library": "jquery-easing@1.4.1",
+      "destination": "wwwroot/lib/jquery-easing/"
+    },
+    {
+      "library": "datepicker@1.0.10",
+      "destination": "wwwroot/datepicker/"
+    },
+    {
+      "library": "timepicker@1.3.5",
+      "destination": "wwwroot/timepicker/"
+    },
+    {
+      "library": "i18next@23.5.1",
+      "destination": "wwwroot/i18next/"
+    }
+  ]
 }
