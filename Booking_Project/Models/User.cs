@@ -14,6 +14,7 @@ namespace Booking_Project.Models
             reservations = new List<Reservations>();
             payments = new List<Payments>();
         }
+
         public int Id { get; set; }
         [MaxLength(10)]
         public string Fname { get; set; }
@@ -29,9 +30,9 @@ namespace Booking_Project.Models
         
         [MaxLength(20)]
         public string? City { get; set; }
-        public List<Payments>? payments { get; set; }
-        public List<Reviews>? reviews { get; set; }
-        public List<Reservations>? reservations { get; set; }
+        public virtual List<Payments>? payments { get; set; }
+        public virtual List<Reviews>? reviews { get; set; }
+        public virtual List<Reservations>? reservations { get; set; }
         //[ForeignKey("ApplicationIdentityUser")]
         //public string ApplicationIdentityUser_id { get; set; }
         //public ApplicationIdentityUser? ApplicationIdentityUser { get; set; }

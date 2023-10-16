@@ -1,12 +1,10 @@
-﻿using Booking_Project.Models;
-using Booking_Project.Reposatory;
-using Booking_Project1.Models;
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http.Extensions;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Booking_Project.Controllers
 {
+
 
     //[Authorize(Roles ="Admin")]
     public class AdminController : Controller
@@ -26,9 +24,12 @@ namespace Booking_Project.Controllers
 
         public IActionResult Reservations()
 
+        public IActionResult Index()
+
         {
             return View("AllReservations");
         }
+
 
         public IActionResult Rooms()
         {
