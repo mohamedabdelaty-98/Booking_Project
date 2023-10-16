@@ -32,7 +32,12 @@ namespace Booking_Project
             builder.Services.AddScoped<ICrudOperation<Amenities_Hotel>, CrudOperationRepo<Amenities_Hotel>>();
 
             builder.Services.AddScoped<ICrudOperation<Reservations>, CrudOperationRepo<Reservations>>();
-           
+
+
+            builder.Services.AddScoped<ICrudOperation<Room>, CrudOperationRepo<Room>>();
+
+
+           builder.Services.AddScoped<ICrudOperation<Reviews>, CrudOperationRepo<Reviews>>();
 
             //configration of identity
             builder.Services.AddIdentity<ApplicationIdentityUser, IdentityRole>(option=>

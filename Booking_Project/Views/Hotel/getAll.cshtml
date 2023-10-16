@@ -51,7 +51,12 @@
         <!-- Card Body -->
         <div class="card-body">
             <!-- Slider -->
-                    <div id="carouselExample" class="carousel slide">
+                    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li data-target="#carouselExampleIndicators" data-slide-to="1" class="active"></li>
+                            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                            <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+                        </ol>
                         <div class="carousel-inner">
                              @for (int i = 0; i < hotel.image_Hotels.Count; i++)
                             {
@@ -60,12 +65,13 @@
                                 </div>
                             } 
                         </div>
-                        <a class="carousel-control-prev" href="#carouselExample" role="button" data-slide="prev">
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                         </a>
                         <a class="carousel-control-next" href="#carouselExample" role="button" data-slide="next">
                             <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        </a>
+                            <span class="visually-hidden">Next</span>
+                        </button>
                     </div>
   
             <!-- Address -->
