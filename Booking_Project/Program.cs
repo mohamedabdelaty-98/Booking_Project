@@ -28,6 +28,9 @@ namespace Booking_Project
             //builder.Services.AddScoped<ICrudOperation<>, CrudOperationRepo<>>();
             builder.Services.AddScoped<ICrudOperation<Hotel>, CrudOperationRepo<Hotel>>();
             builder.Services.AddScoped<ICrudOperation<Image_Hotel>, CrudOperationRepo<Image_Hotel>>();
+            builder.Services.AddScoped<ICrudOperation<Amenities>, CrudOperationRepo<Amenities>>();
+            builder.Services.AddScoped<ICrudOperation<Amenities_Hotel>, CrudOperationRepo<Amenities_Hotel>>();
+
             builder.Services.AddScoped<ICrudOperation<Reservations>, CrudOperationRepo<Reservations>>();
 
 

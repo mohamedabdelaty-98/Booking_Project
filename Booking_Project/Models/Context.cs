@@ -17,7 +17,7 @@ namespace Booking_Project1.Models
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Data Source=.;Initial Catalog=Booking_DB;Integrated Security=True;TrustServerCertificate=true;");
+            optionsBuilder.UseLazyLoadingProxies().UseSqlServer("Data Source=.;Initial Catalog=Booking_DB;Integrated Security=True;TrustServerCertificate=true;");
         }
         protected override void OnModelCreating(ModelBuilder builder)
         {

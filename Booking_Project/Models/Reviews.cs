@@ -13,9 +13,9 @@ namespace Booking_Project.Models
         public DateTime DatePosted { get; set; }
         [ForeignKey("user")]
         public string UserId { get; set; }
-        public ApplicationIdentityUser user { get; set; }
+        public virtual ApplicationIdentityUser user { get; set; }
         [ForeignKey("hotel")]
         public int HotelId { get; set; }
-        public Hotel hotel { get; set; }
+        public virtual Hotel hotel { get; set; }
     }
 }
