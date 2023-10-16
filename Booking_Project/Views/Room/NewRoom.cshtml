@@ -12,10 +12,10 @@
 @section Styles{
     <link rel="stylesheet" href="~/css/AddNew.css" asp-append-version="true" />
 }
-<div class="container_reg col-7">
+<div class="container_reg col-7 mt-4 mb-4">
     <div class="title">New Room</div>
     <div class="content">
-        <form asp-action ="save" method="post">
+        <form method="post">
             <div asp-validation-summary="All" class="text-danger"></div>
             <input type="hidden" name="ReturnUrl" value="@ViewBag.page" />
             <div class="user-details">
@@ -74,7 +74,7 @@
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Rooms" >Back to Rooms</a>
 </div>
 
 @section Scripts {

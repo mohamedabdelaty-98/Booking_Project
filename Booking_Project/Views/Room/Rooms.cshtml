@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 }
-<a asp-action="NewRoom" asp-controller="Admin" class="btn mx-3 mt-2" style="background-color: #003b95;color:white !important; border-radius:7px 7px !important">Add new Room</a>
+<a asp-action="NewRoom" asp-controller="room" class="btn mx-3 mt-2" style="background-color: #003b95;color:white !important; border-radius:7px 7px !important">Add new Room</a>
 <hr />
 <div>
     @*    -----  *@
@@ -127,18 +127,16 @@
 </div>*@
 
 
-
-@*@section Scripts{
+@section Scripts{
     <script>
-        $.ajax({
-            url: `/Hotel/getAll`,
-            success: function (result) {
-                let hotels = document.getElementById("hotels");
-                for (let hotel of result) {
-                    hotels.innerHTML += $``
-                }
-            }
-        });
+        // Get the current path
+        var currentPath = window.location.pathname;
 
+        // Use the current path as needed
+        let room = document.getElementById("_room");
+        if (currentPath == "/room/rooms")
+            room.classList.add("active");
+        else
+            room.classList.remove("active");
     </script>
-}*@
+}

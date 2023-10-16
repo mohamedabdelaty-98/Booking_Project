@@ -10,7 +10,7 @@
 @section Styles{
     <link rel="stylesheet" href="~/css/AddNew.css" asp-append-version="true" />
 }
-<div class="container_reg col-7">
+<div class="container_reg col-7 mt-4 mb-4">
     <div class="title">New Hotel</div>
     <div class="content">
         <form asp-action="Insert" asp-controller="Hotel" method="post">
@@ -71,7 +71,7 @@
 </div>
 
 <div>
-    <a asp-action="Rooms">Back to List</a>
+    <a asp-action="getall">Back to Hotels</a>
 </div>
 
 @section Scripts {

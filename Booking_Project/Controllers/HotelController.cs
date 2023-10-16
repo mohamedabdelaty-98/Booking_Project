@@ -1,6 +1,7 @@
 ﻿using Booking_Project.Models;
 using Booking_Project.Reposatory;
 using Booking_Project1.Models;
+using Microsoft.AspNetCore.Http.Extensions;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Booking_Project.Controllers
@@ -34,12 +35,11 @@ namespace Booking_Project.Controllers
                 return View("insert", hotel);
         }
 
-       
         public IActionResult getAll()
         {
             
              List<Hotel> hotels=Ihotel.GetAll(h=> h.image_Hotels);
-            return View(hotels);
+                return View(hotels);
         }
 
 
@@ -50,8 +50,9 @@ namespace Booking_Project.Controllers
             return View("getHotel" , hotel);
 
         }
-
-        public IActionResult update(Hotel hotel)
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult getHotel(Hotel hotel)
         {
             Ihotel.update(hotel);
             Ihotel.save();
@@ -66,6 +67,6 @@ namespace Booking_Project.Controllers
             return RedirectToAction("getAll");
         }
 
-
+        
     }
 }

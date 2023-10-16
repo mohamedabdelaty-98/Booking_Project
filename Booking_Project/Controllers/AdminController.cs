@@ -2,6 +2,7 @@
 using Booking_Project.Reposatory;
 using Booking_Project1.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http.Extensions;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Booking_Project.Controllers
@@ -19,6 +20,8 @@ namespace Booking_Project.Controllers
             this.hotelrepo = hotelRepo;
         }
         public IActionResult Index(){
+            
+            return View();
         }
 
         public IActionResult Reservations()
@@ -33,6 +36,7 @@ namespace Booking_Project.Controllers
            
             return View("room",RoomModel);
         }
+        
         public IActionResult EditRoom(int id)
         {
             Room rs = RoomRepo.GetById(id);
@@ -82,6 +86,7 @@ namespace Booking_Project.Controllers
 
             return View("new", room);
         }
+       
 
     }
 }
