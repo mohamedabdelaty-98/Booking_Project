@@ -1,14 +1,16 @@
 ﻿@model Room
 
 @{
+    SelectList deptOptios = new SelectList(ViewBag.depts, "Id", "Name");
+
     ViewData["Title"] = "New";
-      
+
 }
 
-<h1>New Room</h1>
+
 
 @section Styles{
-    <link rel="stylesheet" href="~/css/register.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/AddNew.css" asp-append-version="true" />
 }
 <div class="container_reg col-7">
     <div class="title">New Room</div>
@@ -53,14 +55,19 @@
                     <input asp-for="room_number"  required>
                     <span asp-validation-for="room_number" class="text-danger"></span>
                 </div>
-                @*<div>
-                   
-                        <label asp-for="HotelId"></label>
-                        <select asp-for="HotelId" class="form-control" />
-                           < asp-items="@Model.hotel.Name"></select>
-                </div>*@
-              
+                <div class="input-box">
+                    <label asp-for="HotelId">Hotel</label>
+                    <select asp-for="HotelId" class="form-control"
+                            asp-items="deptOptios"></select>
 
+                </div>
+
+              
+                <div class="button">
+                    <input type="submit" value="Add">
+                    @* <input type="submit" value="Register" class="btn btn-primary" /> *@
+
+                </div>
           
         </form>
     </div>

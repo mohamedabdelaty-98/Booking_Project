@@ -1,6 +1,8 @@
 ﻿@model Booking_Project.Models.Room
 
 @{
+    SelectList deptOptios = new SelectList(ViewBag.depts, "Id", "Name");
+
     ViewData["Title"] = "Edit";
 }
 
@@ -52,10 +54,11 @@
                 <input asp-for="room_number" class="form-control" />
                 <span asp-validation-for="room_number" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="HotelId" class="control-label"></label>
-                <input asp-for="HotelId" class="form-control" />
-                <span asp-validation-for="HotelId" class="text-danger"></span>
+            <div class="input-box">
+                <label asp-for="HotelId">Hotel</label>
+                <select asp-for="HotelId" class="form-control"
+                        asp-items="deptOptios"></select>
+
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
