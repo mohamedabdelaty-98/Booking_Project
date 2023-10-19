@@ -1,0 +1,53 @@
+﻿@model Booking_Project.Models.Image_Hotel
+@{
+    ViewData["Title"] = "Add images";
+    SelectList hotels = new SelectList(ViewBag.hotels, "Id", "Name");
+
+}
+<link rel="stylesheet" href="~/css/AddNew.css" asp-append-version="true" />
+<div class="container_reg col-7 mt-4 mb-4" id="imagepartial">
+    <div class="title">Add Hotel Image</div>
+    <div class="content">
+        <form asp-action="insert" enctype="multipart/form-data">
+            <div asp-validation-summary="All" class="text-danger"></div>
+
+            <div class="input-box">
+                <label class="details" asp-for="ImageURL">Image</label>
+                <input type="file" asp-for="ImageURL" class=" file_f" name="imageFile" />
+            </div>
+
+            <div class="input-box">
+                <label class="details" asp-for="Description"></label>
+                <input asp-for="Description" required type="text">
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+
+            @*   <div class="input-box">
+            <label asp-for="Description" class="details"></label>
+            <input asp-for="Description"  />
+            <span asp-validation-for="Description" class="text-danger"></span>
+            </div> *@
+            <div class="input-box">
+                <label asp-for="HotelId" class="details"></label>
+                <select asp-items="hotels" class="form-control" asp-for="HotelId">
+                    <option value="">--Select Hotel--</option>
+                </select>
+            </div>
+
+
+            <div class="button">
+                <input type="submit" value="Create" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="getall" asp-controller="hotel">Back to List</a>
+</div> 
+<script>
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+</script>

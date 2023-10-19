@@ -37,7 +37,7 @@ namespace Booking_Project.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Amenities");
+                    b.ToTable("Amenities", (string)null);
                 });
 
             modelBuilder.Entity("Booking_Project.Models.AmenitiesRoom", b =>
@@ -63,7 +63,7 @@ namespace Booking_Project.Migrations
 
                     b.HasIndex("RoomId");
 
-                    b.ToTable("AmenitiesRooms");
+                    b.ToTable("AmenitiesRooms", (string)null);
                 });
 
             modelBuilder.Entity("Booking_Project.Models.Amenities_Hotel", b =>
@@ -89,7 +89,7 @@ namespace Booking_Project.Migrations
 
                     b.HasIndex("HotelId");
 
-                    b.ToTable("Amenities_Hotels");
+                    b.ToTable("Amenities_Hotels", (string)null);
                 });
 
             modelBuilder.Entity("Booking_Project.Models.ApplicationIdentityUser", b =>
@@ -226,7 +226,7 @@ namespace Booking_Project.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Hotels");
+                    b.ToTable("Hotels", (string)null);
                 });
 
             modelBuilder.Entity("Booking_Project.Models.Image_Hotel", b =>
@@ -253,7 +253,7 @@ namespace Booking_Project.Migrations
 
                     b.HasIndex("HotelId");
 
-                    b.ToTable("Image_Hotels");
+                    b.ToTable("Image_Hotels", (string)null);
                 });
 
             modelBuilder.Entity("Booking_Project.Models.Image_Room", b =>
@@ -280,7 +280,7 @@ namespace Booking_Project.Migrations
 
                     b.HasIndex("RoomId");
 
-                    b.ToTable("Image_Rooms");
+                    b.ToTable("Image_Rooms", (string)null);
                 });
 
             modelBuilder.Entity("Booking_Project.Models.Payments", b =>
@@ -310,7 +310,7 @@ namespace Booking_Project.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Payments");
+                    b.ToTable("Payments", (string)null);
                 });
 
             modelBuilder.Entity("Booking_Project.Models.ReservationRoom", b =>
@@ -347,7 +347,7 @@ namespace Booking_Project.Migrations
 
                     b.HasIndex("RoomId");
 
-                    b.ToTable("ReservationRooms");
+                    b.ToTable("ReservationRooms", (string)null);
                 });
 
             modelBuilder.Entity("Booking_Project.Models.Reservations", b =>
@@ -384,7 +384,7 @@ namespace Booking_Project.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Reservations");
+                    b.ToTable("Reservations", (string)null);
                 });
 
             modelBuilder.Entity("Booking_Project.Models.Reviews", b =>
@@ -419,7 +419,7 @@ namespace Booking_Project.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Reviews");
+                    b.ToTable("Reviews", (string)null);
                 });
 
             modelBuilder.Entity("Booking_Project.Models.Room", b =>
@@ -460,7 +460,7 @@ namespace Booking_Project.Migrations
 
                     b.HasIndex("HotelId");
 
-                    b.ToTable("Rooms");
+                    b.ToTable("Rooms", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

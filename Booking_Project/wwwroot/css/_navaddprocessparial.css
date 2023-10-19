@@ -1,0 +1,33 @@
+﻿.custom-nav-link {
+    display: block;
+    padding: 0.5rem 1rem;
+    color: #007bff; /* Set the default link color */
+    text-align: center;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+    .custom-nav-link:hover {
+        color: #0056b3; /* Change the link color on hover */
+    }
+.navbar-nav .custom-nav-link {
+    color: black !important;
+}
+.item_bg:hover {
+    background-color: #003b95;
+    opacity: .4;
+    color: black;
+}
+.itemm_bg {
+    border-radius: 5px 5px;
+}
+@media (max-width: 991.98px) {
+    .itemm .custom-nav-link {
+        color: black !important;
+    }
+
+    .minsize {
+        padding: 0 !important;
+        width: 60% !important;
+    }
+}

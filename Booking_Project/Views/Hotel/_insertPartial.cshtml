@@ -1,16 +1,7 @@
 ﻿@model Hotel
+<link rel="stylesheet" href="~/css/AddNew.css" asp-append-version="true" />
 
-@{
-    ViewData["Title"] = "New";
-
-}
-
-
-
-@section Styles{
-    <link rel="stylesheet" href="~/css/AddNew.css" asp-append-version="true" />
-}
-<div class="container_reg col-7 mt-4 mb-4">
+<div class="container_reg col-7 mt-4 mb-4 " id="getallhotell">
     <div class="title">New Hotel</div>
     <div class="content">
         <form asp-action="Insert" asp-controller="Hotel" method="post">
@@ -58,7 +49,7 @@
                     <input asp-for="Latitude" required>
                     <span asp-validation-for="Latitude" class="text-danger"></span>
                 </div>
-                
+
 
                 <div class="button">
                     <input type="submit" value="Add">
@@ -73,9 +64,8 @@
 <div>
     <a asp-action="getall">Back to Hotels</a>
 </div>
-
-@section Scripts {
+<script>
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
-}
+</script>

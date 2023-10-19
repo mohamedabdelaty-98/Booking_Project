@@ -78,6 +78,7 @@ namespace Booking_Project.Controllers
 
             return View(room);
         }
+
         //public IActionResult New()
         //{
         //    ViewData["depts"] = hotelRepo.GetAll().ToList();

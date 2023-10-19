@@ -21,7 +21,7 @@ namespace Booking_Project.Controllers
         public IActionResult insert()
         {
             ViewData["hotels"] = hotels.GetAll();
-            return View();
+            return PartialView("_insertimaghotelPartial");
         }
 
         [HttpPost]
@@ -45,10 +45,10 @@ namespace Booking_Project.Controllers
                 image.ImageURL = "/images/" + fullpath;
                 images.insert(image);
                 images.save();
-                return RedirectToAction("insert");
+                return RedirectToAction("getall","hotel");
             }
 
-            return View("insert",image);
+            return PartialView("_insertimaghotelPartial", image);
         }
 
 

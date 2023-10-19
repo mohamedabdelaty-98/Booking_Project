@@ -17,7 +17,7 @@ namespace Booking_Project.Controllers
 
         public IActionResult insert()
         {
-            return View();
+            return PartialView("_insertPartial");
         }
 
         [HttpPost]
@@ -30,9 +30,9 @@ namespace Booking_Project.Controllers
 
                 Ihotel.insert(hotel);
                 Ihotel.save();
-                return RedirectToAction("insert");
+                return RedirectToAction("getall");
             }
-                return View("insert", hotel);
+                return PartialView("_insertPartial", hotel);
         }
 
         public IActionResult getAll()
