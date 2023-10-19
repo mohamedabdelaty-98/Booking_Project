@@ -1,4 +1,8 @@
-﻿<nav class="navbar navbar-expand-lg bg-body-tertiary">
+﻿@{
+    string path_gethotel = "hotel/getall";
+    string path_rooms = "admin/rooms";
+}
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -6,13 +10,16 @@
         <div class="collapse navbar-collapse" id="navbarScroll">
             <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
                 <li class="nav-item itemm mx-2 p-2">
-                    <a class="nav-link" >Hotel</a>
+                    @* <a class="nav-link" asp-action="getall" asp-controller="hotel">Hotel</a> *@
+                    <a class="nav-link" id="hotel" asp-action="getall" asp-controller="hotel">Hotel</a>
+                    @* <a class="@(path_gethotel=="hotel/getall"?"nav-link active":"nav-link")" id="hotel" asp-action="getall" asp-controller="hotel">Hotel</a> *@
+                    
                 </li>
                 <li class="nav-item itemm mx-2 p-2">
-                    <a class="nav-link" asp-action="getAll" asp-controller="Hotel" >Add hotel images</a>
+                    <a class="nav-link" asp-action="insert" asp-controller="imghotel" id="img_hotel">Add hotel images</a>
                 </li>
                 <li class="nav-item itemm mx-2 p-2">
-                    <a class="nav-link" href="#">Rooms</a>
+                    <a class="nav-link" id="_room" asp-action="rooms" asp-controller="room">Rooms</a>
                 </li>
                 <li class="nav-item itemm mx-2 p-2">
                     <a class="nav-link" href="#">Add Room images</a>
@@ -30,4 +37,3 @@
         </div>
     </div>
 </nav>
-

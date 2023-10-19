@@ -7,11 +7,15 @@
 
 @section Styles{
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/_navaddprocessparial.css"/>
+
 
 }
-<a asp-action="insert" asp-controller="Hotel" class="btn mx-3" style="background-color: #003b95;color:white !important; border-radius:7px 7px !important">Add new hotel</a>
+@* <a asp-action="insert" asp-controller="Hotel" class="btn mx-3 mt-2" style="background-color: #003b95;color:white !important; border-radius:7px 7px !important">Add new Hotel</a> *@
+<partial name="_NavaddprocesshotelPartial"></partial>
+
 <hr />
-<div>
+<div class="" id="allhotel">
 @*    -----  *@
 
     <div class="row m-2 justify-content-center" id="hotels">
@@ -51,23 +55,29 @@
         <!-- Card Body -->
         <div class="card-body">
             <!-- Slider -->
-                    <div id="carouselExample" class="carousel slide">
+                    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li data-target="#carouselExampleIndicators" data-slide-to="1" class="active"></li>
+                            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                            <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+                        </ol>
                         <div class="carousel-inner">
-                           @*  @for (int i = 0; i < hotel.image_Hotels.Count; i++)
+                             @for (int i = 0; i < hotel.image_Hotels.Count; i++)
                             {
                                 <div class="carousel-item @(i == 0 ? "active" : "")">
-                                    <img src="data:image/jpg;base64,@Convert.ToBase64String(hotel.image_Hotels[i].ImageURL)" width="100%">
+                                    <img src="@hotel.image_Hotels[i].ImageURL" width="300px" height="300px" class="d-block w-100 rounded-top">
                                 </div>
-                            } *@
+                            } 
                         </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                        @* <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                       
+                        <a class="carousel-control-next" href="#carouselExample" role="button" data-slide="next">
                             <span class="carousel-control-next-icon" aria-hidden="true"></span>
                             <span class="visually-hidden">Next</span>
-                        </button>
+                           </a>
+                        </button> *@
+
                     </div>
   
             <!-- Address -->
@@ -79,6 +89,18 @@
                     <hr>
                     <!-- Description -->
                     <p class="card-text">Description: @hotel.Description</p>
+                    <div class="my-2">
+                    <div class="d-flex flex-wrap border-1">
+                        @for (int i = 0; i < hotel.amenities_Hotels.Count; i++)
+                        {
+
+                                <a class="px-2 m-1" style="border:2px solid rgb(246, 182, 7);color:darkolivegreen;  border-radius:7px 7px !important">@hotel.amenities_Hotels[i].amenities.Name</a>
+                        }
+  
+
+                    </div>
+                    </div>
+
 
 
                     <a asp-action="getHotel" asp-route-id="@hotel.Id" class="btn" style="background-color: #003b95;color:white !important; border-radius:7px 7px !important">Edit</a>
@@ -101,24 +123,28 @@
    
 </div>
 
-
-<div>
-    <a asp-action="insert">Back to List</a>
-</div>
+<div id="insert_s"></div>
+<div id="add_hotel_image"></div>
 
 
 
-@*@section Scripts{
-    <script>
-        $.ajax({
-            url: `/Hotel/getAll`,
-            success: function (result) {
-                let hotels = document.getElementById("hotels");
-                for (let hotel of result) {
-                    hotels.innerHTML += $``
-                }
-            }
-        });
+@section Scripts{
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script>
+            // Get the current path
+            var currentPath = window.location.pathname;
+            
+            // Use the current path as needed
+            let hotel = document.getElementById("hotel");
+            if (currentPath == "/hotel/getall")
+                hotel.classList.add("active");
+            else
+                hotel.classList.remove("active");
+        </script>
+    <script src="/js/Hotel_ajax.js"></script>
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
 
-    </script>
-}*@
+

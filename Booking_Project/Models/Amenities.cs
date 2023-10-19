@@ -12,7 +12,7 @@ namespace Booking_Project.Models
         public int Id { get; set; }
         [MaxLength(50)]
         public string Name { get; set; }
-        public List<Amenities_Hotel> amenities_Hotels { get; set; }
-        public List<AmenitiesRoom> amenitiesRooms { get; set; }
+        public virtual List<Amenities_Hotel>? amenities_Hotels { get; set; }
+        public virtual List<AmenitiesRoom>? amenitiesRooms { get; set; }
     }
 }

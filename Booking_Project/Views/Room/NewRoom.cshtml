@@ -1,0 +1,84 @@
+﻿@model Room
+
+@{
+    SelectList deptOptios = new SelectList(ViewBag.depts, "Id", "Name");
+
+    ViewData["Title"] = "New";
+
+}
+
+
+
+@section Styles{
+    <link rel="stylesheet" href="~/css/AddNew.css" asp-append-version="true" />
+}
+<div class="container_reg col-7 mt-4 mb-4">
+    <div class="title">New Room</div>
+    <div class="content">
+        <form method="post">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <input type="hidden" name="ReturnUrl" value="@ViewBag.page" />
+            <div class="user-details">
+                <div class="input-box">
+                    <label class="details" asp-for="RoomType"></label>
+                    <input asp-for="RoomType" required>
+                    <span asp-validation-for="RoomType" class="text-danger"></span>
+                </div>
+                <div class="input-box">
+                    <label class="details" asp-for="Price"></label>
+                    <input asp-for="Price" required>
+                    <span asp-validation-for="Price" class="text-danger"></span>
+                </div>
+                <div class="input-box">
+                    <label class="details" asp-for="NumOfBed"></label>
+                    <input asp-for="NumOfBed" required>
+                    <span asp-validation-for="NumOfBed" class="text-danger"></span>
+                </div>
+                <div class="input-box">
+                    <label class="details" asp-for="MaxOccupancy"></label>
+                    <input asp-for="MaxOccupancy" required>
+                    <span asp-validation-for="MaxOccupancy" class="text-danger"></span>
+                </div>
+
+                <div class="input-box">
+                    <label class="details" asp-for="RoomSize"></label>
+                    <input asp-for="RoomSize" required>
+                    <span asp-validation-for="RoomSize" class="text-danger"></span>
+                </div>
+                <div class="input-box">
+                    <label class="details" asp-for="AvailableStatus"></label>
+                    <input asp-for="AvailableStatus" required>
+                    <span asp-validation-for="AvailableStatus" class="text-danger"></span>
+                </div>
+                <div class="input-box">
+                    <label class="details" asp-for="room_number"></label>
+                    <input asp-for="room_number" required>
+                    <span asp-validation-for="room_number" class="text-danger"></span>
+                </div>
+                <div class="input-box">
+                    <label asp-for="HotelId" class="details">Hotel</label>
+                    <select asp-for="HotelId" 
+                            asp-items="deptOptios"></select>
+
+                </div>
+
+
+                <div class="button">
+                    <input type="submit" value="Add">
+                    @* <input type="submit" value="Register" class="btn btn-primary" /> *@
+
+                </div>
+
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Rooms" >Back to Rooms</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

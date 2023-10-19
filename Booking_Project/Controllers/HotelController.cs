@@ -1,6 +1,7 @@
 ﻿using Booking_Project.Models;
 using Booking_Project.Reposatory;
 using Booking_Project1.Models;
+using Microsoft.AspNetCore.Http.Extensions;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Booking_Project.Controllers
@@ -16,7 +17,7 @@ namespace Booking_Project.Controllers
 
         public IActionResult insert()
         {
-            return View();
+            return PartialView("_insertPartial");
         }
 
         [HttpPost]
@@ -29,16 +30,16 @@ namespace Booking_Project.Controllers
 
                 Ihotel.insert(hotel);
                 Ihotel.save();
-                return RedirectToAction("insert");
+                return RedirectToAction("getall");
             }
-                return View("insert", hotel);
+                return PartialView("_insertPartial", hotel);
         }
 
-       
         public IActionResult getAll()
         {
-            
-             List<Hotel> hotels=Ihotel.GetAll(h=> h.image_Hotels);
+
+            List<Hotel> hotels = Ihotel.GetAll(h => h.image_Hotels, h => h.amenities_Hotels);
+
             return View(hotels);
         }
 
@@ -50,8 +51,9 @@ namespace Booking_Project.Controllers
             return View("getHotel" , hotel);
 
         }
-
-        public IActionResult update(Hotel hotel)
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult getHotel(Hotel hotel)
         {
             Ihotel.update(hotel);
             Ihotel.save();
@@ -65,7 +67,5 @@ namespace Booking_Project.Controllers
             Ihotel.save();
             return RedirectToAction("getAll");
         }
-
-
     }
 }
