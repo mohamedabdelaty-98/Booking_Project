@@ -9,11 +9,14 @@ namespace Booking_Project.Controllers
     //[Authorize(Roles ="Admin")]
     public class AdminController : Controller
     {
+
         private readonly ICrudOperation<ApplicationIdentityUser> user_Data;
         private readonly IMapper mapper;
-
+        static int counter=0;
+        int number_of_images = 12;
         public AdminController(ICrudOperation<ApplicationIdentityUser> user_data, IMapper mapper)
         {
+            //user_Da = user_da;
             user_Data = user_data;
             this.mapper = mapper;
         }
@@ -23,15 +26,36 @@ namespace Booking_Project.Controllers
         }
         public IActionResult Show()
         {
-            //user_Data.GetAll().ToList();
-            //ViewBag.how = user_Data.GetAll(e => e.reservations, w => w.reviews, a => a.payments);
-            //ViewBag.how = user_Data.GetAll(e => e.reservations);
+            
 
-            return View(user_Data.GetAll(e=>e.reservations,s=>s.reviews));
+            return View(user_Data.GetAll(e => e.reservations));
         }
-        public IActionResult details()
+
+        
+        public IActionResult Slider()
         {
-            return View();
+            List<Image_Hotel> images = new List<Image_Hotel>();
+            Image_Hotel item;
+
+            for (int i = 1; i<=12; i++)
+            {
+                item = new Image_Hotel();
+                item.Id = i;
+                item.ImageURL = $"hh/{i}.jpg";
+                images.Add(item);
+
+
+            }
+            counter++;
+            if (counter > number_of_images-5)
+            {
+                counter = 1;
+            }
+            
+            
+            ViewBag.ia = counter;
+            return View(images);
         }
+        
     }
 }

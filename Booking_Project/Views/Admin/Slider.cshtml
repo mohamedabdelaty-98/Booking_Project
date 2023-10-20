@@ -1,0 +1,50 @@
+﻿@model List<Image_Hotel>
+@{
+    ViewData["Title"] = "Slider";
+    int cou=0;
+}
+@{
+    if (ViewBag.ia <= 6)
+    {
+         cou = ViewBag.ia-1;
+        
+    }
+}
+
+@*<link href="~/css/bootstrap.min.css" rel="stylesheet">
+*@
+<link href="~/css/slider.css" rel="stylesheet">
+
+
+<div class="contaner">
+    <div class="row">
+
+        @for (int i = cou; i <= 5+cou &&i<13; i++)
+        {
+            <div class="column">
+                <div class="card">
+                    <!-- <img src="/1.jpg" alt="Description of the image" > -->
+                    <img src="~/@Model[i].ImageURL" alt="Description of the image" width="100" height="100">
+
+         
+                 <p>Some text</p>
+                </div>
+            </div>
+        }
+
+            <!-- Your form fields go here -->
+        @*<form asp-controller="AdminController" asp-action="Sliderr" method="post">*@
+            @*<div class="ent">*@
+               
+            @*<button type="submit" class="dede">*@
+@*        <a  href="/Admin/Slider"  style="background-color:red;color:black">next</a>
+*@            @*</button>*@
+            @*</div>*@
+        @*</form>*@
+        
+        <div class="ent"><button asp-controller="Admin" asp-action="Slider" class="dede">next</button></div>
+    </div>
+</div>
+@*@Html.ActionLink("Edit", "Slider","Admin")
+<a href="http://localhost:5277/admin/slider">back to list</a>
+*@

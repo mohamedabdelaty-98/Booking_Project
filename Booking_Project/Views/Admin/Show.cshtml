@@ -19,12 +19,11 @@
                 <table class="table">
                     <thead>
                         <tr>
-                            <th scope="col">ID</th>
                             <th scope="col">Name</th>
                             <th scope="col">Address</th>
-                            
-                            <th scope="col">Check In Date</th>
-                            <th scope="col">Rate</th>
+                            <th scope="col">City</th>
+
+                            <th scope="col">Reservetion</th>
 
 
                         </tr>
@@ -33,27 +32,36 @@
                         @foreach (var user in Model)
                     {
                         <tr>
-                            <td>@user.Id</td>
+                            
                             <td>@user.Fname @user.Lname</td>
                             <td>@user.Address</td>
-                            @*<td><button asp-action="details" asp-controller="Admin">details</button></td>*@
+                            <td>@user.City</td>
                             
                             <td>
+                              @*<ul>tttttt</ul>  
+                                                            <ul>tttttt</ul>
+                                <ul>tttttt</ul>
+                              <ul>tttttt</ul>  *@
+
                             @foreach (var use in user.reservations)
                             {
-                                    <ul>@use.CheckInDate</ul>
+                                <ul>
+                                    <il>@use.CheckInDate</il>
+                                   
+
+                                    <il>@use.CheckOutDate</il>
+                                    <il>@use.TotalPrice</il>
+                                    <ul>
+                                        @foreach (var us in use.reservationRooms)
+                                        {
+
+                                            <il>@us.room.RoomType</il>
+                                    
+                                        }
+                                    </ul>
+                                </ul>
                             }
-
                             </td>
-                            <td>
-                                @foreach (var use in user.reviews)
-                                {
-                                    <ul>@use.Rating</ul>
-                                }
-
-                            </td>
-                           
-
                         </tr>
                     }
                     </tbody>
