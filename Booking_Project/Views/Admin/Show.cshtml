@@ -46,16 +46,16 @@
                             @foreach (var use in user.reservations)
                             {
                                 <ul>
-                                    <il>@use.CheckInDate</il>
+                                    <li>@use.CheckInDate</li>
                                    
 
-                                    <il>@use.CheckOutDate</il>
-                                    <il>@use.TotalPrice</il>
+                                    <li>@use.CheckOutDate</li>
+                                    <li>@use.TotalPrice</li>
                                     <ul>
                                         @foreach (var us in use.reservationRooms)
                                         {
 
-                                            <il>@us.room.RoomType</il>
+                                            <li>@us.room.RoomType</li>
                                     
                                         }
                                     </ul>

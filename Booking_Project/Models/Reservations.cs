@@ -25,11 +25,11 @@ namespace Booking_Project.Models
         public Status Status { get; set; }
         //  public string PaymentMethod { get; set; }   
         [ForeignKey("user")]
-        public string UserId { get; set; }
+        public string? UserId { get; set; }
         public ApplicationIdentityUser user { get; set; }
         public List<ReservationRoom> reservationRooms { get; set; }
         [ForeignKey("payments")]
-        public int PaymentId { get; set; }
-        public Payments payments { get; set; }
+        public int? PaymentId { get; set; }
+        public Payments? payments { get; set; }
     }
 }
