@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Booking_Project.Controllers
 {
+
     //[Authorize(Roles ="Admin")]
     public class AdminController : Controller
     {
@@ -17,9 +18,13 @@ namespace Booking_Project.Controllers
             this.RoomRepo = RoomRepo;
             this.hotelrepo = hotelRepo;
         }
-        public IActionResult Index()
+        public IActionResult Index(){
+        }
+
+        public IActionResult Reservations()
+
         {
-            return View();
+            return View("AllReservations");
         }
 
         public IActionResult Rooms()
