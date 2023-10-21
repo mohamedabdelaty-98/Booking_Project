@@ -13,7 +13,7 @@ namespace Booking_Project.Models
         public string Description { get; set; }
         [ForeignKey("room")]
         public int RoomId { get; set; }
-        public Room room { get; set; }
+        public virtual Room room { get; set; }
 
     }
 }

@@ -30,9 +30,9 @@ namespace Booking_Project.Models
 
         [MaxLength(20)]
         public string? City { get; set; }
-        public List<Payments>? payments { get; set; }
-        public List<Reviews>? reviews { get; set; }
-        public List<Reservations>? reservations { get; set; }
+        public virtual List<Payments>? payments { get; set; }
+        public  virtual List<Reviews>? reviews { get; set; }
+        public  virtual List<Reservations>? reservations { get; set; }
         [Required]
         [Column(TypeName ="varchar(10)")]
         public Gender gender { get; set; }

@@ -7,8 +7,8 @@ body {
   font-size: 16px;
   line-height: 1.8;
   color: #6c757d;
-  position: relative;
-}
+/*  position: relative;
+*/}
 
 ::-moz-selection {
   color: #fff;
@@ -51,9 +51,9 @@ h5 {
   background: #f2f4fb !important;
 }
 
-.container-fluid {
+/*.container-fluid {
   max-width: 1600px;
-}
+}*/
 
 /**************endPageComon*****************/
 
@@ -138,7 +138,7 @@ textarea.form-control {
 }
 .site-hero {
     background-size: cover;
-    min-height: 300px;
+    min-height: 185px;
     position: relative;
 }
 
@@ -666,6 +666,7 @@ textarea.form-control {
     justify-content: center;
     align-items: center;
     list-style: none;
+    
     /*padding-inline-start: 30px;*/
 }
 
@@ -713,13 +714,158 @@ textarea.form-control {
         padding-right: 15px;
     }
 
-@media (max-width :480px) {
+@media (max-width :900px) {
     .footer-section {
         display: none !important;
+    }
+
+    .logos{
+        display:none;
     }
 
     .footer__priceline__list {
         display: none !important;
     }
+
 }
+
 /*****************endFooter*********************/
+
+.star-yellow {
+    color: yellow; 
+}
+
+/* Empty stars */
+.star-gray {
+    color: gray; 
+}
+
+/* Half-filled stars */
+.star-half {
+    color: yellow;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    width: 5rem !important; /* Adjust the width as needed */
+}
+/****************************************************************************************/
+
+/*sectionOne cites */
+div .homeCity {
+    padding-left: 0 !important;
+    border-radius: 3px;
+    transition: filter 0.3s ease;
+}
+
+.imgBorder{
+    border-radius:10px 10px;
+}
+
+.img-label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: white; 
+    padding: 1rem; 
+}
+
+.tag-label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: white;
+    padding-left: 5.2rem;
+    padding-top:1.3rem;
+}
+
+.tag2-label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: white;
+    padding-left: 8.2rem;
+    padding-top: 1.3rem;
+}
+
+.tag3-label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: white;
+    padding-left: 9rem;
+    padding-top: 1.3rem;
+}
+.tag4-label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: white;
+    padding-left: 7rem;
+    padding-top: 1.3rem;
+}
+
+.tag5-label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: white;
+    padding-left: 13rem;
+    padding-top: 1.3rem;
+}
+
+
+.homeCity:hover {
+    filter: brightness(0.7);
+}
+
+@media (max-width: 520px) {
+    .homeCity {
+        margin-left:.3rem !important;
+    }
+}
+/*End sectionOne cites */
+
+/**************************************************************/
+/* start section hotels */
+.card-slider-container {
+    display: flex;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    margin-bottom:2rem;
+}
+
+.card-slider {
+    display: flex;
+    width: 150%;
+    transition: transform 0.5s;
+}
+
+.card {
+    box-sizing: border-box;
+    margin: 0 10px; /* Add margin for spacing between cards */
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+.prev-button, .next-button {
+    background-color:#fff;
+    color: darkblue;
+    padding-left: 10px 20px;
+    border: 1px solid blue;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+
+@media (max-width: 520px) {
+    .cardsm {
+        margin-bottom: .6rem !important;
+    }
+}
+/*end section hotels*/
+/*****************************************************************************/

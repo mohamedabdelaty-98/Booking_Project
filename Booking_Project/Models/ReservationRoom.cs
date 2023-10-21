@@ -12,12 +12,12 @@ namespace Booking_Project.Models
         public DateTime CheckOutDate { get; set; }
         [ForeignKey("reservations")]
         public int ReservationId { get; set; }
-        public Reservations reservations { get; set; }
+        public virtual Reservations reservations { get; set; }
         [ForeignKey("room")]
         public int RoomId { get; set; }
-        public Room room { get; set; }
+        public virtual Room room { get; set; }
         [ForeignKey("hotel")]
         public int HotelId { get; set; }
-        public Hotel hotel { get; set; }
+        public virtual Hotel hotel { get; set; }
     }
 }

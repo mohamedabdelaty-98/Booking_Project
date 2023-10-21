@@ -10,7 +10,6 @@ namespace Booking_Project.Reposatory
         {
             CreateMap<RegisterAccountVM, ApplicationIdentityUser>();
             //CreateMap<, ApplicationIdentityUser>();
-
         }
     }
 }
