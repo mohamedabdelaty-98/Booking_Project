@@ -1,8 +1,17 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@section Styles{
+    <link rel="stylesheet" href="/css/_navaddprocessparial.css" />
+    <link rel="stylesheet" href="/css/AddNew.css"/>
+
 }
-<div class="d-flex justify-content-center ">
-    <h1>Admin Page</h1>
+<div id="rooms"></div>
+<div id="hotels">
+    
 </div>
+
+
+@section Scripts{
+    <script src="~/js/Hotel_ajax.js"></script>
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
