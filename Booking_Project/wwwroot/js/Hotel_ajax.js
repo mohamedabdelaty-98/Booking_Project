@@ -1,33 +1,38 @@
-﻿let hotels = document.getElementById("allhotel");
-function addnewhotel() {
-    hotels.classList.add("display_visable");
-    add_hotel_image.classList.add("display_visable");
-    insert_s.classList.remove("display_visable")
+﻿let hotel_disp = document.getElementById("hotels");
+let insertHotel = document.getElementById("insert_s");
+let addimage = document.getElementById("add_hotel_image");
 
-    console.log();
+
+
+function DisplayHotels() {
+    room_disp.classList.add("display_visable")
+    hotel_disp.classList.remove("display_visable");
     $.ajax(
         {
-            url: "/hotel/insert/",
+            url: "/hotel/getall/",
             success: function (result) {
                 console.log(result);
-                $("#insert_s").html(result);
+                $("#hotels").html(result);
             }
         }
 
     );
 }
-function addimagehotel() {
-    hotels.classList.add("display_visable");
-    insert_s.classList.add("display_visable")
-    add_hotel_image.classList.remove("display_visable");
 
-    console.log();
+
+//section room
+var room_disp = document.getElementById("rooms");
+function DisplayRooms() {
+    hotel_disp.classList.add("display_visable")
+    room_disp.classList.remove("display_visable");
+    
+    console.log("dddd");
     $.ajax(
         {
-            url: "/ImgHotel/insert/",
+            url: "/room/rooms/",
             success: function (result) {
                 console.log(result);
-                $("#add_hotel_image").html(result);
+                $("#rooms").html(result);
             }
         }
 

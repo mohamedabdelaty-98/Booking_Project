@@ -30,7 +30,7 @@ namespace Booking_Project.Controllers
 
                 Ihotel.insert(hotel);
                 Ihotel.save();
-                return RedirectToAction("getall");
+                return RedirectToAction("index","admin");  
             }
                 return PartialView("_insertPartial", hotel);
         }
@@ -40,7 +40,7 @@ namespace Booking_Project.Controllers
 
             List<Hotel> hotels = Ihotel.GetAll(h => h.image_Hotels, h => h.amenities_Hotels);
 
-            return View(hotels);
+            return PartialView("_getallPartial",hotels);
         }
 
 

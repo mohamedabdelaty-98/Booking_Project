@@ -26,7 +26,7 @@ namespace Booking_Project.Controllers
         {
             List<Room> RoomModel = RoomRepo.GetAll(h => h.hotel);
 
-            return View(RoomModel);
+            return PartialView("_roomPartial",RoomModel);
         }
 
         public IActionResult EditRoom(int id)
