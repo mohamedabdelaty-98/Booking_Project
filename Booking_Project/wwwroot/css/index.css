@@ -7,8 +7,8 @@ body {
   font-size: 16px;
   line-height: 1.8;
   color: #6c757d;
-  position: relative;
-}
+/*  position: relative;
+*/}
 
 ::-moz-selection {
   color: #fff;
@@ -51,9 +51,9 @@ h5 {
   background: #f2f4fb !important;
 }
 
-.container-fluid {
+/*.container-fluid {
   max-width: 1600px;
-}
+}*/
 
 /**************endPageComon*****************/
 
@@ -749,5 +749,78 @@ textarea.form-control {
 .carousel-control-next {
     width: 5rem !important; /* Adjust the width as needed */
 }
+/****************************************************************************************/
+
+/*sectionOneInMain */
+div .homeCity {
+    padding-left: 0 !important;
+    border-radius: 3px;
+    transition: filter 0.3s ease;
+}
+
+.imgBorder{
+    border-radius:10px 10px;
+}
+
+.img-label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: white; 
+    padding: 1rem; 
+}
+
+.tag-label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: white;
+    padding-left: 5.2rem;
+    padding-top:1.3rem;
+}
+
+.tag2-label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: white;
+    padding-left: 8.2rem;
+    padding-top: 1.3rem;
+}
+
+.tag3-label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: white;
+    padding-left: 9rem;
+    padding-top: 1.3rem;
+}
+.tag4-label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: white;
+    padding-left: 7rem;
+    padding-top: 1.3rem;
+}
+
+.tag5-label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: white;
+    padding-left: 13rem;
+    padding-top: 1.3rem;
+}
 
 
+.homeCity:hover {
+    filter: brightness(0.7);
+}
+
+@media (max-width: 520px) {
+    ..homeCity {
+        margin-left:.3rem !important;
+    }
+}

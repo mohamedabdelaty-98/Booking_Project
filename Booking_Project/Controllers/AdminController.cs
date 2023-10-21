@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Booking_Project.Models;
+using Booking_Project.Reposatory;
 
 namespace Booking_Project.Controllers
 {

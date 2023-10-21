@@ -27,9 +27,6 @@
     <!-- Theme Style -->
     
     <link rel="stylesheet" href="/css/index.css"/>
-    <link rel="stylesheet" href="~/css/LoginPartial.css" />
-    <link rel="stylesheet" href="~/css/itemNavAdminPartial.css"/>
-   
     @await RenderSectionAsync("Styles", false)
 </head>
 <body data-spy="scroll" data-target="#templateux-navbar" data-offset="200">
@@ -48,7 +45,7 @@
     @RenderSection("Body",false)
 
     <!-- start main content -->
-        <main class="container  ">
+        <main class="container">
 
             @RenderBody()
       
