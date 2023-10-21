@@ -26,6 +26,10 @@ namespace Booking_Project
             builder.Services.AddScoped<ICrudOperation<ApplicationIdentityUser>, CrudOperationRepo<ApplicationIdentityUser>>();
             builder.Services.AddScoped<ICrudOperation<Reservations>, CrudOperationRepo<Reservations>>();
             builder.Services.AddScoped<ICrudOperation<ReservationRoom>, CrudOperationRepo<ReservationRoom>>();
+            builder.Services.AddScoped<ICrudOperation<Image_Hotel>, CrudOperationRepo<Image_Hotel>>();
+            builder.Services.AddScoped<ICrudOperation<Hotel>, CrudOperationRepo<Hotel>>();
+
+
 
             //configration of identity
             builder.Services.AddIdentity<ApplicationIdentityUser, IdentityRole>(option=>

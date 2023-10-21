@@ -1,50 +1,298 @@
-﻿@model List<Image_Hotel>
+﻿@*@model List<Image_Hotel>
 @{
     ViewData["Title"] = "Slider";
     int cou=0;
 }
 @{
-    if (ViewBag.ia <= 6)
-    {
-         cou = ViewBag.ia-1;
-        
-    }
+    cou =ViewBag.ia-1;
 }
 
-@*<link href="~/css/bootstrap.min.css" rel="stylesheet">
-*@
 <link href="~/css/slider.css" rel="stylesheet">
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <div class="contaner">
     <div class="row">
 
-        @for (int i = cou; i <= 5+cou &&i<13; i++)
+        @for (int i = cou; i <= 5+cou &&i<Model.Count; i++)
         {
             <div class="column">
                 <div class="card">
-                    <!-- <img src="/1.jpg" alt="Description of the image" > -->
-                    <img src="~/@Model[i].ImageURL" alt="Description of the image" width="100" height="100">
+                   
+                    <img src="@Model[i].ImageURL" alt="Description of the image" width="75" height="100">
 
-         
-                 <p>Some text</p>
+
+                    <p>@Model[i].hotel.Address</p>
+                </div>
+            </div>
+        }
+        
+    </div>
+</div>
+<button id="myButton" ><i class="fa fa-arrow-right" ></i></button>
+
+<script src="~/js/Ja.js"></script>
+
+<script>
+    document.getElementById("myButton").addEventListener("click", handleClick);
+    
+    function handleClick() {
+       
+        console.log("uhujiji");
+    }
+</script>*@
+@*
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+*@
+
+
+
+
+@using System.Diagnostics.Metrics;
+@model List<Image_Hotel>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+<style>
+    .card-slider-container {
+        display: flex;
+        width: 100%;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .card-slider {
+        display: flex;
+        width: 150%;
+        transition: transform 0.5s;
+    }
+
+    .card {
+        padding: 20px;
+        box-sizing: border-box;
+        margin: 0 10px; /* Add margin for spacing between cards */
+        background-color: #fff;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        border-radius: 5px;
+    }
+
+    .prev-button, .next-button {
+        background-color: #007bff;
+        color: #fff;
+        padding-left: 10px 20px;
+        border: none;
+        cursor: pointer;
+        margin-bottom: 10px;
+    }
+</style>
+@section Styles{
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+}
+
+@section sitehero{
+    <div class="container">
+        <div class="row site-hero-inner justify-content-center align-items-center">
+            <div class="col-md-10 justify-content-start mt-5">
+                <h1 class="subtitles1">Find your next stay</h1>
+                <h5 class="subtitles2">
+                    Search deals on hotels, homes, and much more...
+                </h5>
+            </div>
+        </div>
+    </div>
+}
+
+@section Body{
+    <!-- search bar -->
+    <section class="section bg-light pb-0">
+        <div class="container">
+            <div class="row check-availabilty" id="next">
+                <div class="block-32" data-aos="fade-up" data-aos-offset="-200">
+                    <form action="#">
+                        <div class="row rowdiv"
+                             style="
+                  border: 5px solid rgb(246, 182, 7);
+                  background-color: rgb(246, 182, 7);
+                  border-radius: 5px 5px;
+                ">
+                            <div class="col-md-6 mb-md-0 col-lg-2">
+                                <div class="field-icon-wrap">
+                                    <div class="icon">
+                                        <span class="ion-ios-arrow-down"></span>
+                                    </div>
+                                    <select name="" id="adults" class="form-control">
+                                        <option value="0">Where are you going?</option>
+                                        <option value="">Alexandria</option>
+                                        <option value="">Sharm El-shiekh</option>
+                                        <option value="">Hurghada</option>
+                                        <option value="">Cairo</option>
+                                        <option value="">Ain Sokhna</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 mb-lg-0 col-lg-2">
+                                <div class="field-icon-wrap">
+                                    <div class="icon"><span class="icon-calendar"></span></div>
+                                    <input type="text"
+                                           id="checkin_date"
+                                           class="form-control"
+                                           placeholder="check in" />
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 mb-lg-0 col-lg-2">
+                                <div class="field-icon-wrap">
+                                    <div class="icon"><span class="icon-calendar"></span></div>
+                                    <input type="text"
+                                           id="checkout_date"
+                                           class="form-control"
+                                           placeholder="check out" />
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 mb-lg-0 col-lg-2">
+                                <div class="field-icon-wrap">
+                                    <div class="icon"><span class="icon-calendar"></span></div>
+                                    <select name="" id="adults" class="form-control">
+                                        <option value="0">Adults</option>
+                                        <option value="">1</option>
+                                        <option value="">2</option>
+                                        <option value="">3</option>
+                                        <option value="">4</option>
+                                        <option value="">5</option>
+                                        <option value="">6</option>
+                                        <option value="">7</option>
+                                        <option value="">8</option>
+                                        <option value="">9</option>
+                                        <option value="">10</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 mb-lg-0 col-lg-2">
+                                <div class="field-icon-wrap">
+                                    <div class="icon"><span class="icon-calendar"></span></div>
+                                    <select name="" id="children" class="form-control">
+                                        <option value="0">Children</option>
+                                        <option value="">1</option>
+                                        <option value="">2</option>
+                                        <option value="">3</option>
+                                        <option value="">4</option>
+                                        <option value="">5</option>
+                                        <option value="">6</option>
+                                        <option value="">7</option>
+                                        <option value="">8</option>
+                                        <option value="">9</option>
+                                        <option value="">10</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 col-lg-2 align-self-end">
+                                <button class="btn btn-block text-white btnform1">
+                                    Search
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end search bar -->
+}
+
+<h3 class="mb-3">
+    Exploer Our Hotels
+
+</h3>
+
+
+<div class="card-slider-container">
+    <div class="card-slider">
+        @{int cou=0;}
+        @for (int i = cou;  i < Model.Count; i++)
+        {
+            <div class="column">
+                <div class="card" onclick="">
+
+                    <img src="@Model[i].ImageURL" alt="Description of the image" width="75" height="100">
+
+
+                    <p>@Model[i].hotel.Address</p>
                 </div>
             </div>
         }
 
-            <!-- Your form fields go here -->
-        @*<form asp-controller="AdminController" asp-action="Sliderr" method="post">*@
-            @*<div class="ent">*@
-               
-            @*<button type="submit" class="dede">*@
-@*        <a  href="/Admin/Slider"  style="background-color:red;color:black">next</a>
-*@            @*</button>*@
-            @*</div>*@
-        @*</form>*@
-        
-        <div class="ent"><a asp-controller="Admin" asp-action="Slider" class="btn">next</a></div>
+       
     </div>
+
 </div>
-@*@Html.ActionLink("Edit", "Slider","Admin")
-<a href="http://localhost:5277/admin/slider">back to list</a>
-*@
+
+<div style="margin:auto;">
+    <button class="prev-button" style="visibility: hidden;" onclick="moveSlider(-1)"><i class="fa fa-arrow-left"></i></button>
+    @* </div>
+    <div style="margin:auto;">*@
+    <button class="next-button" onclick="moveSlider(1)">  <i class="fa fa-arrow-right"></i></button>
+</div>
+
+
+<script>
+    var currentPosition = 0;
+    var cardSlider = document.querySelector('.card-slider');
+
+    function moveSlider(direction) {
+        currentPosition += direction;
+        if (currentPosition < 0) currentPosition = 0;
+        if(currentPosition >@Model.Count-6) currentPosition=0;
+        if (currentPosition > @Model.Count - 1) currentPosition = @Model.Count - 1;
+        var translateX = currentPosition * -12;
+        cardSlider.style.transform = `translateX(${translateX}%)`;
+    }
+</script>
+
+@*@section Scripts{
+    <script>
+        $.ajax({
+            url: `/Hotel/getAll`,
+            success: function (result) {
+                let hotels = document.getElementById("hotels");
+                for (let hotel of result) {
+                    hotels.innerHTML += $``
+                }
+            }
+        });
+
+    </script>
+}*@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

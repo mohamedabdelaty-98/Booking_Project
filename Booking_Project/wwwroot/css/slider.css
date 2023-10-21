@@ -35,16 +35,19 @@ body {
     height: 25%;
 }
 /* Responsive columns */
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 1100px) {
     .row {
         /* margin: 0 -5px; */
         display: block;
     }
 
     .column {
-        width: 95%;
+        width: 90%;
         display: block;
         margin-bottom: 20px;
+    }
+    .ent{
+        display:none;
     }
 }
 
