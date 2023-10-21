@@ -1,5 +1,44 @@
-﻿@{
+﻿@using System.Diagnostics.Metrics;
+@model List<Hotel>
+
+@{
     ViewData["Title"] = "Home Page";
+}
+<style>
+    .card-slider-container {
+        display:flex;
+        width: 100%;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .card-slider {
+        display: flex;
+        width:150%;
+        transition: transform 0.5s;
+    }
+
+    .card {
+        padding: 20px;
+        box-sizing: border-box;
+        margin: 0 10px; /* Add margin for spacing between cards */
+        background-color: #fff;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        border-radius: 5px;
+    }
+    
+    .prev-button, .next-button {
+        background-color: #007bff;
+        color: #fff;
+        padding-left: 10px 20px;
+        border: none;
+        cursor: pointer;
+        margin-bottom:10px;
+    }
+</style>
+@section Styles{
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 }
 
 @section sitehero{
@@ -116,4 +155,117 @@
     <!-- end search bar -->
 }
 
+<h3 class="mb-3">
+    Exploer Our Hotels 
+      
+</h3>
+
+
+<div class="card-slider-container">
+    <div class="card-slider">
+        @foreach (var hotel in Model)
+        {
+            <div class="card">
+                        <div>
+                        <a asp-controller="home" asp-action="Rooms" asp-route-id="@hotel.Id" style=" color:#003b95 ">@hotel.Name
+                        <div class="rating">
+                            @{
+                                int wholeStars = (int)Math.Floor(hotel.StarRateing);
+                                int remainingStars = 5 - wholeStars;
+                                double fractionalPart = (double)hotel.StarRateing - wholeStars;
+
+                                for (int i = 1; i <= wholeStars; i++)
+                                {
+                                    <span class="fa fa-star" style="color:rgb(246, 182, 7)"></span>
+                                }
+
+                                if (fractionalPart >= 0.5)
+                                {
+                                    <span class="fa fa-star" style="color:rgb(246, 182, 7)"></span>
+                                    remainingStars--;
+                                }
+
+                                for (int i = 0; i < remainingStars; i++)
+                                {
+                                    <span class="fa fa-star star-gray"></span>
+                                }
+                            }
+                        </div>
+                    </a>
+                    </div>
+                      <div class="card-body">
+                            <!-- Slider -->
+                            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                                <ol class="carousel-indicators">
+                                    <li data-target="#carouselExampleIndicators" data-slide-to="1" class="active"></li>
+                                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                                    <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+                                </ol>
+                                <div class="carousel-inner">
+                                    <div class="carousel-inner">
+                                        <div class="carousel-item active">
+                                            <img class="d-block w-100 rounded-top" src="/1.jpg">
+                                        </div>
+                                        <div class="carousel-item ">
+                                            <img class="d-block w-100 rounded-top" src="/2.jpg">
+                                        </div>
+                                        <div class="carousel-item rounded-top ">
+                                            <img class="d-block w-100" src="/3.jpg">
+                                        </div>
+
+
+                                    </div>
+
+
+                                </div>
+
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                   
+      
+    }
+        </div>
+    <div style="margin:auto;">
+        <button class="prev-button" onclick="moveSlider(-1)"><i class="fa fa-arrow-left"></i></button>
+       @* </div>
+    <div style="margin:auto;">*@
+        <button class="next-button" onclick="moveSlider(1)">  <i class="fa fa-arrow-right"></i></button>
+    </div>
+</div>
+
+
+
+
+
+<script>
+    var currentPosition = 0;
+    var cardSlider = document.querySelector('.card-slider');
+
+    function moveSlider(direction) {
+        currentPosition += direction;
+        if (currentPosition < 0) currentPosition = 0;
+        if (currentPosition > @Model.Count - 3) currentPosition = @Model.Count - 3;
+        var translateX = currentPosition * -33.33;
+        cardSlider.style.transform = `translateX(${translateX}%)`;
+    }
+</script>
+
+@*@section Scripts{
+    <script>
+        $.ajax({
+            url: `/Hotel/getAll`,
+            success: function (result) {
+                let hotels = document.getElementById("hotels");
+                for (let hotel of result) {
+                    hotels.innerHTML += $``
+                }
+            }
+        });
+
+    </script>
+}*@
 

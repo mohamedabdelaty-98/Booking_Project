@@ -16,6 +16,7 @@ namespace Booking_Project
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+            //builder.Services.Configure<StripeSettings>(builder.Configuration.GetSection("StripeSettings"));
             // configration of sqldbcontext
             builder.Services.AddDbContext<Context>(options =>
             {

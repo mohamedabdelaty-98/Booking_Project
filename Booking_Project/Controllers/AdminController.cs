@@ -16,13 +16,14 @@ namespace Booking_Project.Controllers
             this.RoomRepo = RoomRepo;
             this.hotelrepo = hotelRepo;
         }
-  
+
+        public IActionResult Index(){
+            return View();
+        }
 
         public IActionResult Reservations()
-
-        public IActionResult Index()
-
-        {
+{
+        
             return View("AllReservations");
         }
 
