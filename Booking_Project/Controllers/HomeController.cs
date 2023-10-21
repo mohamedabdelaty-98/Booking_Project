@@ -15,10 +15,11 @@ namespace Booking_Project.Controllers
 
         public IActionResult Index()
         {
+
             return View();
         }
 
-
+       
         //public IActionResult Register()
         //{
         //    return View();

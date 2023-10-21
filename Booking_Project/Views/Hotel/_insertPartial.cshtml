@@ -1,0 +1,71 @@
+﻿@model Hotel
+<link rel="stylesheet" href="~/css/AddNew.css" asp-append-version="true" />
+
+<div class="container_reg col-7 mt-4 mb-4 " id="getallhotell">
+    <div class="title">New Hotel</div>
+    <div class="content">
+        <form asp-action="Insert" asp-controller="Hotel" method="post">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <input type="hidden" name="ReturnUrl" value="@ViewBag.page" />
+            <div class="user-details">
+                <div class="input-box">
+                    <label class="details" asp-for="Name"></label>
+                    <input asp-for="Name" required>
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="input-box">
+                    <label class="details" asp-for="Address"></label>
+                    <input asp-for="Address" required>
+                    <span asp-validation-for="Address" class="text-danger"></span>
+                </div>
+                <div class="input-box">
+                    <label class="details" asp-for="Description"></label>
+                    <input asp-for="Description" required>
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+                <div class="input-box">
+                    <label class="details" asp-for="StarRateing"></label>
+                    <input asp-for="StarRateing" required>
+                    <span asp-validation-for="StarRateing" class="text-danger"></span>
+                </div>
+
+                <div class="input-box">
+                    <label class="details" asp-for="ContactEmail"></label>
+                    <input asp-for="ContactEmail" required>
+                    <span asp-validation-for="ContactEmail" class="text-danger"></span>
+                </div>
+                <div class="input-box">
+                    <label class="details" asp-for="ContactPhone"></label>
+                    <input asp-for="ContactPhone" required>
+                    <span asp-validation-for="ContactPhone" class="text-danger"></span>
+                </div>
+                <div class="input-box">
+                    <label class="details" asp-for="Longitude"></label>
+                    <input asp-for="Longitude" required>
+                    <span asp-validation-for="Longitude" class="text-danger"></span>
+                </div>
+                <div class="input-box">
+                    <label class="details" asp-for="Latitude"></label>
+                    <input asp-for="Latitude" required>
+                    <span asp-validation-for="Latitude" class="text-danger"></span>
+                </div>
+
+
+                <div class="button">
+                    <input type="submit" value="Add" >
+                    @* <input type="submit" value="Register" class="btn btn-primary" /> *@
+
+                </div>
+
+        </form>
+    </div>
+</div>
+
+<div>
+    <a href="#" onclick="DisplayHotels()">Back to Hotels</a>
+</div>
+<script>
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+</script>
