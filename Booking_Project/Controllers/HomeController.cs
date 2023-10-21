@@ -26,10 +26,12 @@ namespace Booking_Project.Controllers
 
         public IActionResult Index()
         {
-            List<Hotel> hotelModel = hotelRepo.GetAll(h => h.rooms);
 
-            return View("index", hotelModel);
+            List<Hotel> hotelModel = hotelRepo.GetAll(h => h.rooms);
+           return View("index", hotelModel);
         }
+
+
         public IActionResult Rooms(int id)
         {
             List<Room> roomModel = RoomRepo.GetAll(h => h.hotel);
