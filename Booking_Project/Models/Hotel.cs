@@ -29,11 +29,11 @@ namespace Booking_Project.Models
         public decimal Longitude { get; set; }
 
 
-        public List<Room>? rooms { get; set; }
-        public List<Image_Hotel>? image_Hotels { get; set; }
-        public List<Amenities_Hotel>? amenities_Hotels { get; set; }
-        public List<Reviews>? reviews { get; set; }
-        public List<ReservationRoom> reservationRooms { get; set; }
+        public virtual List<Room>? rooms { get; set; }
+        public  virtual List<Image_Hotel>? image_Hotels { get; set; }
+        public  virtual List<Amenities_Hotel>? amenities_Hotels { get; set; }
+        public  virtual List<Reviews>? reviews { get; set; }
+        public  virtual List<ReservationRoom> reservationRooms { get; set; }
 
     }
 }
