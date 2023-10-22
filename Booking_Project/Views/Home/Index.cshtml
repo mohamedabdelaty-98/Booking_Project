@@ -123,6 +123,7 @@
     </section>
     <!-- end search bar -->
 }
+<!-- start section 1 {cites} -->
 <div class="row ">
     <div class="col-sm-10 col-lg-6 my-2 homeCity">
         <div style="overflow:hidden;height:18rem;">
@@ -174,45 +175,30 @@
         </div>
     </div>
 </div>
-<h3 class="mb-3">
+
+<!-- End section 1 {cites} -->
+<!-- start section 2 {hotels} -->
+
+<h3 class="mb-3" style="margin-top:2rem;">
     Exploer Our Hotels 
       
 </h3>
+<div class="row ">
+    <div class="col-1">
+        <div style="margin:auto;" >
+            <button class="prev-button rounded-circle" onclick="moveSlider(-1)">  <i class="fa fa-arrow-left"></i></</button>
+        </div>
+    </div>
+    <div class="col-10">
+        <div class="card-slider-container container">
 
+            <div class="card-slider row">
 
-<div class="card-slider-container">
-    <div class="card-slider">
-        @foreach (var hotel in Model)
-        {
-            <div class="card">
-                        <div>
-                        <a asp-controller="home" asp-action="Rooms" asp-route-id="@hotel.Id" style=" color:#003b95 ">@hotel.Name
-                        <div class="rating">
-                            @{
-                                int wholeStars = (int)Math.Floor(hotel.StarRateing);
-                                int remainingStars = 5 - wholeStars;
-                                double fractionalPart = (double)hotel.StarRateing - wholeStars;
+                @foreach (var hotel in Model)
+                {
+                    <div class="card col-sm-10 col-md-5 col-lg-2 cardsm ">
 
-                                for (int i = 1; i <= wholeStars; i++)
-                                {
-                                    <span class="fa fa-star" style="color:rgb(246, 182, 7)"></span>
-                                }
-
-                                if (fractionalPart >= 0.5)
-                                {
-                                    <span class="fa fa-star" style="color:rgb(246, 182, 7)"></span>
-                                    remainingStars--;
-                                }
-
-                                for (int i = 0; i < remainingStars; i++)
-                                {
-                                    <span class="fa fa-star star-gray"></span>
-                                }
-                            }
-                        </div>
-                    </a>
-                    </div>
-                      <div class="card-body">
+                        <div class="card-body" style="padding:0 !important">
                             <!-- Slider -->
                             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                                 <ol class="carousel-indicators">
@@ -241,24 +227,56 @@
                             </div>
                         </div>
 
+                        <div>
+                            <a asp-controller="home" asp-action="Rooms" asp-route-id="@hotel.Id" style=" color:#003b95;margin-left:10px !important;  ">
+                                @hotel.Name
+                                <div class="rating" style="margin-left:10px !important; ">
+                                    @{
+                                        int wholeStars = (int)Math.Floor(hotel.StarRateing);
+                                        int remainingStars = 5 - wholeStars;
+                                        double fractionalPart = (double)hotel.StarRateing - wholeStars;
 
+                                        for (int i = 1; i <= wholeStars; i++)
+                                        {
+                                            <span class="fa fa-star" style="color:rgb(246, 182, 7)"></span>
+                                        }
+
+                                        if (fractionalPart >= 0.5)
+                                        {
+                                            <span class="fa fa-star" style="color:rgb(246, 182, 7)"></span>
+                                            remainingStars--;
+                                        }
+
+                                        for (int i = 0; i < remainingStars; i++)
+                                        {
+                                            <span class="fa fa-star star-gray"></span>
+                                        }
+                                    }
+                                </div>
+                            </a>
+                        </div>
 
                     </div>
-                   
-      
-    }
+
+
+                }
+            </div>
+
         </div>
-    <div style="margin:auto;">
-        <button class="prev-button" onclick="moveSlider(-1)"><i class="fa fa-arrow-left"></i></button>
-       @* </div>
-    <div style="margin:auto;">*@
-        <button class="next-button" onclick="moveSlider(1)">  <i class="fa fa-arrow-right"></i></button>
+    </div>
+    <div class="col-1">
+        <div style="margin:auto;">
+
+            <button class="next-button rounded-circle " onclick="moveSlider(1)">  <i class="fa fa-arrow-right"></i></button>
+        </div>
     </div>
 </div>
 
 
 
+<!-- end section 2 {hotels} -->
 
+<!-- start section 2{hotels} scripts -->
 
 <script>
     var currentPosition = 0;
@@ -272,73 +290,8 @@
         cardSlider.style.transform = `translateX(${translateX}%)`;
     }
 </script>
-
-@*@section Scripts{
-    <script>
-        $.ajax({
-            url: `/Hotel/getAll`,
-            success: function (result) {
-                let hotels = document.getElementById("hotels");
-                for (let hotel of result) {
-                    hotels.innerHTML += $``
-                }
-            }
-        });
-
-    </script>
-}*@
-
-    <div class="row ">
-    <div class="col-sm-10 col-lg-6 my-2 homeCity">
-        <div style="overflow:hidden;height:18rem;">
-            <h3 class="img-label">Cairo</h3>
-            <img src="~/Images/Rooms/egypt.png" class="tag-label"/>
-            <a asp-controller="Hotel" asp-action="hotelsCity" asp-route-city="Cairo">
-                <img src="./Images/Rooms/cairo.jpg" class="img-fluid imgBorder" style="height:100%;width:100%;object-fit:cover;" />
-            </a>
-        </div>
-        </div>
-    <div class="col-sm-10 col-lg-6 rounded-2 my-2 homeCity">
-            <div style="overflow:hidden;height:18rem;">
-            <h3 class="img-label">Hurghada</h3>
-            <img src="~/Images/Rooms/egypt.png" class="tag2-label" />
-            <a asp-controller="Hotel" asp-action="hotelsCity" asp-route-city="Hurghada">
-                    <img src="./Images/Rooms/hurghada.jpg" class="img-fluid imgBorder" style="height:100%;width:100%;object-fit:cover;" />
-                </a>
-            </div>
-        </div>
-        </div>
-
-<div class="row ">
-    <div class="col-sm-10 col-lg-4 my-2 homeCity">
-        <div style="overflow:hidden;height:18rem;">
-            <h3 class="img-label">Alexandria</h3>
-            <img src="~/Images/Rooms/egypt.png" class="tag3-label" />
-            <a asp-controller="Hotel" asp-action="hotelsCity" asp-route-city="Alexandria">
-                <img src="./Images/Rooms/alex.jpg" class="img-fluid imgBorder" style="height:100%;width:100%;object-fit:cover;" />
-            </a>
-        </div>
-    </div>
-    <div class="col-sm-10 col-lg-4 rounded-2 my-2 homeCity">
-        <div style="overflow:hidden;height:18rem;">
-            <h3 class="img-label">Makkah</h3>
-            <img src="~/Images/Rooms/egypt.png" class="tag4-label" />
-            <a asp-controller="Hotel" asp-action="hotelsCity" asp-route-city="Makkah">
-                <img src="./Images/Rooms/makkah.jpg" class="img-fluid imgBorder" style="height:100%;width:100%;object-fit:cover;" />
-            </a>
-        </div>
-    </div>
-
-    <div class="col-sm-10 col-lg-4 rounded-2 my-2 homeCity">
-        <div style="overflow:hidden;height:18rem;">
-            <h3 class="img-label">Sharm El Sheikh</h3>
-            <img src="~/Images/Rooms/egypt.png" class="tag5-label" />
-            <a asp-controller="Hotel" asp-action="hotelsCity" asp-route-city="Sharm El Sheikh">
-                <img src="./Images/Rooms/sharm.jpg" class="img-fluid imgBorder" style="height:100%;width:100%;object-fit:cover;" />
-            </a>
-        </div>
-    </div>
-</div>
+<!-- start section 2 {hotels}  scripts-->
 
 
+   
 

@@ -36,7 +36,7 @@ namespace Booking_Project.Controllers
             ViewBag.Id = id;
             return View("Rooms", roomModel);
         }
-
+        [Authorize]
         public IActionResult book(int id)
         {
             Room roomModel = RoomRepo.GetById(id);

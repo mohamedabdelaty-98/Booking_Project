@@ -751,7 +751,7 @@ textarea.form-control {
 }
 /****************************************************************************************/
 
-/*sectionOneInMain */
+/*sectionOne cites */
 div .homeCity {
     padding-left: 0 !important;
     border-radius: 3px;
@@ -820,7 +820,52 @@ div .homeCity {
 }
 
 @media (max-width: 520px) {
-    ..homeCity {
+    .homeCity {
         margin-left:.3rem !important;
     }
 }
+/*End sectionOne cites */
+
+/**************************************************************/
+/* start section hotels */
+.card-slider-container {
+    display: flex;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    margin-bottom:2rem;
+}
+
+.card-slider {
+    display: flex;
+    width: 150%;
+    transition: transform 0.5s;
+}
+
+.card {
+    box-sizing: border-box;
+    margin: 0 10px; /* Add margin for spacing between cards */
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+.prev-button, .next-button {
+    background-color:#fff;
+    color: darkblue;
+    padding-left: 10px 20px;
+    border: 1px solid blue;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+
+@media (max-width: 520px) {
+    .cardsm {
+        margin-bottom: .6rem !important;
+    }
+}
+/*end section hotels*/
+/*****************************************************************************/
