@@ -1,9 +1,11 @@
 ﻿using Booking_Project.Models;
 using Booking_Project.Reposatory;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Booking_Project.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class AmenitiesController : Controller
     {
         ICrudOperation<Amenities> amenities;
