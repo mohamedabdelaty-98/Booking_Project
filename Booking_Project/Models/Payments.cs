@@ -12,11 +12,14 @@ namespace Booking_Project.Models
         // public string PaymentMethod { get; set; }
         [ForeignKey("user")]
         public string UserId { get; set; }
+
         public virtual ApplicationIdentityUser user { get; set; }
 
         [ForeignKey("reservation")]
         public int ReservationId { get; set; }
         public virtual Reservations reservation { get; set; }
+
+       
 
 
     }

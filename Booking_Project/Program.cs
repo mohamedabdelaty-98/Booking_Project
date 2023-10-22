@@ -16,6 +16,7 @@ namespace Booking_Project
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+            //builder.Services.Configure<StripeSettings>(builder.Configuration.GetSection("StripeSettings"));
             // configration of sqldbcontext
             builder.Services.AddDbContext<Context>(options =>
             {
@@ -30,6 +31,8 @@ namespace Booking_Project
             builder.Services.AddScoped<ICrudOperation<Image_Hotel>, CrudOperationRepo<Image_Hotel>>();
             builder.Services.AddScoped<ICrudOperation<Amenities>, CrudOperationRepo<Amenities>>();
             builder.Services.AddScoped<ICrudOperation<Amenities_Hotel>, CrudOperationRepo<Amenities_Hotel>>();
+            builder.Services.AddScoped<IHotelOfCity, HotelsOfCity>();
+
 
             builder.Services.AddScoped<ICrudOperation<Reservations>, CrudOperationRepo<Reservations>>();
 
@@ -41,6 +44,11 @@ namespace Booking_Project
            builder.Services.AddScoped<ICrudOperation<Image_Room>, CrudOperationRepo<Image_Room>>();
            
 
+
+            builder.Services.AddScoped<ICrudOperation<ApplicationIdentityUser>, CrudOperationRepo<ApplicationIdentityUser>>();
+            
+            builder.Services.AddScoped<ICrudOperation<ReservationRoom>, CrudOperationRepo<ReservationRoom>>();
+            
             //configration of identity
             builder.Services.AddIdentity<ApplicationIdentityUser, IdentityRole>(option=>
             {

@@ -2,7 +2,7 @@
 
 namespace Booking_Project.Reposatory
 {
-    public interface ICrudOperation<T>where T : class
+    public interface ISlider : ICrudOperation<T> 
     {
         List<T> GetAll(params Expression<Func<T, object>>[] includeProperties);
         T GetById(int id);
@@ -10,6 +10,9 @@ namespace Booking_Project.Reposatory
         void update(T Entity);
         void Delete(int id);
         int save();
-        object? SelectMany(Func<object, object> value);
+    }
+
+    public class T
+    {
     }
 }
