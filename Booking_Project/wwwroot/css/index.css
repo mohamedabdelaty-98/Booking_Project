@@ -871,8 +871,8 @@ div .homeCity {
 /*****************************************************************************/
 /*start section slider*/
 .slider {
-    height: 55vh;
-    border-radius: 2rem;
+    height: 60vh;
+    border-radius: 1rem;
     margin-bottom: 80px;
     position: relative;
     overflow: hidden;
@@ -915,5 +915,13 @@ div .homeCity {
             font-family: monospace;
             font-weight: bold;
         }
+
+@media (max-width: 991.98px) {
+    .slider{
+        margin-top:2rem;
+        margin-left:4px !important;
+        
+    }
+}
 /*end section slider*/
 /****************************************************************************/

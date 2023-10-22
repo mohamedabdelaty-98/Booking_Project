@@ -1,4 +1,5 @@
-﻿<div class="mt-2 me-5">
+﻿<link href="~/css/loginpartial.css" rel="stylesheet" />
+<div class="mt-2 me-5 smallsize" style=@(User.IsInRole("Admin")?"margin-left:14rem":"margin-left:67rem")>
 <div class="dropdown">
     <div class="dropdown-menu rounded mt-6" aria-labelledby="dropdownMenuButton" style="width:13.6rem">
         <a class="dropdown-item" href="#">
