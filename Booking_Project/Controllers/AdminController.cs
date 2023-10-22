@@ -19,6 +19,7 @@ namespace Booking_Project.Controllers
             this.hotelrepo = hotelRepo;
         }
         public IActionResult Index(){
+            return View();
         }
 
         public IActionResult Reservations()
