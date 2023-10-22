@@ -21,11 +21,26 @@ namespace Booking_Project.Controllers
         {
             return View();
         }
-        //public IActionResult insert()
-        //{
-        //    ViewData["Rooms"]= room.GetAll();
-        //}
-        public IActionResult getAll()
+        public IActionResult insert()
+        {
+            ViewData["Rooms"] = room.GetAll();
+            ViewData["Amenities"] = amenities.GetAll();
+            return PartialView("_InsertAmentiesRoomPartial");
+
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult insert(AmenitiesRoom amenities_room)
+        {
+            if (ModelState.IsValid)
+            {
+                amenitiesroom.insert(amenities_room);
+                amenitiesroom.save();
+                return RedirectToAction("index", "admin");
+            }
+            return PartialView("_InsertAmentiesRoomPartial", amenities_room);
+        }
+    public IActionResult getAll()
         {
             List<AmenitiesRoom> amenityroom = amenitiesroom.GetAll(a => a.amenities, a => a.room);
 

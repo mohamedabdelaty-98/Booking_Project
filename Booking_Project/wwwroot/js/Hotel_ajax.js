@@ -7,6 +7,8 @@ function DisplayHotels() {
     aminietes_disp.classList.add("display_visable");
     user_.classList.add("display_visable");
     resrve.classList.add("display_visable");
+    _addadmin.classList.add("display_visable");
+
     hotel_disp.classList.remove("display_visable");
     $.ajax(
         {
@@ -27,6 +29,7 @@ function DisplayRooms() {
     aminietes_disp.classList.add("display_visable");
     user_.classList.add("display_visable");
     resrve.classList.add("display_visable");
+    _addadmin.classList.add("display_visable");
 
     room_disp.classList.remove("display_visable");
     
@@ -50,6 +53,7 @@ function DisplayAmenties() {
     room_disp.classList.add("display_visable");
     user_.classList.add("display_visable");
     resrve.classList.add("display_visable");
+    _addadmin.classList.add("display_visable");
 
     aminietes_disp.classList.remove("display_visable");
 
@@ -72,6 +76,8 @@ function DisplayUsers() {
     aminietes_disp.classList.add("display_visable");
     room_disp.classList.add("display_visable");
     resrve.classList.add("display_visable");
+    _addadmin.classList.add("display_visable");
+
     user_.classList.remove("display_visable");
 
 
@@ -93,6 +99,8 @@ function DisplayReservations() {
     aminietes_disp.classList.add("display_visable");
     room_disp.classList.add("display_visable");
     user_.classList.add("display_visable");
+    _addadmin.classList.add("display_visable");
+
     resrve.classList.remove("display_visable");
 
     console.log("dddd");
@@ -102,6 +110,28 @@ function DisplayReservations() {
             success: function (result) {
                 console.log(result);
                 $("#Reservations").html(result);
+            }
+        }
+
+    );
+}
+var _addadmin = document.getElementById("add_admin");
+function Addadmin() {
+    hotel_disp.classList.add("display_visable")
+    aminietes_disp.classList.add("display_visable");
+    room_disp.classList.add("display_visable");
+    user_.classList.add("display_visable");
+    resrve.classList.add("display_visable");
+    _addadmin.classList.remove("display_visable");
+
+
+    console.log("dddd");
+    $.ajax(
+        {
+            url: "/adminaccount/addadmin/",
+            success: function (result) {
+                console.log(result);
+                $("#add_admin").html(result);
             }
         }
 

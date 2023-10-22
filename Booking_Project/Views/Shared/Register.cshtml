@@ -12,7 +12,7 @@
     <div class="title">Registration</div>
     <div class="content">
         <form method="post" >
-            <div asp-validation-summary="All" class="text-danger"></div>
+           
             <input type="hidden" name="ReturnUrl" value="@ViewBag.page" />
             <div class="user-details">
                 <div class="input-box">
@@ -68,22 +68,9 @@
                 </div>
 
             </div>
-            <div class="gender-details">
-                @* <input type="radio" name="gender" id="dot-1">
-                <input type="radio" name="gender" id="dot-2">
-                <span class="gender-title">Gender</span>
-                <div class="category">
-                    <label for="dot-1">
-                        <span class="dot one"></span>
-                        <span class="gender">Male</span>
-                    </label>
-                    <label for="dot-2">
-                        <span class="dot two"></span>
-                        <span class="gender">Female</span>
-                    </label>
-
-                </div> *@
-                <select class="options" name="gender">
+                <div class="">
+                
+                    <select class="options select_gender " name="gender">
                     <option class="option" value="0">Male</option>
                     <option class="option" value="1">Female</option>
                 </select>

@@ -9,7 +9,7 @@ namespace Booking_Project.Controllers
 {
 
 
-    //[Authorize(Roles ="Admin")]
+    [Authorize(Roles ="Admin")]
     public class AdminController : Controller
     {
         private readonly ICrudOperation<Room> RoomRepo;

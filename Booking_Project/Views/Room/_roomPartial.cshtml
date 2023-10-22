@@ -88,7 +88,15 @@
                 <hr>
                 <!-- Description -->
                 <p class="card-text">Max Occupancy: @Room.MaxOccupancy</p>
+                    <div class="my-2">
+                        <div class="d-flex flex-wrap border-1">
+                            @for (int i = 0; i < Room.aminitesRooms.Count; i++)
+                            {
 
+                                <a class="px-2 m-1" style="border:2px solid rgb(246, 182, 7);color:darkolivegreen;  border-radius:7px 7px !important">@Room.aminitesRooms[i].amenities.Name</a>
+                            }
+                        </div>
+                    </div>
 
                 <a asp-action="EditRoom" asp-route-id="@Room.Id" class="btn" style="background-color: #003b95;color:white !important; border-radius:7px 7px !important">Edit</a>
                 <a asp-action="DeleteRoom" asp-route-id="@Room.Id" class="btn" style="background-color: #003b95; color: white !important;border-radius:7px 7px !important">Delete</a>
@@ -104,9 +112,11 @@
 </div>
 <div id="_AddRoom"></div>
 <div id="_add_room_image"></div>
+<div id="_AddAmenitiesRoom"></div>
 <script>
     function AddRoom() {
             partroom.classList.add("display_visable");
+        _AddAmenitiesRoom.classList.add("display_visable");
             _AddRoom.classList.remove("display_visable");
             _add_room_image.classList.add("display_visable");
         $.ajax(
@@ -124,6 +134,7 @@
         function AddRoomImages() {
         partroom.classList.add("display_visable");
         _AddRoom.classList.add("display_visable");
+        _AddAmenitiesRoom.classList.add("display_visable");
         _add_room_image.classList.remove("display_visable");
         console.log();
         $.ajax(
@@ -137,4 +148,21 @@
 
         );
     }
+    function AddAmenitiesRoom() {
+        partroom.classList.add("display_visable");
+        _AddRoom.classList.add("display_visable");
+        _add_room_image.classList.add("display_visable");
+        _AddAmenitiesRoom.classList.remove("display_visable");
+        console.log();
+        $.ajax(
+            {
+                url: "/AmentiesRooms/insert",
+                success: function (result) {
+                    console.log(result);
+                    $("#_AddAmenitiesRoom").html(result);
+                }
+            }
+        );
+    }
+
 </script>

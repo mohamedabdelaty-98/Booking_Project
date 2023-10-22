@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Booking_Project.Controllers
 {
-   // [Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin")]
     public class AdminAccountController : Controller
     {
         private readonly IMapper mapper;
@@ -45,7 +45,7 @@ namespace Booking_Project.Controllers
                 {
                     await  userManager.AddToRoleAsync(applicationIdentity, "Admin");
                     //cookie -token ...
-                    await signInManager.SignInAsync(applicationIdentity, false);
+                    //await signInManager.SignInAsync(applicationIdentity, false);
                     return LocalRedirect(ReturnUrl);
                 }
                 foreach (var item in result.Errors)
