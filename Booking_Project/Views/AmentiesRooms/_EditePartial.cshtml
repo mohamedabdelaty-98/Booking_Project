@@ -1,4 +1,4 @@
-﻿@model Booking_Project.Models.Amenities_Hotel
+﻿@model Booking_Project.Models.AmenitiesRoom
 
 @{
     ViewData["Title"] = "getOnly";
@@ -9,14 +9,14 @@
 
 
 
-<h4>Amenities Hotel</h4>
+<h4>Amenities Room</h4>
 <hr />
 <link rel="stylesheet" href="~/css/AddNew.css" asp-append-version="true" />
 
 <div class="container_reg col-7 mt-4 mb-4 " id="getallhotell">
     <div class="title">New Amenty</div>
     <div class="content">
-        <form asp-action="update">
+        <form asp-action="Edite">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
             <div class="user-details">
@@ -26,11 +26,11 @@
                     <span asp-validation-for="Price" class="text-danger"></span>
                 </div>
                 <div class="input-box">
-                    <label class="details" asp-for="HotelId">Hotels</label>
-                    <select id="HotelId" name="HotelId">
-                        <option value="@ViewBag.hotels.Id" selected>@ViewBag.hotels.Name</option>
+                    <label class="details" asp-for="RoomId">Rooms Number</label>
+                    <select id="RoomId" name="RoomId">
+                        <option value="@ViewBag.rooms.Id" selected>@ViewBag.rooms.room_number</option>
                     </select>
-                    <span asp-validation-for="HotelId" class="text-danger"></span>
+                    <span asp-validation-for="RoomId" class="text-danger"></span>
                 </div>
                 <div class="input-box">
                     <label class="details" asp-for="AmentiesId">Amenties</label>
@@ -50,6 +50,6 @@
 </div>
 
 <div>
-    <a href="#" onclick="showamintieshotel()">Back to List</a>
+    <a href="#" onclick="Showamentiesroom()">Back to List</a>
 </div>
 

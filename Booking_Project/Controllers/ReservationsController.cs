@@ -13,8 +13,7 @@ namespace Booking_Project.Controllers
         }
         public IActionResult GetAll()
         {
-            
-            return View(Reservations.GetAll(R=>R.user));
+            return PartialView("_ReservationPartial", Reservations.GetAll(R=>R.user));
         }
         public IActionResult GetbyId(int id) { 
         
