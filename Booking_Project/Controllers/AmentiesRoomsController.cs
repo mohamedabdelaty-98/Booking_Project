@@ -21,9 +21,37 @@ namespace Booking_Project.Controllers
         {
             return View();
         }
-        public IActionResult insert()
+        //public IActionResult insert()
+        //{
+        //    ViewData["Rooms"]= room.GetAll();
+        //}
+        public IActionResult getAll()
         {
-            ViewData["Rooms"]= room.GetAll();
+            List<AmenitiesRoom> amenityroom = amenitiesroom.GetAll(a => a.amenities, a => a.room);
+
+            return PartialView("_getallAmentiesroom", amenityroom);
+        }
+        public IActionResult Edite(int id)
+        {
+
+            AmenitiesRoom amenities_room = amenitiesroom.GetById(id);
+            ViewData["rooms"] = room.GetById(amenities_room.RoomId);
+            ViewData["amenities"] = amenities.GetById(amenities_room.AmentiesId);
+            return PartialView("_EditePartial",amenities_room);
+
+        }
+        [HttpPost]
+        public IActionResult Edite(AmenitiesRoom amenities)
+        {
+            amenitiesroom.update(amenities);
+            amenitiesroom.save();
+            return RedirectToAction("index", "admin");
+        }
+        public IActionResult delete(int id)
+        {
+            amenitiesroom.Delete(id);
+            amenitiesroom.save();
+            return RedirectToAction("index", "admin");
         }
     }
 }

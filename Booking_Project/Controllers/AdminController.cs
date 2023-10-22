@@ -14,11 +14,14 @@ namespace Booking_Project.Controllers
     {
         private readonly ICrudOperation<Room> RoomRepo;
         private readonly ICrudOperation<Hotel> hotelrepo;
+        private readonly ICrudOperation<ApplicationIdentityUser> user_Data;
 
-        public AdminController(ICrudOperation<Room> RoomRepo,ICrudOperation<Hotel> hotelRepo)
+        public AdminController(ICrudOperation<Room> RoomRepo,ICrudOperation<Hotel> hotelRepo,
+            ICrudOperation<ApplicationIdentityUser> user_Data)
         {
             this.RoomRepo = RoomRepo;
             this.hotelrepo = hotelRepo;
+            this.user_Data = user_Data;
         }
         public IActionResult Index(){
             
@@ -30,14 +33,19 @@ namespace Booking_Project.Controllers
             return View("AllReservations");
 
         }
+        public IActionResult Showuser()
+        {
 
+
+            return PartialView("_showuserPartial",user_Data.GetAll(e => e.reservations));
+        }
         //public IActionResult Rooms()
         //{
         //    List<Room> RoomModel = RoomRepo.GetAll(h=>h.hotel);
-           
+
         //    return View("room",RoomModel);
         //}
-        
+
         //public IActionResult EditRoom(int id)
         //{
         //    Room rs = RoomRepo.GetById(id);
@@ -87,7 +95,7 @@ namespace Booking_Project.Controllers
 
         //    return View("new", room);
         //}
-       
+
 
     }
 }

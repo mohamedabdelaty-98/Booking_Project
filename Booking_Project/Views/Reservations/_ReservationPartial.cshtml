@@ -1,0 +1,50 @@
+﻿@using Booking_Project.Models
+@model List<Reservations>
+
+@{
+    ViewData["Title"] = "GetAll";
+}
+
+<div class="container" id="all">
+    <table class="table table-bordered table-hover mx-3 mt-3">
+        <tr>
+        <thead style="background-color: #002d72;">
+        <th >Booking ID</th>
+        <th >User Name</th>
+        <th>CheckinDate </th>
+        <th >CheckOutDate</th>
+        <th >Payment Status</th>
+        <th >Room Status</th>
+        <th>Reservation Rooms</th>
+        </thead>
+        </tr>
+        <tbody>
+
+            @foreach (var reservation in Model)
+            {
+                <tr>
+                    <td> @reservation.Id</td>
+                    <td>@reservation.user.Fname</td>
+                    <td>@reservation.CheckInDate</td>
+                    <td>@reservation.CheckOutDate</td>
+                    @*<td>@reservation.payments.PaymentAmount</td>*@
+                    @*<td>@reservation.Status.Value</td>*@
+
+                    <td>
+
+                        <ul class="list-group-flush">
+                            @foreach (var room in reservation.reservationRooms)
+                            {
+                                <li class="list-group-flush">@room.room.room_number</li>
+                            }
+                        </ul>
+                    </td>
+
+                </tr>
+
+            }
+
+        </tbody>
+    </table>
+</div>
+
