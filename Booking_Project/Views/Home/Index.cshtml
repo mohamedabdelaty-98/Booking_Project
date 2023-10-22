@@ -4,38 +4,7 @@
 @{
     ViewData["Title"] = "Home Page";
 }
-<style>
-    .card-slider-container {
-        display:flex;
-        width: 100%;
-        overflow: hidden;
-        position: relative;
-    }
 
-    .card-slider {
-        display: flex;
-        width:150%;
-        transition: transform 0.5s;
-    }
-
-    .card {
-        padding: 20px;
-        box-sizing: border-box;
-        margin: 0 10px; /* Add margin for spacing between cards */
-        background-color: #fff;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-        border-radius: 5px;
-    }
-    
-    .prev-button, .next-button {
-        background-color: #007bff;
-        color: #fff;
-        padding-left: 10px 20px;
-        border: none;
-        cursor: pointer;
-        margin-bottom:10px;
-    }
-</style>
 @section Styles{
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -154,7 +123,57 @@
     </section>
     <!-- end search bar -->
 }
+<div class="row ">
+    <div class="col-sm-10 col-lg-6 my-2 homeCity">
+        <div style="overflow:hidden;height:18rem;">
+            <h3 class="img-label">Cairo</h3>
+            <img src="~/Images/Rooms/egypt.png" class="tag-label" />
+            <a asp-controller="Hotel" asp-action="hotelsCity" asp-route-city="Cairo">
+                <img src="./Images/Rooms/cairo.jpg" class="img-fluid imgBorder" style="height:100%;width:100%;object-fit:cover;" />
+            </a>
+        </div>
+    </div>
+    <div class="col-sm-10 col-lg-6 rounded-2 my-2 homeCity">
+        <div style="overflow:hidden;height:18rem;">
+            <h3 class="img-label">Hurghada</h3>
+            <img src="~/Images/Rooms/egypt.png" class="tag2-label" />
+            <a asp-controller="Hotel" asp-action="hotelsCity" asp-route-city="Hurghada">
+                <img src="./Images/Rooms/hurghada.jpg" class="img-fluid imgBorder" style="height:100%;width:100%;object-fit:cover;" />
+            </a>
+        </div>
+    </div>
+</div>
 
+<div class="row ">
+    <div class="col-sm-10 col-lg-4 my-2 homeCity">
+        <div style="overflow:hidden;height:18rem;">
+            <h3 class="img-label">Alexandria</h3>
+            <img src="~/Images/Rooms/egypt.png" class="tag3-label" />
+            <a asp-controller="Hotel" asp-action="hotelsCity" asp-route-city="Alexandria">
+                <img src="./Images/Rooms/alex.jpg" class="img-fluid imgBorder" style="height:100%;width:100%;object-fit:cover;" />
+            </a>
+        </div>
+    </div>
+    <div class="col-sm-10 col-lg-4 rounded-2 my-2 homeCity">
+        <div style="overflow:hidden;height:18rem;">
+            <h3 class="img-label">Makkah</h3>
+            <img src="~/Images/Rooms/egypt.png" class="tag4-label" />
+            <a asp-controller="Hotel" asp-action="hotelsCity" asp-route-city="Makkah">
+                <img src="./Images/Rooms/makkah.jpg" class="img-fluid imgBorder" style="height:100%;width:100%;object-fit:cover;" />
+            </a>
+        </div>
+    </div>
+
+    <div class="col-sm-10 col-lg-4 rounded-2 my-2 homeCity">
+        <div style="overflow:hidden;height:18rem;">
+            <h3 class="img-label">Sharm El Sheikh</h3>
+            <img src="~/Images/Rooms/egypt.png" class="tag5-label" />
+            <a asp-controller="Hotel" asp-action="hotelsCity" asp-route-city="Sharm El Sheikh">
+                <img src="./Images/Rooms/sharm.jpg" class="img-fluid imgBorder" style="height:100%;width:100%;object-fit:cover;" />
+            </a>
+        </div>
+    </div>
+</div>
 <h3 class="mb-3">
     Exploer Our Hotels 
       

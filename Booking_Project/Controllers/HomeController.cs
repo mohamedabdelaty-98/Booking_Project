@@ -15,12 +15,10 @@ namespace Booking_Project.Controllers
         private readonly ILogger<HomeController> _logger;
         private readonly ICrudOperation<Hotel> hotelRepo;
         private readonly ICrudOperation<Room> RoomRepo;
-        private readonly StripeSettings _stripeSettings;
 
 
-        public HomeController(IOptions<StripeSettings> stripeSettings, ILogger<HomeController> logger, ICrudOperation<Hotel> hotelRepo, ICrudOperation<Room> RoomRepo)
+        public HomeController( ILogger<HomeController> logger, ICrudOperation<Hotel> hotelRepo, ICrudOperation<Room> RoomRepo)
         {
-            _stripeSettings = stripeSettings.Value;
             _logger = logger;
             this.hotelRepo = hotelRepo;
             this.RoomRepo = RoomRepo;
