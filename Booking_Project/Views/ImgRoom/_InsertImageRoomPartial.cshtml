@@ -1,14 +1,14 @@
 ﻿@model Booking_Project.Models.Image_Room
 @{
     ViewData["Title"] = "Add images";
-    SelectList Rooms = new SelectList(ViewBag.Rooms, "Id", "Name");
+    SelectList Rooms = new SelectList(ViewBag.rooms, "Id", "room_number");
 
 }
 <link rel="stylesheet" href="~/css/AddNew.css" asp-append-version="true" />
 <div class="container_reg col-7 mt-4 mb-4" id="imagepartial">
     <div class="title">Add Room Image</div>
     <div class="content">
-        <form asp-action="Insert" enctype="multipart/form-data">
+        <form asp-action="Insert" asp-controller="ImgRoom" enctype="multipart/form-data">
             <div asp-validation-summary="All" class="text-danger"></div>
 
             <div class="input-box">

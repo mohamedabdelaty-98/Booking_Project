@@ -15,7 +15,7 @@
 <div class="container_reg col-7 mt-4 mb-4">
     <div class="title">New Room</div>
     <div class="content">
-        <form method="post">
+        <form asp-action="NewRoom" asp-controller="Room" method="post">
             <div asp-validation-summary="All" class="text-danger"></div>
             <input type="hidden" name="ReturnUrl" value="@ViewBag.page" />
             <div class="user-details">
