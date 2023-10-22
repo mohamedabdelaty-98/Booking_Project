@@ -39,7 +39,9 @@ namespace Booking_Project
 
            builder.Services.AddScoped<ICrudOperation<Reviews>, CrudOperationRepo<Reviews>>();
            builder.Services.AddScoped<ICrudOperation<Image_Room>, CrudOperationRepo<Image_Room>>();
-           
+            builder.Services.AddScoped<ICrudOperation<AmenitiesRoom>, CrudOperationRepo<AmenitiesRoom>>();
+
+
 
             //configration of identity
             builder.Services.AddIdentity<ApplicationIdentityUser, IdentityRole>(option=>
