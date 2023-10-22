@@ -28,7 +28,6 @@ namespace Booking_Project.Controllers
         {
             List<Hotel> hotelModel = hotelRepo.GetAll(h => h.image_Hotels, h => h.rooms);
 
-            List<Hotel> hotelModel = hotelRepo.GetAll(h => h.rooms);
            return View("index", hotelModel);
         }
 
