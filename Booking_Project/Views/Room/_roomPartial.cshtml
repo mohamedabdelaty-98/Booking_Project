@@ -1,5 +1,7 @@
 ﻿@model List<Room>
 <partial name="_NavProcessRoom"></partial>
+<hr />
+<div id="partroom">
 <div class="row m-2 justify-content-center">
  
     @foreach (Room Room in Model)
@@ -99,3 +101,40 @@
     }
 
 </div>
+</div>
+<div id="_AddRoom"></div>
+<div id="_add_room_image"></div>
+<script>
+    function AddRoom() {
+            partroom.classList.add("display_visable");
+            _AddRoom.classList.remove("display_visable");
+            _add_room_image.classList.add("display_visable");
+        $.ajax(
+            {
+                url: "/Room/NewRoom/",
+                success: function (result) {
+                    console.log(result);
+                    $("#_AddRoom").html(result);
+                }
+            }
+
+        );
+    }
+
+        function AddRoomImages() {
+        partroom.classList.add("display_visable");
+        _AddRoom.classList.add("display_visable");
+        _add_room_image.classList.remove("display_visable");
+        console.log();
+        $.ajax(
+            {
+                url: "/ImgRoom/Insert",
+                success: function (result) {
+                    console.log(result);
+                    $("#_add_room_image").html(result);
+                }
+            }
+
+        );
+    }
+</script>

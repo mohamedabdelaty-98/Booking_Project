@@ -61,7 +61,7 @@ namespace Booking_Project.Controllers
             //List<Room> RoomModel = RoomRepo.GetAll(h => h.hotel);
             ViewData["depts"] = hotelrepo.GetAll().ToList();
 
-            return View();
+            return PartialView("_AddRoomPartial");
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -76,7 +76,7 @@ namespace Booking_Project.Controllers
             List<Room> RoomModel = RoomRepo.GetAll(h => h.hotel);
             ViewData["depts"] = hotelrepo.GetAll().ToList();
 
-            return View(room);
+            return PartialView("_AddRoomPartial");
         }
 
         //public IActionResult New()

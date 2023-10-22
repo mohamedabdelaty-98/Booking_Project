@@ -14,9 +14,10 @@
     color: black !important;
 }
 .item_bg:hover {
-    background-color: #003b95;
-    opacity: .4;
-    color: black;
+    background-color: rgba(0, 37, 157, 0.05);
+    opacity: .8;
+    color: black !important;
+    border-radius: 6px
 }
 .itemm_bg {
     border-radius: 5px 5px;
