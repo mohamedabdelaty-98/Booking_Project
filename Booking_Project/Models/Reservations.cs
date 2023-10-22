@@ -33,11 +33,7 @@ namespace Booking_Project.Models
         public int? PaymentId { get; set; }
         public virtual Payments? payments { get; set; }
 
-        public ApplicationIdentityUser user { get; set; }
-        public List<ReservationRoom> reservationRooms { get; set; }
-        [ForeignKey("payments")]
-        public int? PaymentId { get; set; }
-        public Payments? payments { get; set; }
+       
 
     }
 }

@@ -17,12 +17,13 @@ namespace Booking_Project.Controllers
         private readonly ICrudOperation<Image_Hotel> img_hotel;
          private readonly ICrudOperation<Room> RoomRepo;
         private readonly ICrudOperation<Hotel> hotelrepo;
+        IHotelOfCity hotels;
 
         private readonly IMapper mapper;
         static int counter=0;
         int number_of_images ;
         public AdminController(ICrudOperation<ApplicationIdentityUser> user_data,
-            ICrudOperation<Image_Hotel> img_hotel, IMapper mapper,ICrudOperation<Room> RoomRepo,ICrudOperation<Hotel> hotelRepo)
+            ICrudOperation<Image_Hotel> img_hotel, IMapper mapper, IHotelOfCity hotels, ICrudOperation<Room> RoomRepo,ICrudOperation<Hotel> hotelRepo)
         {
             this.img_hotel = img_hotel;
             //user_Da = user_da;
@@ -30,7 +31,7 @@ namespace Booking_Project.Controllers
             this.mapper = mapper;
              this.RoomRepo = RoomRepo;
             this.hotelrepo = hotelRepo;
-
+            this.hotels = hotels;
         }
 
         public IActionResult Index(){
@@ -138,7 +139,11 @@ namespace Booking_Project.Controllers
 
             return View(img_hotel.GetAll(e=>e.hotel));
         }
-        
+        public IActionResult hotelsCity(string city)
+        {
+            List<Hotel> hotelsCity = hotels.GetByCity(city);
+            return View(hotelsCity);
+        }
 
     }
 }
