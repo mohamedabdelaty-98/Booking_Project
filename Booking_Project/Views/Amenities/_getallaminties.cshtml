@@ -1,0 +1,110 @@
+﻿@model List<Amenities>
+
+@{
+    ViewData["Title"] = "getall";
+}
+
+<partial name="_NavProcessAmentiesPartial"></partial>
+
+<div class="container" id="all">
+    <table class="table table-bordered table-hover mx-3">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Edit</th>
+            <th>Delete</th>
+
+        </tr>
+        @foreach (Amenities amenities in Model)
+        {
+            <tr>
+                <td>@amenities.Id</td>
+                <td>@amenities.Name</td>
+                <td><a href="#" onclick="editeamenties(@amenities.Id)">Edit</a></td>
+                <td><a asp-action="delete" asp-route-id="@amenities.Id" onclick="DisplayAmenties()">Delete</a></td>
+
+            </tr>
+
+        }
+
+    </table>
+</div>
+<div id="inser_new"></div>
+<div id="edite"></div>
+<div id="aminties_hotel"></div>
+<div id="editeamentie_shotel"></div>
+
+<script>
+    
+    function addnewamenties() {
+        all.classList.add("display_visable");
+        edite.classList.add("display_visable");
+        aminties_hotel.classList.add("display_visable");
+        editeamentie_shotel.classList.add("display_visable");
+        inser_new.classList.remove("display_visable");
+        $.ajax(
+            {
+                url: "/Amenities/insert/",
+                success: function (result) {
+                    //console.log(result);
+                    $("#inser_new").html(result);
+                }
+            }
+
+        );
+    }
+    function editeamenties(id) {
+        all.classList.add("display_visable");
+        inser_new.classList.add("display_visable");
+        aminties_hotel.classList.add("display_visable");
+        editeamentie_shotel.classList.add("display_visable");
+
+        edite.classList.remove("display_visable");
+        $.ajax(
+            {
+                url: "/Amenities/getAmenity/"+id,
+                success: function (result) {
+                    //console.log(result);
+                    $("#edite").html(result);
+                }
+            }
+
+        );
+    }
+    function showamintieshotel() {
+        all.classList.add("display_visable");
+        edite.classList.add("display_visable");
+        inser_new.classList.add("display_visable");
+        editeamentie_shotel.classList.add("display_visable");
+
+        aminties_hotel.classList.remove("display_visable");
+        $.ajax(
+            {
+                url: "/AmenitiesHotel/getall/",
+                success: function (result) {
+                    //console.log(result);
+                    $("#aminties_hotel").html(result);
+                }
+            }
+
+        );
+    }
+    function editeamentieshotel(id) {
+        all.classList.add("display_visable");
+        inser_new.classList.add("display_visable");
+        aminties_hotel.classList.add("display_visable");
+        edite.classList.add("display_visable");
+        editeamentie_shotel.classList.remove("display_visable");
+
+        $.ajax(
+            {
+                url: "/AmenitiesHotel/getonly/" + id,
+                success: function (result) {
+                    //console.log(result);
+                    $("#editeamentie_shotel").html(result);
+                }
+            }
+
+        );
+    }
+</script>

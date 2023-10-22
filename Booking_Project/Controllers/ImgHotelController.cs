@@ -45,7 +45,7 @@ namespace Booking_Project.Controllers
                 image.ImageURL = "/images/" + fullpath;
                 images.insert(image);
                 images.save();
-                return RedirectToAction("getall","hotel");
+                return RedirectToAction("index","admin");
             }
 
             return PartialView("_insertimaghotelPartial", image);

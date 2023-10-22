@@ -3,6 +3,7 @@ using Booking_Project.Reposatory;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http.Extensions;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace Booking_Project.Controllers
 {
@@ -23,7 +24,7 @@ namespace Booking_Project.Controllers
             
             return View();
         }
-
+        
         public IActionResult Reservations()
         {
             return View("AllReservations");

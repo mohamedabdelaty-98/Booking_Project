@@ -14,7 +14,6 @@ namespace Booking_Project.Controllers
         {
             this.Ihotel = hotel;
         }
-
         public IActionResult insert()
         {
             return PartialView("_insertPartial");
@@ -30,7 +29,7 @@ namespace Booking_Project.Controllers
 
                 Ihotel.insert(hotel);
                 Ihotel.save();
-                return RedirectToAction("index","admin");  
+                return RedirectToAction("index", "admin");  
             }
                 return PartialView("_insertPartial", hotel);
         }
@@ -58,14 +57,14 @@ namespace Booking_Project.Controllers
             Ihotel.update(hotel);
             Ihotel.save();
 
-            return RedirectToAction("getAll");
+            return RedirectToAction("index", "admin");
         }
         
         public IActionResult delete(int id)
         {
             Ihotel.Delete(id);
             Ihotel.save();
-            return RedirectToAction("getAll");
+            return RedirectToAction("index", "admin");
         }
     }
 }
