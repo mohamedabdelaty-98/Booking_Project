@@ -8,10 +8,12 @@ namespace Booking_Project.Controllers
     public class HotelController : Controller 
     {
         ICrudOperation<Hotel> Ihotel;
+        IHotelOfCity hotels;
 
-        public HotelController( ICrudOperation<Hotel> hotel)
+        public HotelController( ICrudOperation<Hotel> hotel, IHotelOfCity hotels)
         {
             this.Ihotel = hotel;
+            this.hotels = hotels;
         }
 
         public IActionResult insert()
@@ -37,8 +39,9 @@ namespace Booking_Project.Controllers
        
         public IActionResult getAll()
         {
-            
-             List<Hotel> hotels=Ihotel.GetAll(h=> h.image_Hotels);
+
+            List<Hotel> hotels = Ihotel.GetAll(h => h.image_Hotels, h => h.amenities_Hotels);
+
             return View(hotels);
         }
 
@@ -67,5 +70,10 @@ namespace Booking_Project.Controllers
         }
 
 
+        public IActionResult hotelsCity(string city)
+        {
+          List<Hotel> hotelsCity=  hotels.GetByCity(city);
+            return View(hotelsCity);
+        }
     }
 }

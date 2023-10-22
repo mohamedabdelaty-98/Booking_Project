@@ -7,8 +7,8 @@ body {
   font-size: 16px;
   line-height: 1.8;
   color: #6c757d;
-  position: relative;
-}
+/*  position: relative;
+*/}
 
 ::-moz-selection {
   color: #fff;
@@ -51,9 +51,9 @@ h5 {
   background: #f2f4fb !important;
 }
 
-.container-fluid {
+/*.container-fluid {
   max-width: 1600px;
-}
+}*/
 
 /**************endPageComon*****************/
 
@@ -749,23 +749,25 @@ textarea.form-control {
 .carousel-control-next {
     width: 5rem !important; /* Adjust the width as needed */
 }
+/****************************************************************************************/
 
+/*sectionOneInMain */
 div .homeCity {
     padding-left: 0 !important;
     border-radius: 3px;
     transition: filter 0.3s ease;
 }
 
-.imgBorder {
-    border-radius: 10px 10px;
+.imgBorder{
+    border-radius:10px 10px;
 }
 
 .img-label {
     position: absolute;
     top: 0;
     left: 0;
-    color: white;
-    padding: 1rem;
+    color: white; 
+    padding: 1rem; 
 }
 
 .tag-label {
@@ -774,7 +776,7 @@ div .homeCity {
     left: 0;
     color: white;
     padding-left: 5.2rem;
-    padding-top: 1.3rem;
+    padding-top:1.3rem;
 }
 
 .tag2-label {
@@ -794,7 +796,6 @@ div .homeCity {
     padding-left: 9rem;
     padding-top: 1.3rem;
 }
-
 .tag4-label {
     position: absolute;
     top: 0;
@@ -820,35 +821,6 @@ div .homeCity {
 
 @media (max-width: 520px) {
     ..homeCity {
-        margin-left: .3rem !important;
+        margin-left:.3rem !important;
     }
 }
-.card-slider-container {
-    display: flex;
-    width: 100%;
-    overflow: hidden;
-    position: relative;
-}
-
-.card-slider {
-    display: flex;
-    width: 150%;
-    transition: transform 0.5s;
-}
-
-.card {
-    padding: 20px;
-    box-sizing: border-box;
-    margin: 0 10px; /* Add margin for spacing between cards */
-    background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    border-radius: 5px;
-}
-
-.prev-button, .next-button {
-    background-color: #007bff;
-    color: #fff;
-    padding-left: 10px 20px;
-    border: none;
-    cursor: pointer;
-    margin-bottom: 10px;

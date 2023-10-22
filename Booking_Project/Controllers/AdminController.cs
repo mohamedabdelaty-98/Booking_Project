@@ -1,11 +1,11 @@
-﻿using Booking_Project.Models;
-using Booking_Project.Reposatory;
-using Booking_Project1.Models;
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Booking_Project.Models;
+using Booking_Project.Reposatory;
 
 namespace Booking_Project.Controllers
 {
+
 
     //[Authorize(Roles ="Admin")]
     public class AdminController : Controller
@@ -18,15 +18,17 @@ namespace Booking_Project.Controllers
             this.RoomRepo = RoomRepo;
             this.hotelrepo = hotelRepo;
         }
+
         public IActionResult Index(){
             return View();
         }
 
         public IActionResult Reservations()
-
-        {
+{
+        
             return View("AllReservations");
         }
+
 
         public IActionResult Rooms()
         {
@@ -83,6 +85,5 @@ namespace Booking_Project.Controllers
 
             return View("new", room);
         }
-
     }
 }

@@ -33,15 +33,15 @@ namespace Booking_Project.Models
         public int MaxOccupancy { get; set; }
         public double RoomSize { get; set; }
         [Column(TypeName = "varchar(10)")]
-        public AvailableStatus AvailableStatus { get; set; }
+        public  AvailableStatus AvailableStatus { get; set; }
         public int room_number { get; set; }
        [ DefaultValue(1)]     
        [ForeignKey("hotel")]
         public int HotelId { get; set; }
-        public Hotel? hotel { get; set; }
-        public List<Image_Room> image_Rooms { get; set; }
-        public List<AmenitiesRoom> aminitesRooms { get; set; }
-        public List<ReservationRoom> reservationRooms { get; set; }
+        public virtual Hotel hotel { get; set; }
+        public virtual List<Image_Room> image_Rooms { get; set; }
+        public virtual List<AmenitiesRoom> aminitesRooms { get; set; }
+        public virtual List<ReservationRoom> reservationRooms { get; set; }
 
     }
 }
