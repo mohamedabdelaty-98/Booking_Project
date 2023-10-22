@@ -1,0 +1,38 @@
+﻿.table td, .table th {
+    max-width:15px;
+}
+
+    @media (max-width: 775px) {
+        .col-12 {
+            width: 80%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: .5em;
+            margin-left: 10%;
+        }
+    }
+
+    @media (max-width: 635px) {
+        .col-12 {
+            width: 60%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: .66em;
+            margin-left: 20%;
+        }
+    }
+
+    @media (max-width: 585px) {
+        .col-12 {
+            width: 51%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: .55em;
+            margin-left: 20.7%;
+        }
+    }
+
+
