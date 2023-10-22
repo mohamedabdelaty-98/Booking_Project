@@ -1,0 +1,18 @@
+﻿@model Room
+<div class="row " style="padding-bottom:10px; padding-top:10px;border:solid blue">
+    <div class="container col-md-2 col-md-offset-5">
+        <h5> Confirm Payment</h5>
+        <form action="/Premium/Charge" method="POST">
+            <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                    data-key="MYKEY"
+                    data-amount="@Model.Price"
+                    data-name="Book Room @Model.room_number"
+                    data-description="Premium Account (€10)"
+                    data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+                    data-locale="auto"
+                    data-zip-code="true"
+                    data-currency="eur">
+            </script>
+        </form>
+    </div>
+

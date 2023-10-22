@@ -49,6 +49,9 @@ namespace Booking_Project.Reposatory
 
         }
 
-
+        public object? SelectMany(Func<object, object> value)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
