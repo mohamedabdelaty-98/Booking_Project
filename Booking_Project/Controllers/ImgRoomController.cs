@@ -15,7 +15,7 @@ namespace Booking_Project.Controllers
         }
         public IActionResult Insert()
         {
-            ViewData["Rooms"] = Rooms.GetAll();
+            ViewData["rooms"] = Rooms.GetAll();
             return PartialView("_InsertImageRoomPartial");
         }
         [HttpPost]
@@ -39,7 +39,7 @@ namespace Booking_Project.Controllers
                 image.ImageURL = "/images/" + fullpath;
                 Images.insert(image);
                 Images.save();
-                return RedirectToAction("getall", "hotel");
+                return RedirectToAction("index", "admin");
             }
 
             return PartialView("_InsertImageRoomPartial", image);
