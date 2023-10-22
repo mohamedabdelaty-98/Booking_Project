@@ -4,6 +4,7 @@ using Booking_Project1.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Booking_Project.Migrations
 {
     [DbContext(typeof(Context))]
-    partial class ContextModelSnapshot : ModelSnapshot
+    [Migration("20231020174805_v6")]
+    partial class v6
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -37,7 +40,7 @@ namespace Booking_Project.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Amenities", (string)null);
+                    b.ToTable("Amenities");
                 });
 
             modelBuilder.Entity("Booking_Project.Models.AmenitiesRoom", b =>
@@ -63,7 +66,7 @@ namespace Booking_Project.Migrations
 
                     b.HasIndex("RoomId");
 
-                    b.ToTable("AmenitiesRooms", (string)null);
+                    b.ToTable("AmenitiesRooms");
                 });
 
             modelBuilder.Entity("Booking_Project.Models.Amenities_Hotel", b =>
@@ -89,7 +92,7 @@ namespace Booking_Project.Migrations
 
                     b.HasIndex("HotelId");
 
-                    b.ToTable("Amenities_Hotels", (string)null);
+                    b.ToTable("Amenities_Hotels");
                 });
 
             modelBuilder.Entity("Booking_Project.Models.ApplicationIdentityUser", b =>
@@ -226,7 +229,7 @@ namespace Booking_Project.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Hotels", (string)null);
+                    b.ToTable("Hotels");
                 });
 
             modelBuilder.Entity("Booking_Project.Models.Image_Hotel", b =>
@@ -253,7 +256,7 @@ namespace Booking_Project.Migrations
 
                     b.HasIndex("HotelId");
 
-                    b.ToTable("Image_Hotels", (string)null);
+                    b.ToTable("Image_Hotels");
                 });
 
             modelBuilder.Entity("Booking_Project.Models.Image_Room", b =>
@@ -280,7 +283,7 @@ namespace Booking_Project.Migrations
 
                     b.HasIndex("RoomId");
 
-                    b.ToTable("Image_Rooms", (string)null);
+                    b.ToTable("Image_Rooms");
                 });
 
             modelBuilder.Entity("Booking_Project.Models.Payments", b =>
@@ -310,7 +313,7 @@ namespace Booking_Project.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Payments", (string)null);
+                    b.ToTable("Payments");
                 });
 
             modelBuilder.Entity("Booking_Project.Models.ReservationRoom", b =>
@@ -347,7 +350,7 @@ namespace Booking_Project.Migrations
 
                     b.HasIndex("RoomId");
 
-                    b.ToTable("ReservationRooms", (string)null);
+                    b.ToTable("ReservationRooms");
                 });
 
             modelBuilder.Entity("Booking_Project.Models.Reservations", b =>
@@ -384,7 +387,7 @@ namespace Booking_Project.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Reservations", (string)null);
+                    b.ToTable("Reservations");
                 });
 
             modelBuilder.Entity("Booking_Project.Models.Reviews", b =>
@@ -419,7 +422,7 @@ namespace Booking_Project.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Reviews", (string)null);
+                    b.ToTable("Reviews");
                 });
 
             modelBuilder.Entity("Booking_Project.Models.Room", b =>
@@ -460,7 +463,7 @@ namespace Booking_Project.Migrations
 
                     b.HasIndex("HotelId");
 
-                    b.ToTable("Rooms", (string)null);
+                    b.ToTable("Rooms");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

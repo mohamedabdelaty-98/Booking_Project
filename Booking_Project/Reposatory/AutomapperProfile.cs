@@ -9,7 +9,7 @@ namespace Booking_Project.Reposatory
         public AutomapperProfile()
         {
             CreateMap<RegisterAccountVM, ApplicationIdentityUser>();
-           
+            //CreateMap<, ApplicationIdentityUser>();
         }
     }
 }
