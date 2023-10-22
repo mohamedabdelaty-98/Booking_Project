@@ -13,12 +13,12 @@
 
             <div class="input-box">
                 <label class="details" asp-for="ImageURL">Image</label>
-                <input type="file" asp-for="ImageURL" class=" file_f" name="imageFile" />
+                <input type="file" asp-for="ImageURL" class="form-control form-control-lg" id="formFileLg" name="imageFile" />
             </div>
 
             <div class="input-box">
                 <label class="details" asp-for="Description"></label>
-                <input asp-for="Description" required type="text">
+                <input asp-for="Description" required type="text" class="form-control">
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
 
