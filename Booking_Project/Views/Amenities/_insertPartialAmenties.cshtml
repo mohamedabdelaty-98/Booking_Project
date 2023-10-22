@@ -1,0 +1,34 @@
+﻿@model Booking_Project.Models.Amenities
+
+<link rel="stylesheet" href="~/css/AddNew.css" asp-append-version="true" />
+
+<div class="container_reg col-7 mt-4 mb-4 " id="getallhotell">
+    <div class="title">New Amenty</div>
+    <div class="content">
+        <form asp-action="insert" asp-controller="Amenities" method="post">
+            <div asp-validation-summary="All" class="text-danger"></div>
+
+            <div class="user-details">
+                <div class="input-box">
+                    <label class="details" asp-for="Name"></label>
+                    <input asp-for="Name" required>
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="button">
+                    <input type="submit" value="Add">
+                    @* <input type="submit" value="Register" class="btn btn-primary" /> *@
+
+                </div>
+
+        </form>
+    </div>
+</div>
+
+<div>
+    <a href="#" onclick="DisplayAmenties()">Back to Amenties</a>
+</div>
+<script>
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+</script>

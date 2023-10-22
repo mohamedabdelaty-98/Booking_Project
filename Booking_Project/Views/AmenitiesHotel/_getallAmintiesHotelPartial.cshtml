@@ -1,0 +1,35 @@
+﻿@model List<Amenities_Hotel>;
+
+@{
+    ViewData["Title"] = "getAll";
+}
+
+
+<div class="container-fluid">
+    <h4>Amenities Hotel</h4>
+    <hr />
+    <table class="table table-bordered table-hover">
+        <tr>
+            <th>Id</th>
+            <th>Price</th>
+            <th>Amenity Name</th>
+            <th>Hotel Name</th>
+            <th>Edit</th>
+            <th>Delete</th>
+
+        </tr>
+        @foreach (Amenities_Hotel amenity in Model)
+        {
+            <tr>
+                <td>@amenity.Id</td>
+                <td>@amenity.Price</td>
+                <td>@amenity.amenities.Name</td>
+                <td>@amenity.hotel.Name</td>
+                <td><a href="#" onclick="editeamentieshotel(@amenity.Id)">Edit</a></td>
+                <td><a asp-action="delete" asp-route-id="@amenity.Id">Delete</a></td>
+            </tr>
+
+        }
+
+    </table>
+</div>

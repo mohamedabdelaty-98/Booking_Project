@@ -102,6 +102,7 @@
 </div>
 <div id="insert_s"></div>
 <div id="add_hotel_image"></div>
+<div id="add_hotel_amenties"></div>
 
 
 <script>
@@ -109,6 +110,8 @@
         parthotel.classList.add("display_visable");
         insert_s.classList.remove("display_visable");
         add_hotel_image.classList.add("display_visable");
+        add_hotel_amenties.classList.add("display_visable");
+
         $.ajax(
             {
                 url: "/hotel/insert/",
@@ -124,6 +127,7 @@
     function addimagehotel() {
         parthotel.classList.add("display_visable");
         insert_s.classList.add("display_visable");
+        add_hotel_amenties.classList.add("display_visable");
         add_hotel_image.classList.remove("display_visable");
         console.log();
         $.ajax(
@@ -132,6 +136,23 @@
                 success: function (result) {
                     console.log(result);
                     $("#add_hotel_image").html(result);
+                }
+            }
+
+        );
+    }
+    function addnewamentieshotel() {
+        parthotel.classList.add("display_visable");
+        insert_s.classList.add("display_visable");
+        add_hotel_image.classList.add("display_visable");
+        add_hotel_amenties.classList.remove("display_visable");
+
+        $.ajax(
+            {
+                url: "/AmenitiesHotel/insert/",
+                success: function (result) {
+                    //console.log(result);
+                    $("#add_hotel_amenties").html(result);
                 }
             }
 
