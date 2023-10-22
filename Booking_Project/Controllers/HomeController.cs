@@ -26,13 +26,13 @@ namespace Booking_Project.Controllers
 
         public IActionResult Index()
         {
-            List<Hotel> hotelModel = hotelRepo.GetAll(h => h.rooms);
+            List<Hotel> hotelModel = hotelRepo.GetAll(h => h.image_Hotels, h => h.rooms);
 
             return View("index", hotelModel);
         }
         public IActionResult Rooms(int id)
         {
-            List<Room> roomModel = RoomRepo.GetAll(h => h.hotel);
+            List<Room> roomModel = RoomRepo.GetAll(h => h.image_Rooms, h => h.hotel);
             ViewBag.Id = id;
             return View("Rooms", roomModel);
         }
@@ -40,7 +40,8 @@ namespace Booking_Project.Controllers
         public IActionResult book(int id)
         {
             Room roomModel = RoomRepo.GetById(id);
-            
+            ViewBag.roomimg = RoomRepo.GetAll(h => h.image_Rooms, h => h.hotel).Where(h=>h.Id==id);
+
             return View("book", roomModel);
         }
         

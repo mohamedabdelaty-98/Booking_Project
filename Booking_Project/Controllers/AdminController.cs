@@ -20,6 +20,7 @@ namespace Booking_Project.Controllers
         }
 
         public IActionResult Index(){
+
             return View();
         }
 
@@ -32,7 +33,7 @@ namespace Booking_Project.Controllers
 
         public IActionResult Rooms()
         {
-            List<Room> RoomModel = RoomRepo.GetAll(h=>h.hotel);
+            List<Room> RoomModel = RoomRepo.GetAll(h=>h.image_Rooms,h=>h.hotel);
            
             return View("room",RoomModel);
         }
