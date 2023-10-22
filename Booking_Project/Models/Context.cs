@@ -19,11 +19,7 @@ namespace Booking_Project1.Models
         {
             optionsBuilder.UseLazyLoadingProxies().UseSqlServer("Data Source=.;Initial Catalog=Booking_DB;Integrated Security=True;TrustServerCertificate=true;");
         }
-        protected override void OnModelCreating(ModelBuilder builder)
-        {
-            //builder.Entity<User>(entity => entity.HasIndex(e => e.Email).IsUnique());
-            base.OnModelCreating(builder);
-        }
+      
         //public DbSet<User> Users { get; set; }
         public DbSet<Room> Rooms { get; set; }
         public DbSet<Reviews> Reviews { get; set; }

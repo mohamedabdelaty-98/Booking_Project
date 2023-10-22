@@ -11,30 +11,45 @@
 
 <h4>Amenities_Hotel</h4>
 <hr />
-<div class="row">
-    <div class="col-md-4">
+<link rel="stylesheet" href="~/css/AddNew.css" asp-append-version="true" />
+
+<div class="container_reg col-7 mt-4 mb-4 " id="getallhotell">
+    <div class="title">New Amenty</div>
+    <div class="content">
         <form asp-action="update">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Id"/>
-            <div class="form-group">
-                <label asp-for="Price" class="control-label"></label>
-                <input asp-for="Price" class="form-control" value="@Model.Price"/>
-                <span asp-validation-for="Price" class="text-danger"></span>
-            </div>
-            <select id="HotelId" name="HotelId" >
-                <option value="@ViewBag.hotels.Id" selected>@ViewBag.hotels.Name</option>
-            </select>
-            <select id="AmentiesId" name="AmentiesId">
-                <option value="@ViewBag.amenities.Id" selected>@ViewBag.amenities.Name</option>
-            </select>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
+            <input type="hidden" asp-for="Id" />
+            <div class="user-details">
+                <div class="details">
+                    <label asp-for="Price" class="control-label"></label>
+                    <input asp-for="Price" class="form-control" value="@Model.Price" />
+                    <span asp-validation-for="Price" class="text-danger"></span>
+                </div>
+                <div class="input-box">
+                    <label class="details" asp-for="HotelId">Hotels</label>
+                    <select id="HotelId" name="HotelId">
+                        <option value="@ViewBag.hotels.Id" selected>@ViewBag.hotels.Name</option>
+                    </select>
+                    <span asp-validation-for="HotelId" class="text-danger"></span>
+                </div>
+                <div class="input-box">
+                    <label class="details" asp-for="AmentiesId">Amenties</label>
+                    <select id="AmentiesId" name="AmentiesId">
+                        <option value="@ViewBag.amenities.Id" selected>@ViewBag.amenities.Name</option>
+                    </select>
+                    <span asp-validation-for="AmentiesId" class="text-danger"></span>
+                </div>
+                <div class="button">
+                    <input type="submit" value="Update">
+                    @* <input type="submit" value="Register" class="btn btn-primary" /> *@
+
+                </div>
+
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a href="#" onclick="showamintieshotel()">Back to List</a>
 </div>
 

@@ -41,6 +41,8 @@ namespace Booking_Project
 
 
            builder.Services.AddScoped<ICrudOperation<Reviews>, CrudOperationRepo<Reviews>>();
+           builder.Services.AddScoped<ICrudOperation<Image_Room>, CrudOperationRepo<Image_Room>>();
+           
 
 
             builder.Services.AddScoped<ICrudOperation<ApplicationIdentityUser>, CrudOperationRepo<ApplicationIdentityUser>>();

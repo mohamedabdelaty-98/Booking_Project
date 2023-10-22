@@ -12,9 +12,10 @@ namespace Booking_Project.Controllers
         {
             this.amenities = amenities; 
         }
+        
         public IActionResult insert()
         {
-            return View();
+            return PartialView("_insertPartialAmenties");
         }
 
         [HttpPost]
@@ -26,25 +27,25 @@ namespace Booking_Project.Controllers
             {
                 amenities.insert(amenity);
                 amenities.save();
-                return RedirectToAction("insert");
+                return RedirectToAction("index", "admin");
 
             }
 
-            return View("insert", amenity);
+            return PartialView("_insertPartialAmenties", amenity);
         }
 
         public IActionResult getall() {
 
             List<Amenities> amenety= amenities.GetAll();
         
-            return View(amenety);
+            return PartialView("_getallaminties",amenety);
         
         }
 
         public IActionResult getAmenity (int id)
         {
             Amenities amenity = amenities.GetById(id);
-            return View(amenity);
+            return PartialView("_editeAmentyPartial", amenity);
         }
 
         public IActionResult Update (Amenities amenity)
@@ -52,14 +53,14 @@ namespace Booking_Project.Controllers
             amenities.update(amenity);
             amenities.save();
 
-           return RedirectToAction("getAll");
+           return RedirectToAction("index","admin");
         }
 
-        public ActionResult delete (int id)
+        public IActionResult delete (int id)
         {
             amenities.Delete(id);
             amenities.save();
-            return RedirectToAction("getAll");
+            return RedirectToAction("index","admin");
         }
 
        

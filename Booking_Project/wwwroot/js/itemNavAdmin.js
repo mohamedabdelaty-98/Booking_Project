@@ -1,5 +1,11 @@
 ﻿let items = document.querySelectorAll(".itemm .nav-link");
 
+
+
+//hotel.addEventListener("click", () => {
+//    hotel.classList.add("active");
+//});
+
 items.forEach(
     e => {
         e.addEventListener("click", function () {

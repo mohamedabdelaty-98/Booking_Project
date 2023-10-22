@@ -11,6 +11,7 @@ namespace Booking_Project.Models
  [MaxLength(1000)]
  public string Description { get; set; }
  [ForeignKey("hotel")]
+
  public int HotelId { get; set; }
  public virtual Hotel hotel { get; set; }
 

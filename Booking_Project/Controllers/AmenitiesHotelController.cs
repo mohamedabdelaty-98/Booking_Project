@@ -24,7 +24,7 @@ namespace Booking_Project.Controllers
         {
             ViewData["Hotels"] = Hotels.GetAll();
             ViewData["Amenities"] = amenities.GetAll();
-            return View();
+            return PartialView("_insertAmentiesHotelPartial");
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -34,9 +34,9 @@ namespace Booking_Project.Controllers
             {
                 amenitiesHotel.insert(amenities_Hotel);
                 amenitiesHotel.save();
-                return RedirectToAction("insert");
+                return RedirectToAction("index","admin");
             }
-            return View(amenities_Hotel);
+            return PartialView("_insertAmentiesHotelPartial", amenities_Hotel);
         }
 
 
@@ -44,7 +44,7 @@ namespace Booking_Project.Controllers
         {
            List<Amenities_Hotel> amenityHotel  =amenitiesHotel.GetAll(a => a.amenities, a=>a.hotel);
 
-            return View(amenityHotel);
+            return PartialView("_getallAmintiesHotelPartial", amenityHotel);
         }
 
         public IActionResult getOnly (int id) {
@@ -52,7 +52,7 @@ namespace Booking_Project.Controllers
             Amenities_Hotel amenities_Hotel = amenitiesHotel.GetById(id);
             ViewData["hotels"] = Hotels.GetById(amenities_Hotel.HotelId);
             ViewData["amenities"] = amenities.GetById(amenities_Hotel.AmentiesId);
-            return View(amenities_Hotel);
+            return PartialView(amenities_Hotel);
 
         }
 
@@ -60,14 +60,14 @@ namespace Booking_Project.Controllers
         {
             amenitiesHotel.update(amenities);
             amenitiesHotel.save();
-            return RedirectToAction("getAll");
+            return RedirectToAction("index","admin");
         }
 
         public IActionResult delete (int id)
         {
             amenitiesHotel.Delete(id);
             amenitiesHotel.save();
-            return RedirectToAction("getAll");
+            return RedirectToAction("index","admin");
         }
 
 

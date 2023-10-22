@@ -2,68 +2,75 @@
 @{
     ViewData["Title"] = "Update Hotel";
 }
+@section Styles{
+    <link rel="stylesheet" href="~/css/AddNew.css" asp-append-version="true" />
+}
 
-<h4 class="m-2">Update Hotel</h4>
-<hr />
-<div class="row m-2">
-
-    <div class="col-md-4">
-        <form asp-action="update" asp-controller="Hotel">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+<div class="container_reg col-7 mt-4 mb-4">
+    <div class="title">Edite Hotel</div>
+    <div class="content">
+        <form method="post">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <input type="hidden" name="ReturnUrl" value="@ViewBag.page" />
             <input type="hidden" asp-for="@Model.Id" />
-            <div class="form-group">
-                <label asp-for="Name" class="control-label"></label>
-                <input asp-for="Name" class="form-control" value="@Model.Name" />
-                <span asp-validation-for="Name" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Address" class="control-label"></label>
-                <input asp-for="Address" class="form-control" value="@Model.Address"/>
-                <span asp-validation-for="Address" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Description" class="control-label"></label>
-                <input asp-for="Description" class="form-control" value="@Model.Description" />
-                <span asp-validation-for="Description" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="StarRateing" class="control-label"></label>
-                <input asp-for="StarRateing" class="form-control" value="@Model.StarRateing" />
-                <span asp-validation-for="StarRateing" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ContactEmail" class="control-label"></label>
-                <input asp-for="ContactEmail" class="form-control" value="@Model.ContactEmail" />
-                <span asp-validation-for="ContactEmail" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ContactPhone" class="control-label"></label>
-                <input asp-for="ContactPhone" class="form-control" value="@Model.ContactPhone" />
-                <span asp-validation-for="ContactPhone" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Latitude" class="control-label"></label>
-                <input asp-for="Latitude" class="form-control" value="@Model.Latitude" />
-                <span asp-validation-for="Latitude" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Longitude" class="control-label"></label>
-                <input asp-for="Longitude" class="form-control" value="@Model.Longitude" />
-                <span asp-validation-for="Longitude" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label for="image_Hotels">Images:</label>
-                <input id="image_Hotels" type="file" name="image_Hotels" multiple class="form-control" />
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Update" class="btn btn-primary" />
-            </div>
+            <div class="user-details">
+                <div class="input-box">
+                    <label class="details" asp-for="Name"></label>
+                    <input asp-for="Name" value="@Model.Name" required>
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="input-box">
+                    <label class="details" asp-for="Address"></label>
+                    <input asp-for="Address" value="@Model.Address" required>
+                    <span asp-validation-for="Address" class="text-danger"></span>
+                </div>
+                <div class="input-box">
+                    <label class="details" asp-for="Description"></label>
+                    <input asp-for="Description" value="@Model.Description" required>
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+                <div class="input-box">
+                    <label class="details" asp-for="StarRateing"></label>
+                    <input asp-for="StarRateing" value="@Model.StarRateing" required>
+                    <span asp-validation-for="StarRateing" class="text-danger"></span>
+                </div>
+
+                <div class="input-box">
+                    <label class="details" asp-for="ContactEmail"></label>
+                    <input asp-for="ContactEmail" value="@Model.ContactEmail" required>
+                    <span asp-validation-for="ContactEmail" class="text-danger"></span>
+                </div>
+                <div class="input-box">
+                    <label class="details" asp-for="ContactPhone"></label>
+                    <input asp-for="ContactPhone" value="@Model.ContactPhone" required>
+                    <span asp-validation-for="ContactPhone" class="text-danger"></span>
+                </div>
+                <div class="input-box">
+                    <label class="details" asp-for="Latitude"></label>
+                    <input asp-for="Latitude" value="@Model.Latitude" required>
+                    <span asp-validation-for="Latitude" class="text-danger"></span>
+                </div>
+                
+                <div class="input-box">
+                    <label class="details" asp-for="Longitude"></label>
+                    <input asp-for="Longitude" value="@Model.Longitude" required>
+                    <span asp-validation-for="Longitude" class="text-danger"></span>
+                </div>
+
+                <div class="input-box">
+                    <label for="image_Hotels" class="details">Images:</label>
+                    <input id="image_Hotels" type="file" name="image_Hotels" multiple class="form-control" />
+                </div>
+                <div class="button">
+                    <input type="submit" value="Update"  />
+                </div>
+
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="index" asp-controller="admin">Back to Hotels</a>
 </div>
 
 @section Scripts {
@@ -71,5 +78,4 @@
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
 }
-
 
