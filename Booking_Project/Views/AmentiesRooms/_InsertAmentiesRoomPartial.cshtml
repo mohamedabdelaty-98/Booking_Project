@@ -9,7 +9,7 @@
 <div class="container_reg col-7 mt-4 mb-4 " id="getallhotell">
     <div class="title">New Amenty</div>
     <div class="content">
-        <form asp-action="insert" asp-controller="AmenitiesRoom" method="post">
+        <form asp-action="insert"  method="post">
             <div asp-validation-summary="All" class="text-danger"></div>
 
             <div class="user-details">
@@ -19,7 +19,7 @@
                     <span asp-validation-for="Price" class="text-danger"></span>
                 </div>
                 <div class="input-box">
-                    <label class="details" asp-for="RoomId">Hotels</label>
+                    <label class="details" asp-for="RoomId">Rooms</label>
                     <select asp-items="Rooms" class="form-control" asp-for="RoomId">
                         <option value="">--Select Room--</option>
                     </select>

@@ -32,7 +32,7 @@ namespace Booking_Project.Models
         public int NumOfBed { get; set; }
         public int MaxOccupancy { get; set; }
         public double RoomSize { get; set; }
-        [Column(TypeName = "varchar(10)")]
+        [Column(TypeName = "varchar(20)")]
         public  AvailableStatus AvailableStatus { get; set; }
         public int room_number { get; set; }
        [ DefaultValue(1)]     

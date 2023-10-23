@@ -5,7 +5,6 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Booking_Project.Controllers
 {
-    [Authorize(Roles = "Admin")]
     public class ReservationsController : Controller
     {
         ICrudOperation<Reservations> Reservations;
@@ -15,13 +14,17 @@ namespace Booking_Project.Controllers
         }
         public IActionResult GetAll()
         {
-            return PartialView("_ReservationPartial", Reservations.GetAll(R=>R.user));
+            return PartialView("_ReservationPartial", Reservations.GetAll(R => R.user,s=>s.reservationRooms)) ;
         }
+        [Authorize(Roles = "Admin")]
+
         public IActionResult GetbyId(int id) { 
         
             Reservations.GetById(id);
             return View();
         }
+        [Authorize(Roles = "Admin")]
+
         public IActionResult AddReservation() {
 
             return View();
@@ -29,12 +32,16 @@ namespace Booking_Project.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
+
         public IActionResult AddReservation(Reservations reservation) {
             Reservations.insert(reservation);
             Reservations.save();
             return RedirectToAction("GetAll");
         
         }
+        [Authorize(Roles = "Admin")]
+
         public IActionResult EditReservation(int id)
         {
             return View();
@@ -42,12 +49,16 @@ namespace Booking_Project.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
+
         public IActionResult EditReservation(Reservations reservation) {
 
             Reservations.update(reservation);
             Reservations.save();
             return RedirectToAction("GetAll");
         }
+        [Authorize(Roles = "Admin")]
+
         public IActionResult DeleteReservation(int id)
         {
             Reservations.Delete(id);

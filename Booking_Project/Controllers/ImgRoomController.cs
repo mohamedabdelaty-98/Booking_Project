@@ -5,7 +5,6 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Booking_Project.Controllers
 {
-    [Authorize(Roles = "Admin")]
     public class ImgRoomController : Controller
     {
         ICrudOperation<Image_Room> Images;
@@ -15,6 +14,8 @@ namespace Booking_Project.Controllers
             this.Images = Images;
             this.Rooms = Rooms;
         }
+        [Authorize(Roles = "Admin")]
+
         public IActionResult Insert()
         {
             ViewData["rooms"] = Rooms.GetAll();
@@ -22,6 +23,8 @@ namespace Booking_Project.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
+
         public ActionResult Insert(Image_Room image, IFormFile imageFile)
         {
             if (imageFile != null && imageFile.Length > 0)

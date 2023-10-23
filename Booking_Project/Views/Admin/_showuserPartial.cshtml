@@ -20,19 +20,18 @@
                     @foreach (var use in user.reservations)
                     {
                         <ul>
-                            <li>@use.CheckInDate</li>
+                            <li>Checkin Date: @use.CheckInDate</li>
 
 
-                            <li>@use.CheckOutDate</li>
-                            <li>@use.TotalPrice</li>
-                            <ul>
+                            <li>Checkout Date: @use.CheckOutDate</li>
+                            <li>Total Price: @use.TotalPrice</li>
+                          
                                 @foreach (var us in use.reservationRooms)
                                 {
 
-                                    <li>@us.room.RoomType</li>
+                                    <li>Room Type: @us.room.RoomType</li>
 
                                 }
-                            </ul>
                         </ul>
                     }
                 </td>

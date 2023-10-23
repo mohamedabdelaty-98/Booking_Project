@@ -5,7 +5,6 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Booking_Project.Controllers
 {
-    [Authorize(Roles = "Admin")]
     public class AmentiesRoomsController : Controller
     {
         ICrudOperation<AmenitiesRoom> amenitiesroom;
@@ -22,6 +21,8 @@ namespace Booking_Project.Controllers
         {
             return View();
         }
+        [Authorize(Roles = "Admin")]
+
         public IActionResult insert()
         {
             ViewData["Rooms"] = room.GetAll();
@@ -31,6 +32,8 @@ namespace Booking_Project.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
+
         public IActionResult insert(AmenitiesRoom amenities_room)
         {
             if (ModelState.IsValid)
@@ -47,6 +50,8 @@ namespace Booking_Project.Controllers
 
             return PartialView("_getallAmentiesroom", amenityroom);
         }
+        [Authorize(Roles = "Admin")]
+
         public IActionResult Edite(int id)
         {
 
@@ -57,12 +62,16 @@ namespace Booking_Project.Controllers
 
         }
         [HttpPost]
+        [Authorize(Roles = "Admin")]
+
         public IActionResult Edite(AmenitiesRoom amenities)
         {
             amenitiesroom.update(amenities);
             amenitiesroom.save();
             return RedirectToAction("index", "admin");
         }
+        [Authorize(Roles = "Admin")]
+
         public IActionResult delete(int id)
         {
             amenitiesroom.Delete(id);

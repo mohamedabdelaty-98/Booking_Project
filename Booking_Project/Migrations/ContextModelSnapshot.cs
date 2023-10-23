@@ -18,6 +18,9 @@ namespace Booking_Project.Migrations
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "7.0.12")
+                .HasAnnotation("Proxies:ChangeTracking", false)
+                .HasAnnotation("Proxies:CheckEquality", false)
+                .HasAnnotation("Proxies:LazyLoading", true)
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -37,7 +40,7 @@ namespace Booking_Project.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Amenities", (string)null);
+                    b.ToTable("Amenities");
                 });
 
             modelBuilder.Entity("Booking_Project.Models.AmenitiesRoom", b =>
@@ -63,7 +66,7 @@ namespace Booking_Project.Migrations
 
                     b.HasIndex("RoomId");
 
-                    b.ToTable("AmenitiesRooms", (string)null);
+                    b.ToTable("AmenitiesRooms");
                 });
 
             modelBuilder.Entity("Booking_Project.Models.Amenities_Hotel", b =>
@@ -89,7 +92,7 @@ namespace Booking_Project.Migrations
 
                     b.HasIndex("HotelId");
 
-                    b.ToTable("Amenities_Hotels", (string)null);
+                    b.ToTable("Amenities_Hotels");
                 });
 
             modelBuilder.Entity("Booking_Project.Models.ApplicationIdentityUser", b =>
@@ -226,7 +229,7 @@ namespace Booking_Project.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Hotels", (string)null);
+                    b.ToTable("Hotels");
                 });
 
             modelBuilder.Entity("Booking_Project.Models.Image_Hotel", b =>
@@ -253,7 +256,7 @@ namespace Booking_Project.Migrations
 
                     b.HasIndex("HotelId");
 
-                    b.ToTable("Image_Hotels", (string)null);
+                    b.ToTable("Image_Hotels");
                 });
 
             modelBuilder.Entity("Booking_Project.Models.Image_Room", b =>
@@ -273,14 +276,14 @@ namespace Booking_Project.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("RoomId")
+                    b.Property<int?>("RoomId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
                     b.HasIndex("RoomId");
 
-                    b.ToTable("Image_Rooms", (string)null);
+                    b.ToTable("Image_Rooms");
                 });
 
             modelBuilder.Entity("Booking_Project.Models.Payments", b =>
@@ -297,7 +300,7 @@ namespace Booking_Project.Migrations
                     b.Property<DateTime>("PaymentDate")
                         .HasColumnType("date");
 
-                    b.Property<int?>("ReservationId")
+                    b.Property<int>("ReservationId")
                         .HasColumnType("int");
 
                     b.Property<string>("UserId")
@@ -310,7 +313,7 @@ namespace Booking_Project.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Payments", (string)null);
+                    b.ToTable("Payments");
                 });
 
             modelBuilder.Entity("Booking_Project.Models.ReservationRoom", b =>
@@ -347,7 +350,7 @@ namespace Booking_Project.Migrations
 
                     b.HasIndex("RoomId");
 
-                    b.ToTable("ReservationRooms", (string)null);
+                    b.ToTable("ReservationRooms");
                 });
 
             modelBuilder.Entity("Booking_Project.Models.Reservations", b =>
@@ -368,14 +371,12 @@ namespace Booking_Project.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Status")
-                        .IsRequired()
                         .HasColumnType("varchar(20)");
 
                     b.Property<decimal>("TotalPrice")
                         .HasColumnType("Money");
 
                     b.Property<string>("UserId")
-                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
@@ -384,7 +385,7 @@ namespace Booking_Project.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Reservations", (string)null);
+                    b.ToTable("Reservations");
                 });
 
             modelBuilder.Entity("Booking_Project.Models.Reviews", b =>
@@ -419,7 +420,7 @@ namespace Booking_Project.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Reviews", (string)null);
+                    b.ToTable("Reviews");
                 });
 
             modelBuilder.Entity("Booking_Project.Models.Room", b =>
@@ -432,7 +433,7 @@ namespace Booking_Project.Migrations
 
                     b.Property<string>("AvailableStatus")
                         .IsRequired()
-                        .HasColumnType("varchar(10)");
+                        .HasColumnType("varchar(20)");
 
                     b.Property<int>("HotelId")
                         .HasColumnType("int");
@@ -460,7 +461,7 @@ namespace Booking_Project.Migrations
 
                     b.HasIndex("HotelId");
 
-                    b.ToTable("Rooms", (string)null);
+                    b.ToTable("Rooms");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -649,9 +650,7 @@ namespace Booking_Project.Migrations
                 {
                     b.HasOne("Booking_Project.Models.Room", "room")
                         .WithMany("image_Rooms")
-                        .HasForeignKey("RoomId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("RoomId");
 
                     b.Navigation("room");
                 });
@@ -660,7 +659,9 @@ namespace Booking_Project.Migrations
                 {
                     b.HasOne("Booking_Project.Models.Reservations", "reservation")
                         .WithMany()
-                        .HasForeignKey("ReservationId");
+                        .HasForeignKey("ReservationId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("Booking_Project.Models.ApplicationIdentityUser", "user")
                         .WithMany("payments")
@@ -708,9 +709,7 @@ namespace Booking_Project.Migrations
 
                     b.HasOne("Booking_Project.Models.ApplicationIdentityUser", "user")
                         .WithMany("reservations")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("UserId");
 
                     b.Navigation("payments");
 

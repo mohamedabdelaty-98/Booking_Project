@@ -13,9 +13,10 @@
         <th >User Name</th>
         <th>CheckinDate </th>
         <th >CheckOutDate</th>
-        <th >Payment Status</th>
-        <th >Room Status</th>
+        <th >Reservation Status</th>
         <th>Reservation Rooms</th>
+        @* <th >Room Status</th> *@
+     
         </thead>
         </tr>
         <tbody>
@@ -28,7 +29,7 @@
                     <td>@reservation.CheckInDate</td>
                     <td>@reservation.CheckOutDate</td>
                     @*<td>@reservation.payments.PaymentAmount</td>*@
-                    @*<td>@reservation.Status.Value</td>*@
+                    <td>@reservation.Status.Value</td>
 
                     <td>
 
