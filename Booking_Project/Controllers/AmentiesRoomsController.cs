@@ -21,9 +21,9 @@ namespace Booking_Project.Controllers
         {
             return View();
         }
-        public IActionResult insert()
-        {
-            ViewData["Rooms"]= room.GetAll();
-        }
+        //public IActionResult insert()
+        //{
+        //    ViewData["Rooms"]= room.GetAll();
+        //}
     }
 }

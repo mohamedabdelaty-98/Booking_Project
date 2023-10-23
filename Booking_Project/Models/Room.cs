@@ -37,8 +37,8 @@ namespace Booking_Project.Models
         public int room_number { get; set; }
        [ DefaultValue(1)]     
        [ForeignKey("hotel")]
-        public int HotelId { get; set; }
-        public virtual Hotel hotel { get; set; }
+        public int? HotelId { get; set; }
+        public virtual Hotel? hotel { get; set; }
         public virtual List<Image_Room> image_Rooms { get; set; }
         public virtual List<AmenitiesRoom> aminitesRooms { get; set; }
         public virtual List<ReservationRoom> reservationRooms { get; set; }
