@@ -226,97 +226,71 @@
 <h3 class="mb-3" style="margin-top:2rem;">
     Exploer Our Hotels 
       
-</h3>
-<div class="row ">
-    <div class="col-1">
-        <div style="margin:auto;" >
-            <button class="prev-button rounded-circle" onclick="moveSlider(-1)">  <i class="fa fa-arrow-left"></i></</button>
-        </div>
-    </div>
-    <div class="col-10">
-        <div class="card-slider-container container">
+</h3>   
+        <ul class="items">
+            @foreach (var hotel in Model)
+            {
+                
 
-            <div class="card-slider row">
-
-                @foreach (var hotel in Model)
-                {
-                    <div class="card col-sm-10 col-md-5 col-lg-2 cardsm ">
-
-                        <div class="card-body" style="padding:0 !important">
-                            <!-- Slider -->
-                            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                                <ol class="carousel-indicators">
-                                    <li data-target="#carouselExampleIndicators" data-slide-to="1" class="active"></li>
-                                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                                    <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
-                                 
-
-                                </ol>
-                                <div class="carousel-inner">
+                <li class="item">
+                    <div class="card-slider row">
+                        <div class=" cardsm">
+                            <div class="card-body" style="padding: 0 !important">
+                                <!-- Slider -->
+                                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                                    <ol class="carousel-indicators">
+                                        <li data-target="#carouselExampleIndicators" data-slide-to="1" class="active"></li>
+                                        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                                        <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+                                    </ol>
                                     <div class="carousel-inner">
+                                        @for (int i = 0; i < hotel.image_Hotels.Count; i++)
+                                        {
+                                            <div class="carousel-item @(i == 0 ? "active" : "")">
+                                                <img src="@hotel.image_Hotels[i].ImageURL" width="150px" height="150px" style="border-radius: 8px 8px;">
+                                            </div>
+                                        }
+                                    </div>
 
-                                @for (int i = 0; i < hotel.image_Hotels.Count; i++)
-                                {
-                                        <div class="carousel-item @(i == 0 ? "active" : "")">
-                                                <img src="@hotel.image_Hotels[i].ImageURL" width="150px" height="150px">
-                                        </div>
+                                </div>
+                        <div class="content-below-images">
+                            <a asp-controller="home" asp-action="Rooms" asp-route-id="@hotel.Id" style="color: #003b95; margin-left: 10px !important;">
+                                @hotel.Name
+                            </a>
+                            <div class="rating" style="margin-left: 10px !important;">
+                                @{
+                                    int wholeStars = (int)Math.Floor(hotel.StarRateing);
+                                    int remainingStars = 5 - wholeStars;
+                                    double fractionalPart = (double)hotel.StarRateing - wholeStars;
+
+                                    for (int i = 1; i <= wholeStars; i++)
+                                    {
+                                        <span class="fa fa-star" style="color: rgb(246, 182, 7)"></span>
+                                    }
+
+                                    if (fractionalPart >= 0.5)
+                                    {
+                                        <span class="fa fa-star" style="color: rgb(246, 182, 7)"></span>
+                                        remainingStars--;
+                                    }
+
+                                    for (int i = 0; i < remainingStars; i++)
+                                    {
+                                        <span class="fa fa-star star-gray"></span>
+                                    }
                                 }
-
-                                
-                                </div>
-
-                                    
-
-
-                                </div>
-
                             </div>
                         </div>
-
-                        <div>
-                            <a asp-controller="home" asp-action="Rooms" asp-route-id="@hotel.Id" style=" color:#003b95;margin-left:10px !important;  ">
-                                @hotel.Name
-                                <div class="rating" style="margin-left:10px !important; ">
-                                    @{
-                                        int wholeStars = (int)Math.Floor(hotel.StarRateing);
-                                        int remainingStars = 5 - wholeStars;
-                                        double fractionalPart = (double)hotel.StarRateing - wholeStars;
-
-                                        for (int i = 1; i <= wholeStars; i++)
-                                        {
-                                            <span class="fa fa-star" style="color:rgb(246, 182, 7)"></span>
-                                        }
-
-                                        if (fractionalPart >= 0.5)
-                                        {
-                                            <span class="fa fa-star" style="color:rgb(246, 182, 7)"></span>
-                                            remainingStars--;
-                                        }
-
-                                        for (int i = 0; i < remainingStars; i++)
-                                        {
-                                            <span class="fa fa-star star-gray"></span>
-                                        }
-                                    }
-                                </div>
-                            </a>
+                            </div>
                         </div>
-
                     </div>
+                
 
+                </li>
+        
 
-                }
-            </div>
-
-        </div>
-    </div>
-    <div class="col-1">
-        <div style="margin:auto;">
-
-            <button class="next-button rounded-circle " onclick="moveSlider(1)">  <i class="fa fa-arrow-right"></i></button>
-        </div>
-    </div>
-</div>
+            }
+        </ul>
 
 
 
@@ -325,19 +299,41 @@
 <!-- start section 2{hotels} scripts -->
 
 <script>
-    var currentPosition = 0;
-    var cardSlider = document.querySelector('.card-slider');
+const slider = document.querySelector('.items');
+let isDown = false;
+let startX;
+let scrollLeft;
 
-    function moveSlider(direction) {
-        currentPosition += direction;
-        if (currentPosition < 0) currentPosition = 0;
-        if (currentPosition > @Model.Count - 3) currentPosition = @Model.Count - 3;
-        var translateX = currentPosition * -33.33;
-        cardSlider.style.transform = `translateX(${translateX}%)`;
-    }
+const end = () => {
+    isDown = false;
+    slider.classList.remove('active');
+}
+
+const start = (e) => {
+    isDown = true;
+    slider.classList.add('active');
+    startX = e.pageX || e.touches[0].pageX - slider.offsetLeft;
+    scrollLeft = slider.scrollLeft;
+}
+
+const move = (e) => {
+    if (!isDown) return;
+
+    e.preventDefault();
+    const x = e.pageX || e.touches[0].pageX - slider.offsetLeft;
+    const dist = (x - startX);
+    slider.scrollLeft = scrollLeft - dist;
+}
+
+(() => {
+    slider.addEventListener('mousedown', start);
+    slider.addEventListener('touchstart', start);
+
+    slider.addEventListener('mousemove', move);
+    slider.addEventListener('touchmove', move);
+
+    slider.addEventListener('mouseleave', end);
+    slider.addEventListener('mouseup', end);
+    slider.addEventListener('touchend', end);
+})();
 </script>
-
-
-   
-
-
