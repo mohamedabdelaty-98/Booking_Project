@@ -1,5 +1,6 @@
 ﻿using Booking_Project.Models;
 using Booking_Project.Reposatory;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Booking_Project.Controllers
@@ -20,6 +21,8 @@ namespace Booking_Project.Controllers
             this.Hotels = hotel;
 
         }
+        [Authorize(Roles = "Admin")]
+
         public IActionResult insert()
         {
             ViewData["Hotels"] = Hotels.GetAll();
@@ -28,6 +31,8 @@ namespace Booking_Project.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
+
         public IActionResult insert(Amenities_Hotel amenities_Hotel)
         {
             if (ModelState.IsValid)
@@ -46,6 +51,7 @@ namespace Booking_Project.Controllers
 
             return PartialView("_getallAmintiesHotelPartial", amenityHotel);
         }
+        [Authorize(Roles = "Admin")]
 
         public IActionResult getOnly (int id) {
 
@@ -55,6 +61,7 @@ namespace Booking_Project.Controllers
             return PartialView(amenities_Hotel);
 
         }
+        [Authorize(Roles = "Admin")]
 
         public IActionResult update(Amenities_Hotel amenities)
         {
@@ -62,6 +69,7 @@ namespace Booking_Project.Controllers
             amenitiesHotel.save();
             return RedirectToAction("index","admin");
         }
+        [Authorize(Roles = "Admin")]
 
         public IActionResult delete (int id)
         {

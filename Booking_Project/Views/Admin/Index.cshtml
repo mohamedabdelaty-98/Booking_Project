@@ -1,6 +1,7 @@
 ﻿@section Styles{
     <link rel="stylesheet" href="/css/_navaddprocessparial.css" />
     <link rel="stylesheet" href="/css/AddNew.css"/>
+    <link rel="stylesheet" href="~/css/Reservations.css" />
 
 }
 <body onload="DisplayHotels()"></body>
@@ -9,11 +10,17 @@
 </div>
 <div id="Amenties">
 </div>
-
+<div id="Users">
+</div>
+<div id="Reservations">
+</div>
+<div id="add_admin"></div>
 
 
 @section Scripts{
     <script src="~/js/Hotel_ajax.js"></script>
+ 
+
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }

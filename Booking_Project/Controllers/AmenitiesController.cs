@@ -1,5 +1,6 @@
 ﻿using Booking_Project.Models;
 using Booking_Project.Reposatory;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Booking_Project.Controllers
@@ -12,7 +13,8 @@ namespace Booking_Project.Controllers
         {
             this.amenities = amenities; 
         }
-        
+    [Authorize(Roles = "Admin")]
+
         public IActionResult insert()
         {
             return PartialView("_insertPartialAmenties");
@@ -20,6 +22,7 @@ namespace Booking_Project.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
 
         public IActionResult insert (Amenities amenity)
         {
@@ -41,12 +44,14 @@ namespace Booking_Project.Controllers
             return PartialView("_getallaminties",amenety);
         
         }
+        [Authorize(Roles = "Admin")]
 
         public IActionResult getAmenity (int id)
         {
             Amenities amenity = amenities.GetById(id);
             return PartialView("_editeAmentyPartial", amenity);
         }
+        [Authorize(Roles = "Admin")]
 
         public IActionResult Update (Amenities amenity)
         {
@@ -55,6 +60,7 @@ namespace Booking_Project.Controllers
 
            return RedirectToAction("index","admin");
         }
+        [Authorize(Roles = "Admin")]
 
         public IActionResult delete (int id)
         {

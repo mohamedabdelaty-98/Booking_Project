@@ -1,0 +1,55 @@
+﻿@model Booking_Project.Models.AmenitiesRoom
+
+@{
+    ViewData["Title"] = "getOnly";
+
+    //SelectList hotels = new SelectList(ViewBag.Hotels, "Id", "Name");
+    //SelectList amenities = new SelectList(ViewBag.Amenities, "Id", "Name");
+}
+
+
+
+<h4>Amenities Room</h4>
+<hr />
+<link rel="stylesheet" href="~/css/AddNew.css" asp-append-version="true" />
+
+<div class="container_reg col-7 mt-4 mb-4 " id="getallhotell">
+    <div class="title">New Amenty</div>
+    <div class="content">
+        <form asp-action="Edite">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="user-details">
+                <div class="details">
+                    <label asp-for="Price" class="control-label"></label>
+                    <input asp-for="Price" class="form-control" value="@Model.Price" />
+                    <span asp-validation-for="Price" class="text-danger"></span>
+                </div>
+                <div class="input-box">
+                    <label class="details" asp-for="RoomId">Rooms Number</label>
+                    <select id="RoomId" name="RoomId">
+                        <option value="@ViewBag.rooms.Id" selected>@ViewBag.rooms.room_number</option>
+                    </select>
+                    <span asp-validation-for="RoomId" class="text-danger"></span>
+                </div>
+                <div class="input-box">
+                    <label class="details" asp-for="AmentiesId">Amenties</label>
+                    <select id="AmentiesId" name="AmentiesId">
+                        <option value="@ViewBag.amenities.Id" selected>@ViewBag.amenities.Name</option>
+                    </select>
+                    <span asp-validation-for="AmentiesId" class="text-danger"></span>
+                </div>
+                <div class="button">
+                    <input type="submit" value="Update">
+                    @* <input type="submit" value="Register" class="btn btn-primary" /> *@
+
+                </div>
+
+        </form>
+    </div>
+</div>
+
+<div>
+    <a href="#" onclick="Showamentiesroom()">Back to List</a>
+</div>
+

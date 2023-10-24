@@ -1,0 +1,52 @@
+﻿@model Booking_Project.Models.AmenitiesRoom
+@{
+    ViewData["Title"] = "insert";
+    SelectList Rooms = new SelectList(ViewBag.Rooms, "Id", "room_number");
+    SelectList Amenities = new SelectList(ViewBag.Amenities, "Id", "Name");
+}
+<link rel="stylesheet" href="~/css/AddNew.css" asp-append-version="true" />
+
+<div class="container_reg col-7 mt-4 mb-4 " id="getallhotell">
+    <div class="title">New Amenty</div>
+    <div class="content">
+        <form asp-action="insert"  method="post">
+            <div asp-validation-summary="All" class="text-danger"></div>
+
+            <div class="user-details">
+                <div class="input-box">
+                    <label class="details" asp-for="Price"></label>
+                    <input asp-for="Price" required>
+                    <span asp-validation-for="Price" class="text-danger"></span>
+                </div>
+                <div class="input-box">
+                    <label class="details" asp-for="RoomId">Rooms</label>
+                    <select asp-items="Rooms" class="form-control" asp-for="RoomId">
+                        <option value="">--Select Room--</option>
+                    </select>
+                    <span asp-validation-for="RoomId" class="text-danger"></span>
+                </div>
+                <div class="input-box">
+                    <label class="details" asp-for="AmentiesId">Amenties</label>
+                    <select asp-items="Amenities" class="form-control" asp-for="AmentiesId">
+                        <option value="">--Select Amenity--</option>
+                    </select>
+                    <span asp-validation-for="AmentiesId" class="text-danger"></span>
+                </div>
+                <div class="button">
+                    <input type="submit" value="Add">
+                    @* <input type="submit" value="Register" class="btn btn-primary" /> *@
+
+                </div>
+
+        </form>
+    </div>
+</div>
+
+<div>
+    <a href="#" onclick="DisplayHotels()">Back to Hotels</a>
+</div>
+<script>
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+</script>

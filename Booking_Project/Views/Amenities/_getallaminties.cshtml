@@ -7,13 +7,14 @@
 <partial name="_NavProcessAmentiesPartial"></partial>
 
 <div class="container" id="all">
-    <table class="table table-bordered table-hover mx-3">
+    <table class="table table-bordered table-hover mx-3" >
         <tr>
+        <thead style="background-color: #002d72;">
             <th>Id</th>
             <th>Name</th>
             <th>Edit</th>
             <th>Delete</th>
-
+        </thead>
         </tr>
         @foreach (Amenities amenities in Model)
         {
@@ -33,14 +34,18 @@
 <div id="edite"></div>
 <div id="aminties_hotel"></div>
 <div id="editeamentie_shotel"></div>
+<div id="amenties_room"></div>
+<div id="Editeamenties_room"></div>
 
 <script>
     
     function addnewamenties() {
-        all.classList.add("display_visable");
-        edite.classList.add("display_visable");
-        aminties_hotel.classList.add("display_visable");
-        editeamentie_shotel.classList.add("display_visable");
+         all.classList.add("display_visable");
+         edite.classList.add("display_visable");
+         aminties_hotel.classList.add("display_visable");
+         editeamentie_shotel.classList.add("display_visable");
+         amenties_room.classList.add("display_visable");
+         Editeamenties_room.classList.add("display_visable");
         inser_new.classList.remove("display_visable");
         $.ajax(
             {
@@ -54,10 +59,12 @@
         );
     }
     function editeamenties(id) {
-        all.classList.add("display_visable");
+         all.classList.add("display_visable");
         inser_new.classList.add("display_visable");
-        aminties_hotel.classList.add("display_visable");
-        editeamentie_shotel.classList.add("display_visable");
+         aminties_hotel.classList.add("display_visable");
+         editeamentie_shotel.classList.add("display_visable");
+         amenties_room.classList.add("display_visable");
+         Editeamenties_room.classList.add("display_visable");
 
         edite.classList.remove("display_visable");
         $.ajax(
@@ -76,6 +83,8 @@
         edite.classList.add("display_visable");
         inser_new.classList.add("display_visable");
         editeamentie_shotel.classList.add("display_visable");
+        amenties_room.classList.add("display_visable");
+        Editeamenties_room.classList.add("display_visable");
 
         aminties_hotel.classList.remove("display_visable");
         $.ajax(
@@ -94,6 +103,9 @@
         inser_new.classList.add("display_visable");
         aminties_hotel.classList.add("display_visable");
         edite.classList.add("display_visable");
+        amenties_room.classList.add("display_visable");
+        Editeamenties_room.classList.add("display_visable");
+
         editeamentie_shotel.classList.remove("display_visable");
 
         $.ajax(
@@ -102,6 +114,46 @@
                 success: function (result) {
                     //console.log(result);
                     $("#editeamentie_shotel").html(result);
+                }
+            }
+
+        );
+    }
+
+    function Showamentiesroom() {
+        all.classList.add("display_visable");
+        edite.classList.add("display_visable");
+        aminties_hotel.classList.add("display_visable");
+        editeamentie_shotel.classList.add("display_visable");
+        inser_new.classList.add("display_visable");
+        Editeamenties_room.classList.add("display_visable");
+
+        amenties_room.classList.remove("display_visable");
+        $.ajax(
+            {
+                url: "/AmentiesRooms/getall/",
+                success: function (result) {
+                    //console.log(result);
+                    $("#amenties_room").html(result);
+                }
+            }
+
+        );
+    }
+    function editeamentiesroom(id) {
+        all.classList.add("display_visable");
+        inser_new.classList.add("display_visable");
+        aminties_hotel.classList.add("display_visable");
+        edite.classList.add("display_visable");
+        amenties_room.classList.add("display_visable");
+        editeamentie_shotel.classList.add("display_visable");
+        Editeamenties_room.classList.remove("display_visable");
+        $.ajax(
+            {
+                url: "/AmentiesRooms/edite/" + id,
+                success: function (result) {
+                    //console.log(result);
+                    $("#Editeamenties_room").html(result);
                 }
             }
 

@@ -1,0 +1,46 @@
+﻿@model List<ApplicationIdentityUser>
+<div class="container" id="all">
+    <table class="table table-bordered table-hover mx-3 mt-3">
+        <tr>
+        <thead style="background-color: #002d72;">
+            <th>Name</th>
+            <th>Address</th>
+            <th>City</th>
+            <th>Reservetion</th>
+        </thead>
+        </tr>
+        @foreach (ApplicationIdentityUser user in Model)
+        {
+            <tr>
+                <td>@user.Fname @user.Lname</td>
+                <td>@user.Address</td>
+                <td>@user.City</td>
+                <td>
+
+                    @foreach (var use in user.reservations)
+                    {
+                        <ul>
+                            <li>Checkin Date: @use.CheckInDate</li>
+
+
+                            <li>Checkout Date: @use.CheckOutDate</li>
+                            <li>Total Price: @use.TotalPrice</li>
+                          
+                                @foreach (var us in use.reservationRooms)
+                                {
+
+                                    <li>Room Type: @us.room.RoomType</li>
+
+                                }
+                        </ul>
+                    }
+                </td>
+                @* <td><a href="#" onclick="editeamenties(@amenities.Id)">Edit</a></td> *@
+                @* <td><a asp-action="delete" asp-route-id="@amenities.Id" onclick="DisplayAmenties()">Delete</a></td> *@
+
+            </tr>
+
+        }
+
+    </table>
+</div>

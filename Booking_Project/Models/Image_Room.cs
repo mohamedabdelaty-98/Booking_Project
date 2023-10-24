@@ -12,8 +12,8 @@ namespace Booking_Project.Models
         [MaxLength(1000)]
         public string Description { get; set; }
         [ForeignKey("room")]
-        public int RoomId { get; set; }
-        public virtual Room room { get; set; }
+        public int? RoomId { get; set; }
+        public virtual Room? room { get; set; }
 
     }
 }

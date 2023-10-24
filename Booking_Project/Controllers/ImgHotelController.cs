@@ -1,10 +1,12 @@
 ﻿using Booking_Project.Models;
 using Booking_Project.Reposatory;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Booking_Project.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class ImgHotelController : Controller
     {
         ICrudOperation<Image_Hotel> images;

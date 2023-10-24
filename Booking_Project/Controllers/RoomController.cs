@@ -1,10 +1,11 @@
 ﻿using Booking_Project.Models;
 using Booking_Project.Reposatory;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Booking_Project.Controllers
 {
-
+    
     public class RoomController : Controller
     {
         private readonly ICrudOperation<Room> RoomRepo;
@@ -29,7 +30,7 @@ namespace Booking_Project.Controllers
 
             return PartialView("_roomPartial",RoomModel);
         }
-
+        [Authorize(Roles = "Admin")]
         public IActionResult EditRoom(int id)
         {
             Room rs = RoomRepo.GetById(id);
@@ -39,24 +40,27 @@ namespace Booking_Project.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public IActionResult EditRoom(Room rs, int id)
         {
             if (rs.room_number != null)
             {
                 RoomRepo.update(rs);
                 RoomRepo.save();
-                return RedirectToAction("Rooms");
+                return RedirectToAction("index","admin");
             }
             ViewData["depts"] = hotelrepo.GetAll().ToList();
 
             return View("EditRoom", rs);
         }
+        [Authorize(Roles = "Admin")]
         public IActionResult DeleteRoom(int id)
         {
             RoomRepo.Delete(id);
             RoomRepo.save();
-            return RedirectToAction("Rooms");
+            return RedirectToAction("index","admin");
         }
+        [Authorize(Roles = "Admin")]
         public IActionResult NewRoom()
         {
             //List<Room> RoomModel = RoomRepo.GetAll(h => h.hotel);
@@ -66,13 +70,14 @@ namespace Booking_Project.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public IActionResult NewRoom(Room room)
         {
             if (ModelState.IsValid)
             {
                 RoomRepo.insert(room);
                 RoomRepo.save();
-                return RedirectToAction("Rooms");
+                return RedirectToAction("index","admin");
             }
             List<Room> RoomModel = RoomRepo.GetAll(h => h.hotel);
             ViewData["depts"] = hotelrepo.GetAll().ToList();
